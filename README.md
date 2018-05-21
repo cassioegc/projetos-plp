@@ -1,4 +1,6 @@
-# projetos-plp
+# Projeto de PLP
 
-## GEOVANE SILVA - 116211149
-## SAMMARA NUNES - 116210039
+### (Geovane Silva)[http://github.com/geovanens]
+### (Hemillainy Santos)[http://github.com/hemillainysantos]
+### Sammara Nunes
+### (Vinicius Jorge Pereira)[http://github.com/viniciusjorgepereira]
