@@ -1,63 +1,63 @@
-#include <iostream>
+#include <bits/stdc++.h>
+
 using namespace std;
 
-#include <iostream>
-using namespace std;
+typedef struct{
+    int points;
+    int lifes;
+    string id;
+}player;
 
+typedef struct{
+    string name;
+}level;
 
-void decrement_points(int points, int & player_points) {
-        player_points -= points;
+void decrement_points(int points, player p1) {
+        p1.points -= points;
 }
 
-void win_points(int points, int & player_points) {
-        player_points += points;
+void win_points(int points, player p1) {
+        p1.points += points;
 }
 
-void require_bonus(string level, int & player_points_lose, int & player_points_win) {
+void require_bonus(level l1, int player_points_lose, int player_points_win, player p1) {
         int points;
 
-        if (level == "PYTHON") {
+        if (l1.name == "PYTHON") {
                 points = player_points_lose * 0.1;
-                decrement_points(points, player_points_lose);
-                win_points(points, player_points_win);
+                decrement_points(player_points_lose, p1);
+                win_points(player_points_win, p1);
         }
-        else if (level == "JAVA") {
+        else if (l1.name == "JAVA") {
                 points = player_points_lose * 0.15;
-                decrement_points(points, player_points_lose);
-                win_points(points, player_points_win);
+                decrement_points(player_points_lose, p1);
+                win_points(player_points_win, p1);
         }
         else {
                 points = player_points_lose * 0.2;
-                decrement_points(points, player_points_lose);
-                win_points(points, player_points_win);
+                decrement_points(player_points_lose, p1);
+                win_points(player_points_win, p1);
         }
 }
 
-void penalize_player(string level, int & player_points, int & player_life) {
-        
+void penalize_player(string level, player p1) {
+
         if (level == "PYTHON") {
-                decrement_points(2, player_points);
+                decrement_points(2, p1);
         }
         else if (level == "JAVA") {
-                decrement_points(5, player_points);
+                decrement_points(5, p1);
         }
         else {
-                decrement_points(8, player_points);
+                decrement_points(8, p1);
         }
 
-        player_life -= 1;
+        p1.lifes -= 1;
 }
 
 
 int main() {
-
-	string player1_name;
-	string player2_name;
-	int player1_points = 8;
-	int player2_points;
-	int player1_life;
-	int player2_life;
-	string level;
-	
+    player p1, p2;
+	level l1;
 	return 0;
 }
