@@ -66,11 +66,24 @@ void penalize_player(level actual_level, player gamer) {
 	gamer.lifes -= 1;
 }
 
+string selection_word() {
+
+    string word;
+	cout << "Digite um número para sortearmos uma palavra: ";
+
+	//pega uma palavra no arquivo
+	return word;
+}
+
+
 int main() {
-  player player1, player2;
+    player player1, player2;
 	level actual_level;
 	bool state_game;
 	int round_game;
+
+
+	int word = selection_word();
 
 	// INICIALIZANDO
 	add_lifes(player1);
@@ -79,7 +92,7 @@ int main() {
 	state_game = player1.lifes == 0 || player2.lifes == 0;
 
 	while (state_game) {
-		
+
 
 	}
 	return 0;
