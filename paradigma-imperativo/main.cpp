@@ -11,14 +11,6 @@ typedef struct{
 	string name;
 }level;
 
-void decrement_points(int points, player gamer) {
-	gamer.points -= points;
-}
-
-void win_points(int points, player gamer) {
-	gamer.points += points;
-}
-
 void start_score(player gamer) {
 	gamer.points = 0;
 }
@@ -63,32 +55,29 @@ void add_lifes(player gamer, level actual_level) {
 	}
 }
 
-void require_bonus(level actual_level, player loser_player, player winner_player) {
+void transfer_points(level actual_level, player winner_player, player loser_player) {
 	int points;
-
 	if (actual_level.name == "PYTHON") {
-		points = loser_player.points * 0.1;
-		decrement_points(points, loser_player);
-		win_points(points, winner_player);
+		points = loser.points * 0.1;
 	} else if (actual_level.name == "JAVA") {
-		points = loser_player.points * 0.15;
-		decrement_points(points, loser_player);
-		win_points(points, winner_player);
+		points = loser.points * 0.15;
 	} else if (actual_level.name == "ASSEMBLY") {
-		points = loser_player.points * 0.2;
-		decrement_points(points, loser_player);
-		win_points(points, winner_player);
+		points = loser.points * 0.2;
 	}
+	winner_player.points += points;
+	loser_player.points -= points;
 }
 
 void penalize_player(level actual_level, player gamer) {
+	int penalty;
 	if (actual_level.name == "PYTHON") {
-		decrement_points(2, gamer);
+		penalty = 2;
 	} else if (actual_level.name == "JAVA") {
-		decrement_points(5, gamer);
+		penalty = 5;
 	} else if (actual_level.name == "ASSEMBLY") {
-		decrement_points(8, gamer);
+		penalty = 8;
 	}
+	gamer.points -= penalty;
 	gamer.lifes -= 1;
 }
 
