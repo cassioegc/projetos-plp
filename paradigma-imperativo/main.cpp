@@ -100,23 +100,29 @@ int* contains(string actual_word, string letter) {
     return index;
 }
 
-string verify_letter(player gamer, string letter, level actual_level) {
-	// CADA LETRA ERRADA SERA DEBIDATA UMA VIDA E PERDE X PONTOS
+string verify_letter(player gamer, string letter, level actual_level, string actual_word, string actual_status_of_word) {
 	string result;
-	if (contains().size() != 0) {
-        result = update_status_of_word();
+	int index = contains(actual_word, letter);
+	if (index.size() != 0) {
+        result = update_status_of_word(index, actual_status_of_word, letter);
 	} else {
-
+        penalize_player(actual_level, gamer);
         result = "A palavra não possui essa letra! Próximo:"
 	}
 	return result;
 }
 
-string update_status_of_word() {
-
+string update_status_of_word(int* index, string actual_status_of_word, string letter) {
+	for (int i = 0; i < index.size(); i++) {
+		actual_status_of_word[index[i]] = letter;
+	}
+	return actual_status_of_word;
 }
 
 void model_word(int word_length, string actual_status_of_word) {
+	for (int i = 0; i < word_length; i++) {
+		actual_status_of_word += "_";
+	}
 }
 
 
