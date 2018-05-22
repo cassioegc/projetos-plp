@@ -33,7 +33,7 @@ void add_points(player gamer, level actual_level) {
 	}
 }
 
-/* Set nickname's player 
+/* Set nickname's player
 */
 void set_nickname(player gamer, string name) {
 	gamer.nickname = name;
@@ -101,12 +101,30 @@ string selection_word() {
 	return word;
 }
 
-void verify_letter(player gamer, string letter, level actual_level) {
-	// CADA LETRA ERRADA SERA DEBIDATA UMA VIDA E PERDE X PONTOS
-	update_status_of_word();
+int* contains(string actual_word, string letter) {
+    int index[50];
+    for (int i = 0; i < actual_word.size(); i++) {
+        if (actual_word[i] == letter) {
+            index[i] = actual_word[i];
+        }
+    }
+    return index;
 }
 
-void update_status_of_word() {
+string verify_letter(player gamer, string letter, level actual_level) {
+	// CADA LETRA ERRADA SERA DEBIDATA UMA VIDA E PERDE X PONTOS
+	string result;
+	if (contains().size() != 0) {
+        result = update_status_of_word();
+	} else {
+
+        result = "A palavra não possui essa letra! Próximo:"
+	}
+	return result;
+}
+
+string update_status_of_word() {
+
 }
 
 void model_word(int word_length, string actual_status_of_word) {
