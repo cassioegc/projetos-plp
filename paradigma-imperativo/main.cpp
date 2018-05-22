@@ -108,19 +108,20 @@ string update_status_of_word(vector<int> index, string actual_status_of_word, ch
 	return actual_status_of_word;
 }
 
-string verify_letter(player gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
+/* Verifica se a letra esta na palavra, 
+ * e imprime a situacao da palavra no momento
+*/
+void verify_letter(player gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
 	string result;
 	vector<int> index = contains(actual_word, letter);
 	if (index.size() != 0) {
         result = update_status_of_word(index, actual_status_of_word, letter);
 	} else {
         penalize_player(actual_level, gamer);
-        result = "A palavra não possui essa letra! Próximo:";
+        result = "A palavra nao possui essa letra! -1 tentativa, proximo:\n\n";
 	}
-	return result;
+	cout << result;
 }
-
-
 
 void model_word(int word_length, string actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
@@ -128,13 +129,20 @@ void model_word(int word_length, string actual_status_of_word) {
 	}
 }
 
+void player_status(player gamer) {
+	/*cout << "Status: " + gamer.nickname << endl;
+	cout << "=> Tentativas restantes: " + gamer.lifes << endl;
+	cout << "=> Total de pontos: " + gamer.points << endl;
+	*/
+}
+
 void receive_letter(player gamer, level actual_level, string actual_word, string actual_status_of_word){
     char letter;
     cout << gamer.nickname + ", digite uma letra: ";
     cin >> letter;
     verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word);
+	player_status(gamer);
 }
-
 
 int main() {
 	// VARIAVEIS
@@ -156,22 +164,19 @@ int main() {
 	// DADOS JOGADOR
 	cout << "Nome jogador 1: ";
 	cin >> player1.nickname;
-
 	cout << "Nome jogador 2: ";
 	cin >> player2.nickname;
 
 	state_game = player1.lifes != 0 || player2.lifes != 0;
-
     actual_word = selection_word();
 
-	while (!state_game) {
+	while (state_game) {
 		// SORTEANDO PALAVRA
 		model_word(actual_word.size(), actual_status_of_word);
 
-		// RECEBENDO UMA LETRA
+		// RECEBENDO UMA LETRA E ATUALIZANDO SITUACAO DA PALAVRA
 		receive_letter(player1, actual_level, actual_word, actual_status_of_word);
 		receive_letter(player2, actual_level, actual_word, actual_status_of_word);
-
 	}
 	return 0;
 }
