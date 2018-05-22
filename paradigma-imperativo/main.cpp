@@ -52,13 +52,20 @@ void penalize_player(level actual_level, player gamer) {
 	gamer.lifes -= 1;
 }
 
+string selection_word() {
+
+    string word;
+	cout << "Digite um número para sortearmos uma palavra: ";
+
+	//pega uma palavra no arquivo
+	return word;
+}
 
 int main() {
     player player1, player2;
 	level actual_level;
 
-	int a = 10;
-	decrement_points(5, player1);
+	int word = selection_word();
 
 	return 0;
 }
