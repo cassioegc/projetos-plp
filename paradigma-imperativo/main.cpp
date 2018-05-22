@@ -1,63 +1,89 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-#include <iostream>
-using namespace std;
+typedef struct{
+    int points;
+    int lifes;
+    string nickname;
+}player;
 
+typedef struct{
+    string name;
+}level;
 
-void decrement_points(int points, int & player_points) {
-        player_points -= points;
+void decrement_points(int points, player gamer) {
+	gamer.points -= points;
 }
 
-void win_points(int points, int & player_points) {
-        player_points += points;
+void win_points(int points, player gamer) {
+	gamer.points += points;
 }
 
-void require_bonus(string level, int & player_points_lose, int & player_points_win) {
-        int points;
-
-        if (level == "PYTHON") {
-                points = player_points_lose * 0.1;
-                decrement_points(points, player_points_lose);
-                win_points(points, player_points_win);
+/* This function add lifes to the player
+ */
+void add_lifes(player gamer, level actual_level) {
+        if (actual_level == "PYTHON") {
+                gamer.lifes += 7;
         }
-        else if (level == "JAVA") {
-                points = player_points_lose * 0.15;
-                decrement_points(points, player_points_lose);
-                win_points(points, player_points_win);
+        else if (actual_level == "JAVA") {
+                gamer.lifes += 5;
         }
-        else {
-                points = player_points_lose * 0.2;
-                decrement_points(points, player_points_lose);
-                win_points(points, player_points_win);
+        else if (actual_level == "ASSEMBLY") {
+                gamer.lifes += 3;
         }
 }
 
-void penalize_player(string level, int & player_points, int & player_life) {
-        
-        if (level == "PYTHON") {
-                decrement_points(2, player_points);
-        }
-        else if (level == "JAVA") {
-                decrement_points(5, player_points);
-        }
-        else {
-                decrement_points(8, player_points);
-        }
+void require_bonus(level actual_level, player loser_player, player winner_player) {
+	int points;
 
-        player_life -= 1;
+	if (actual_level.name == "PYTHON") {
+		points = loser_player.points * 0.1;
+		decrement_points(points, loser_player);
+		win_points(points, winner_player);
+	}
+	else if (actual_level.name == "JAVA") {
+		points = loser_player.points * 0.15;
+		decrement_points(points, loser_player);
+		win_points(points, winner_player);
+	}
+	else if (actual_level.name == "ASSEMBLY") {
+		points = loser_player.points * 0.2;
+		decrement_points(points, loser_player);
+		win_points(points, winner_player);
+	}
+}
+
+void penalize_player(level actual_level, player gamer) {
+	if (actual_level.name == "PYTHON") {
+		decrement_points(2, gamer);
+	}
+	else if (actual_level.name == "JAVA") {
+		decrement_points(5, gamer);
+	}
+	else if (actual_level.name == "ASSEMBLY") {
+		decrement_points(8, gamer);
+	}
+	gamer.lifes -= 1;
 }
 
 
 int main() {
+    player player1, player2;
+	level actual_level;
+	bool state_game;
+	int round_game;
 
-	string player1_name;
-	string player2_name;
-	int player1_points = 8;
-	int player2_points;
-	int player1_life;
-	int player2_life;
-	string level;
-	
+	// INICIALIZANDO
+	add_lifes(player1);
+	add_lifes(player2);
+	round_game = 0;
+	state_game = player1.lifes == 0 || player2.lifes == 0;
+
+	while (state_game) {
+		
+
+	}
+
+
 	return 0;
 }
