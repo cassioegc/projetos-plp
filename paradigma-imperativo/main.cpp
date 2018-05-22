@@ -66,9 +66,8 @@ void penalize_player(level actual_level, player gamer) {
 	gamer.lifes -= 1;
 }
 
-
 int main() {
-    player player1, player2;
+  player player1, player2;
 	level actual_level;
 	bool state_game;
 	int round_game;
@@ -83,7 +82,5 @@ int main() {
 		
 
 	}
-
-
 	return 0;
 }
