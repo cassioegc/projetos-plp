@@ -144,6 +144,75 @@ void receive_letter(player gamer, level actual_level, string actual_word, string
 	player_status(gamer);
 }
 
+//========================FILES AREA============================
+
+typedef struct{
+	string word;
+	vector<string> synonyms;
+	vector<string> _class;
+	int syllables;
+}word_data;
+
+vector<string> split(string s, char c) {
+	string buff = "";
+	vector<string> v;
+
+	for(int i = 0; i < s.size(); i++)
+	{
+		if(s[i] != c) buff+=s[i]; else
+		if(s[i] == c && buff != "") { v.push_back(buff); buff = ""; }
+	}
+	if(buff != "") v.push_back(buff);
+
+	return v;
+}
+
+string get_line_data() {
+    srand(time(NULL));
+    int line = rand() % 95 + 1;
+    ifstream file("dicionario.csv");
+    string value;
+    for (int i = 0; i < line; i++)
+    {
+         getline ( file, value, '\n' );
+    }
+    return value;
+}
+
+word_data get_word_data(string line_data) {
+    word_data data_word;
+    vector<string> data = split(line_data, ',');
+    data_word.word = data[0];
+    data_word.synonyms = split(data[1], '.');
+    data_word._class = split(data[2], '.');
+    data_word.syllables = split(data[3], '-').size();
+
+    return data_word;
+}
+
+// Utils
+void to_string_vector(vector<string> v) {
+    for (int i = 0; i < v.size(); i++) {
+        cout << v[i];
+        if (i < v.size()-1) {
+            cout << ", ";
+        }
+    }
+    cout << endl;
+}
+
+// Utils
+void to_string_word_data(word_data w) {
+    cout << "Palavra: " << w.word << endl;
+    cout << "Sinonimo: ";
+    to_string_vector(w.synonyms);
+    cout << "Classes: ";
+    to_string_vector(w._class);
+    cout << "Silabas: " << w.syllables << endl;
+}
+
+//===========================FILES AREA=================================
+
 int main() {
 	// VARIAVEIS
 	player player1, player2;
@@ -168,12 +237,15 @@ int main() {
 	cin >> player2.nickname;
 
 	state_game = player1.lifes != 0 || player2.lifes != 0;
-    actual_word = selection_word();
+
+	string line_data = get_line_data(); //Linha com dados da palavra obtida do dicionario
+  word_data actual_word_data = get_word_data(line_data); // struct contendo dados da palavra
+  actual_word = selection_word();
 
 	while (state_game) {
 		// SORTEANDO PALAVRA
 		model_word(actual_word.size(), actual_status_of_word);
-
+    
 		// RECEBENDO UMA LETRA E ATUALIZANDO SITUACAO DA PALAVRA
 		receive_letter(player1, actual_level, actual_word, actual_status_of_word);
 		receive_letter(player2, actual_level, actual_word, actual_status_of_word);
