@@ -1,95 +1,1370 @@
-neto,limpido.nitido,adjetivo.substantivo masculino,ne-to
-embrulho,pacote,substantivo masculino,em-bru-lho
-vendedor,pracista,adjetivo.substantivo masculino,ven-de-dor
-costurar,alinhavar.cerzir.coser,verbo intransitivo.verbo transitivo direto.regular,cos-tu-rar
-narracao,historia.conto.narrativa,substantivo feminino,nar-ra-cao
+emboscada,armadilha.cilada.embuste.insidia,substantivo feminino,em-bos-ca-da
+unico,sempar.singular.um.uno.incomparavel.impar,adjetivo,u-ni-co
+repeticao,reduplicacao.devolucao.restituicao,substantivo de dois generos,re-pe-ti-cao
+agucar,estimular.apontar.afiar.amolar.aparar.apurar.afunilar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,a-gu-car
 frango,polhastro,substantivo masculino,fran-go
-cavalo,pingo.corcel.montaria,substantivo masculino,ca-va-lo
-emigrar,homiziar,verbo intransitivo.verbo transitivo circunstancial.verbo transitivo indireto.regular,e-mi-grar
-cachoeira,cascata.catadupa.catarata,substantivo feminino,ca-cho-ei-ra
-lareira,borralho,substantivo feminino,la-rei-ra
-marca,pecha.assinalamento.pinta.mossa.signo.nota.firma.estigma.cicatriz.divisa.timbre.chancela.limite.categoria.sinal.cunho,substantivo feminino,mar-ca
-armadilha,cilada.emboscada.embuste.insidia,substantivo feminino,ar-ma-di-lha
-cornija,coronide,substantivo feminino,cor-ni-ja
-albergue,estalagem.pousada.albergaria.hospedagem.hospedaria,substantivo masculino,al-ber-gue
-carta,bilhete.diploma.mapa.baralho.correspondencia.correio,substantivo feminino,car-ta
-religiao,piedade.divindade.culto.doutrina.crenca.fe.devocao,substantivo feminino,re-li-gi-ao
-rabino,mestre.rabi,adjetivo.substantivo masculino,ra-bi-no
-bolso,algibeira,substantivo masculino,bol-so
-diminuir,baixar.decrescer.encolher.minguar.subtrair,verbo bitransitivo e circunstancial.verbo intransitivo.verbo pronominal.verbo transitivo circunstancial e indireto.verbo transitivo direto.verbo transitivo indireto.regular,di-mi-nu-ir
-roubar,escamotear.surripiar.saquear.rapinar.larapiar.furtar.empalmar.arrebatar.tirar.abafar.raptar,verbo intransitivo.verbo pronominal.verbo regencia multipla.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,rou-bar
-filosofia,sistema.doutrina,substantivo feminino,fi-lo-so-fi-a
-mental,espiritual.intelectual,adjetivo de dois generos,men-tal
-curral,aprisco.cercado.redil.estabulo.cercada,substantivo masculino,cur-ral
-defeito,deformidade.imperfeicao.falha.dano.avaria.enguico.macula.vicio.mania,substantivo masculino,de-fei-to
-conjuge,consorte.esposa.esposo,substantivo feminino.substantivo masculino,con-ju-ge
-ovacao,aplauso,substantivo feminino,o-va-cao
-molde,matriz.padrao.tipo.modelo.forma.chavao,substantivo masculino,mol-de
-chocalho,campainha.guizo,substantivo masculino,cho-ca-lho
+pantano,aguacal.atascal.atoleiro.banhado.brejo.charco.lodacal.paul,substantivo masculino,pan-ta-no
+pedra,calhau.pedregulho.rebo.seixo.pederneira.granizo.calculo.litiase,substantivo feminino,pe-dra
+desligar,desagarrar.despegar.soltar.desatrelar.desenganchar.desengatar.desprender,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,des-li-gar
+rotacao,circuito.giro.volta,substantivo feminino,ro-ta-cao
+vaso,frasco.alcatruz.jarra.jarro,substantivo masculino,va-so
+chapeu,boina.bone.capelo,substantivo masculino,cha-peu
+casal,par.parelha.vilarejo.lugarejo.povoado,adjetivo de dois generos.substantivo masculino,ca-sal
+protecao,fautoria.abrigo.asilo.garantia.capa.ajuda.auxilio.socorro.aba.custodia.quartel.tutela.egide.favor.refugio.auspiciar.paladio.patrocinio.pistolao.escora.amparo.apoio.arrimo.fomento.agasalho.bafejo.defesa.tutoria,substantivo feminino,pro-te-cao
+quadrado,quadro.quadrilatero.quadrangulo,adjetivo.substantivo masculino,qua-dra-do
+casar,matrimoniar.reunir.agregar.associar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,ca-sar
+pegada,peugada.pista.encalco.indignacao.rasto.rastro.treita.trilha,substantivo feminino,pe-ga-da
+laco,lacada.no.uniao.vinculo.prisao.alianca.enlacadura,substantivo masculino,la-co
+berinjela,beringela,substantivo feminino,be-rin-je-la
+verruga,caruncula.condiloma,substantivo feminino,ver-ru-ga
+fogo,incendio.lume.queima.queimada.queimacao,substantivo masculino,fo-go
+pulso,punho.carpo.munheca,substantivo masculino,pul-so
+bocejo,oscitacao.sopro,substantivo masculino,bo-ce-jo
+ferida,chaga.ferimento.lesao,substantivo feminino,fe-ri-da
+fuga,escapatoria.evasiva.evasao.subterfugio.tergiversacao,substantivo feminino,fu-ga
+fossil,antigo.antiquado.arcaico.obsoleto.ultrapassado,adjetivo de dois generos.substantivo masculino,fos-sil
+surdo,mouco,adjetivo.substantivo masculino,sur-do
+reporter,escritor.plumitivo.redactor.jornalista.noticiarista,substantivo de dois generos,re-por-ter
 prato,passadio.alimentacao.sustento.iguaria.chato.achatado,adjetivo.substantivo masculino,pra-to
-donzela,moca.senhorinha.solteira.vestal.virgem.aia.dama de companhia,adjetivo feminino.substantivo feminino,don-ze-la
-adicionar,aditar.juntar.somar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,a-di-ci-o-nar
-lei,preceito.mandamento.determinacao.formalidade.norma.regra,substantivo feminino,lei
-tempo,fase.periodo.temporada.pulsacao.andamento,substantivo masculino,tem-po
+cadaver,defunto.morto.sucumbido.corpo,substantivo masculino,ca-da-ver
 chifre,chavelho.corno.galho,substantivo masculino,chi-fre
-vale,cupao.depressao.grota.varzea,interjeicao.substantivo masculino,va-le
-franzir,crispar,verbo pronominal.verbo transitivo direto.regular,fran-zir
-coma,j.modorra.copa.letargia.cabeleira.torpor.coorte.iba,adverbio.conjuncao.substantivo de dois generos,co-ma
-bussola,orientacao.guia,substantivo feminino,bus-so-la
-trilho,atalho.caminho.estrada.senda.vereda.via.viela.tramite,substantivo masculino,tri-lho
-piloto,pratico.condutor.motorista.guia.chefe.mentor.inicial.exemplar.modelar.zarolho.caolho.zere.agrimensor.romeiro.freira.mambembe,adjetivo de dois generos e dois numeros.substantivo masculino,pi-lo-to
-inscricao,matricula.letreiro,substantivo feminino,ins-cri-cao
-propagacao,prolongamento.crescimento.desenvolvimento.incremento,substantivo feminino,pro-pa-ga-cao
-tomo,fasciculo,substantivo masculino,to-mo
-doze,duodecimo,numeral.substantivo masculino,do-ze
-broca,verruma,substantivo feminino,bro-ca
-cheiro,perfume.odor.aroma.fragrancia.olor.olencia,substantivo masculino,chei-ro
-injetar,inocular,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,in-je-tar
-italiano,italo.italico,adjetivo.substantivo masculino,i-ta-li-a-no
-atalho,estrada.caminho.senda.trilho.vereda.via.viela.tramite,substantivo masculino,a-ta-lho
-jaqueta,jabona.jaleca,substantivo de dois generos,ja-que-ta
-data,epoca.era.porcao.dose.racao.jazida.efemerides,substantivo feminino,da-ta
-estresse,estriccao.estricao,substantivo masculino,es-tres-se
-chaleira,puxa-saco.incensador.adulador.bajulador.engrossador,adjetivo de dois generos.substantivo de dois generos,cha-lei-ra
-diagrama,esquema.esboco.delineacao.desenho.tracado.grafico,substantivo masculino,di-a-gra-ma
-titulo,epigrafe,substantivo masculino,ti-tu-lo
-aviao,aeronave.aeroplano,substantivo masculino,a-vi-ao
+cranio,cabeca.caveira,adjetivo.substantivo masculino,cra-ni-o
+ateu,descrente.ateista,adjetivo.substantivo masculino,a-teu
+china,cabocla.mulata,adjetivo de dois generos.substantivo de dois generos,chi-na
+preparar,alinhavar.arranjar.arrumar.colocar.dispor.organizar.ajeitar.amaneirar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,pre-pa-rar
+mes,salario.mensal,substantivo masculino,mes
+linha,risca.risco.traco,substantivo feminino,li-nha
+pato,parro.patureba.idiota,adjetivo de dois generos.substantivo de dois generos,pa-to
+cidade,capital.municipio.povoacao.centro,substantivo feminino,ci-da-de
+laje,loisa.campa.lousa.lapide,substantivo feminino,la-je
+estrutura,esqueleto.arcaboico.arcabouco.armacao.carcaca.base,substantivo feminino,es-tru-tu-ra
+infantil,candido.frivolo.ingenuo.inocente.pueril,adjetivo de dois generos.substantivo masculino,in-fan-til
+enfeite,adereco.adorno.atavio.ornamento,substantivo masculino,en-fei-te
+soldar,prender.ligar.unir.encanar.aglutinar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,sol-dar
+injecao,forca.animo.estimulo.seringa,substantivo feminino,in-je-cao
+rancho,fazenda.herdade.quinta,substantivo masculino,ran-cho
+negativo,nao.nunca.jamais.contrario.inconveniente.desfavoravel.prejudicial.nocivo.malefico.cetico.pessimista.derrotista.inutil.vao.ineficaz.restritivo.proibitivo.diminutivo,adjetivo.adverbio.substantivo masculino,ne-ga-ti-vo
+hospital,hospicio.sanatorio.enfermaria.nosocomio,adjetivo de dois generos.substantivo masculino,hos-pi-tal
+tela,painel.pintura.quadro,substantivo feminino,te-la
+marido,esposo,substantivo masculino,ma-ri-do
+indiano,indu,adjetivo.substantivo masculino,in-di-a-no
+almanaque,efemeride.anuario.calendario.folhinha,substantivo masculino,al-ma-na-que
+arma,espingarda.expediente.punhal.revolver.venabulo.recurso.carabina,substantivo feminino,ar-ma
 continuar,proceder.progredir.prosseguir.avancar.seguir,verbo intransitivo.verbo predicativo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo indireto.regular,con-ti-nu-ar
-norte,orientacao.rumo.guia.setentriao.direcao,adjetivo de dois generos e dois numeros.substantivo masculino,nor-te
-colina,cabeco.comoro.monte.monticulo.morro.outeiro,substantivo feminino,co-li-na
-flutuante,duvidoso.inconstante.indeterminado.irresoluto.indeciso.incerto.movedico.vacilante.ondulante,adjetivo de dois generos.substantivo masculino,flu-tu-an-te
+pendurar,estender.pender.suspender.dependurar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,pen-du-rar
+lembrancas,cortesias.cumprimentos.recomendacoes,substantivo feminino plural,lem-bran-cas
+vegetal,planta,adjetivo de dois generos.substantivo masculino,ve-ge-tal
+significado,acepcao.sentido.significacao.conceito.nocao.definicao,substantivo masculino,sig-ni-fi-ca-do
+candelabro,lampadario.lustre,substantivo masculino,can-de-la-bro
+joia,excelente.perfeito.placa.entrada.peca.sinal.bom.beleza.joia,adjetivo de dois generos.substantivo feminino,joi-a
+laringe,garganta,substantivo de dois generos,la-rin-ge
+serrar,filar.tracar.cortar.separar,verbo intransitivo.verbo transitivo direto.regular,ser-rar
+oleo,azeite,substantivo masculino,o-le-o
+proverbio,adagio.anexim.apotegma.ditado.dito.maxima.pensamento.aforismo,substantivo masculino,pro-ver-bi-o
+riso,risada.hilaridade,substantivo masculino,ri-so
+etiqueta,distico.letreiro.rotulo,substantivo feminino,e-ti-que-ta
+horizonte,perspectiva.porvir.ambito.panorama,substantivo masculino,ho-ri-zon-te
+depressao,abatimento.abaixamento.humilhacao,substantivo feminino,de-pres-sao
+boato,balela.rumor.mexerico.coscuvilhice,substantivo masculino,bo-a-to
+estrangeiro,estranho.exotico.adventicio.advena.alienigena.forasteiro,adjetivo.substantivo masculino,es-tran-gei-ro
+barbeiro,figaro,adjetivo.substantivo masculino,bar-bei-ro
+aviador,aeronauta,adjetivo.substantivo masculino,a-vi-a-dor
+gato,descuido.engano.erro.gancho.grampo.lapso.felino.grapa.gambiarra.gatuno.gatao,substantivo masculino,ga-to
+comprimido,apertado,adjetivo.substantivo masculino,com-pri-mi-do
+bolha,ampola.borbulha.empola,adjetivo de dois generos.substantivo de dois generos,bo-lha
+carteira,banca.mesa.secretaria,substantivo feminino,car-tei-ra
+fracao,parte.parcela.pedaco.divisao.separacao.quebra,substantivo feminino,fra-cao
+horoscopo,prenuncio.pressagio.previsao.profecia.prognostico.augurio.horoscopio.vaticinio,substantivo masculino,ho-ros-co-po
+multiplicacao,proliferacao.propagacao.aumento.reproducao.difusao.desdobramento,substantivo feminino,mul-ti-pli-ca-cao
+amendoim,mendubi,substantivo masculino,a-men-do-im
+arco,circulo.roda,substantivo masculino,ar-co
+sentir,apreciar.compreender.lamentar.perceber.ter.magoar.pressentir.ponto de vista.intuir.adivinhar.entender,substantivo masculino.verbo intransitivo.verbo pronominal.verbo transitivo direto.irregular,sen-tir
+trombeta,corneta.tuba,substantivo de dois generos,trom-be-ta
+padre,arcebispo.clerigo.prior.paroco.vigario,substantivo masculino,pa-dre
+vicio,mania.perversao.pecado.depravacao.defeito,substantivo masculino,vi-ci-o
+diferenciar,distinguir.diferencar.discernir.discriminar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,di-fe-ren-ci-ar
+coelho,cacapo.laparo,adjetivo.substantivo masculino,co-e-lho
+haste,bastao.bordao.cajado.chibata.mastro.pau.vara.viga,substantivo feminino,has-te
+vapor,exalacao.fumo,substantivo masculino,va-por
+enviar,expedir.comunicar.legar.remeter.transmitir,verbo bitransitivo.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,en-vi-ar
+neto,limpido.nitido,adjetivo.substantivo masculino,ne-to
+oceano,mar,adjetivo.substantivo masculino,o-ce-a-no
+teatro,comedia,substantivo masculino,te-a-tro
+clava,cachamorra.maca.tacape,substantivo feminino,cla-va
+vara,mastro.haste.cajado.bordao.bastao.vergasta.verdasca.chibata.pau.viga,substantivo feminino,va-ra
+virgem,intacto.inviolado,adjetivo de dois generos.substantivo de dois generos,vir-gem
+narracao,historia.conto.narrativa,substantivo feminino,nar-ra-cao
+ima,imame,substantivo masculino,i-ma
+rechonchudo,anafado.gordo.gorducho.assoprado,adjetivo,re-chon-chu-do
+barato,baixo,adjetivo.adverbio.substantivo masculino,ba-ra-to
+tocha,archote.brandao.facho.fogareu,substantivo feminino,to-cha
+valor,importancia.merito.preco.prestimo.valia.legitimidade.estima.consideracao.relevancia,substantivo masculino,va-lor
+fio,amarrilho.linha.filamento.corte.cordel.gume,substantivo masculino,fi-o
+cornija,coronide,substantivo feminino,cor-ni-ja
+lixeira,esterqueira.alfurja.monturo,substantivo feminino,li-xei-ra
+albergue,estalagem.pousada.albergaria.hospedagem.hospedaria,substantivo masculino,al-ber-gue
+brasileiro,brasilio.brasiliano.brasilico,adjetivo.substantivo masculino,bra-si-lei-ro
+perguntar,pedir.demandar.inquirir.interrogar.solicitar.indagar.investigar.questionar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,per-gun-tar
+folha,esgalho.penca,substantivo feminino,fo-lha
+mensagem,advertencia.aviso.recado,substantivo feminino,men-sa-gem
+bone,boina.capelo.chapeu,substantivo masculino,bo-ne
+portatil,maneiro.manejavel.versatil,adjetivo de dois generos,por-ta-til
+nave,navio.templo,substantivo feminino,na-ve
+procurar,esforcar.perseguir.pesquisar.atrair.investigar.buscar,verbo intransitivo.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,pro-cu-rar
+roxo,purpureo.violaceo.inquieto.ansioso.desejoso,adjetivo.substantivo masculino,ro-xo
+conquistar,capturar.tomar.invadir.ocupar,verbo bitransitivo.verbo transitivo direto.verbo transitivo direto e indireto.regular,con-quis-tar
+ousar,arriscar.arrojar.tentar.decidir.atrever.intentar.empreender,verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.regular,ou-sar
+espiral,lesma,adjetivo de dois generos.substantivo feminino,es-pi-ral
+maduro,amadurecido.experimentado.ladino.sazonado.veterano,adjetivo.substantivo masculino,ma-du-ro
+matar,massacrar.afligir.trucidar.fuzilar.chacinar.assassinar.saciar.destruir.sacrificar.suicidar,verbo intransitivo.verbo pronominal.verbo transitivo direto.irregular,ma-tar
+caderno,folheto.brochura,substantivo masculino,ca-der-no
+garrafa,botelha.frasco,substantivo feminino,gar-ra-fa
+livro,alfarrabio.calhamaco.cartapacio,substantivo masculino,li-vro
+foto,fotografia,substantivo de dois generos,fo-to
+aluguel,aluguer.frete.locacao.renda,substantivo masculino,a-lu-guel
+resumo,compendio.epitome.resenha.sinopse.sumario.sintese.sumula,substantivo masculino,re-su-mo
+papada,papo.barbela,substantivo feminino,pa-pa-da
+anao,nanico,adjetivo.substantivo masculino,a-nao
+entrar,ingressar.contribuir.adentrar.invadir.subscrever.calar.iniciar.comecar.meter.introduzir.enfiar.transpor.penetrar.embarafustar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo indireto.regular,en-trar
+suburbio,arrabalde.cercanias.circunvizinhanca,substantivo masculino,su-bur-bi-o
+bater,esbarrar.colidir.embater.desancar.fustigar.sovar.azorragar.vergastar.zurzir.chocar.abalroar.escadeirar.espancar.maltratar.percutir.profligar.acoitar.abater.vencer.derrotar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.verbo transitivo indireto.verbo transitivo indireto e circunstancial.regular,ba-ter
+ato,pobretao.dedo.auto.declaracao.inutil.insignificante.feito.ordinario.profissao.feita,substantivo masculino,a-to
+assalto,acometida.opugnacao.ofensiva.investida.cometida.ataque.arremetida.agressao.surtida,substantivo masculino,as-sal-to
+calcada,passeio,substantivo feminino,cal-ca-da
+grade,cadeia.carcere.sebe.gradil,substantivo de dois generos,gra-de
+magico,mago.feiticeiro,adjetivo.substantivo masculino,ma-gi-co
+imenso,excessivo.enorme.desmesurado.desmedido.descomunal.descomedido.colossal.desmarcado.agigantado,adjetivo.adverbio,i-men-so
+bandagem,atadura.faixa.banda,substantivo feminino,ban-da-gem
+pimenta,brigona.lubricidade.sensualidade.ativo.inquieto.travesso.poto.pimenteiro.malicia.maldade.pimenteira,substantivo feminino,pi-men-ta
+pulsar,palpitar.impelir.agitar.arquejar.latejar,substantivo masculino.verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.regular,pul-sar
+tanga,pobreza.indigencia.saiote,substantivo feminino,tan-ga
+broca,verruma,substantivo feminino,bro-ca
+garra,poder.opressao.tirania.avidez.maos.gadanho.unhas,substantivo feminino,gar-ra
+arroto,eructacao,substantivo masculino,ar-ro-to
+inferno,baratro,substantivo masculino,in-fer-no
+estrada,atalho.caminho.senda.trilho.vereda.via.viela.tramite,substantivo feminino,es-tra-da
+duvida,incerteza.ceticismo,substantivo feminino,du-vi-da
+cisterna,poco.cava.cacimba,substantivo feminino,cis-ter-na
+prego,cavilha.parafuso.tarraxa,substantivo masculino,pre-go
 trem,traste.comboio.bafagem,adjetivo de dois generos e dois numeros.substantivo masculino,trem
-igreja,convento.templo.santuario.catedral.basilica.abadia.se.presbiterio.mosteiro.adito,substantivo feminino,i-gre-ja
-cao,mastim.perro.diabo.biltre.canalha.cachorro.capeta,adjetivo.substantivo masculino,cao
-rodeio,circuito,substantivo masculino,ro-dei-o
+amanha,futuro.porvir,adverbio.substantivo masculino,a-ma-nha
+vergonha,desonra.humilhacao.inseguranca.decoro.timidez.acanhamento.constrangimento,substantivo feminino,ver-go-nha
+diario,quotidiano.cotidiano,adjetivo.substantivo masculino,di-a-ri-o
+crescer,elevar.ascender.subir.trepar,verbo intransitivo.verbo predicativo.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo indireto.regular,cres-cer
+destilar,estilar.exsudar.porejar.ressumbrar.ressumar,verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo indireto.regular,des-ti-lar
+este,leste.levante.nascente.oriente,pronome demonstrativo.substantivo masculino,es-te
+mina,garimpo,adjetivo de dois generos.substantivo de dois generos,mi-na
+acougueiro,magarefe.carniceiro,substantivo masculino,a-cou-guei-ro
+piscar,pestanear.pestanejar,substantivo masculino.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,pis-car
+salvar,auxiliar.felicitar.cumprimentar.congratular.socorrer.coadjuvar.ajudar.acudir.acolitar.saudar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.irregular,sal-var
+vidro,frasco,substantivo masculino,vi-dro
+longe,distanciado,adjetivo de dois generos.adverbio.interjeicao.substantivo masculino,lon-ge
+aparencia,ar.aspecto.figura.fisionomia.semblante.exterioridade.verossimilhanca.engano,substantivo feminino,a-pa-ren-ci-a
+primario,primordial.primitivo,adjetivo.substantivo masculino,pri-ma-ri-o
+receber,recolher.arrecadar.recepcionar.receptar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e indireto.regular,re-ce-ber
+abobora,jerimu.jerimum.aboboreira,adjetivo de dois generos e dois numeros.substantivo de dois generos,a-bo-bo-ra
+quadril,ilharga.cadeira.anca,substantivo masculino,qua-dril
+pontape,chuto.chute,substantivo masculino,pon-ta-pe
+magro,delgado.fino.franzino,adjetivo.substantivo masculino,ma-gro
+balde,cacamba,adjetivo.substantivo masculino,bal-de
+molho,atado.atilho.feixe.lio.macaroca.punhado,substantivo masculino,mo-lho
+equipamento,equipagem,substantivo masculino,e-qui-pa-men-to
+olhos,vista.visao.olhar,substantivo masculino.locucao adverbial.expressao,o-lhos
+aldeia,localidade.lugarejo.povoado.povoacao,substantivo feminino,al-dei-a
+mirante,mirone.miradouro.observatorio,substantivo masculino,mi-ran-te
+dom,condao.faculdade.virtude.dadiva.oferta.oferenda.beneficio.aptidao.talento,substantivo masculino,dom
+amanhecer,alvorecer.raiar,substantivo masculino.verbo intransitivo.verbo predicativo.verbo transitivo circunstancial.regular,a-ma-nhe-cer
+revolucao,revolta.sedicao.sublevacao.rebeliao.subversao.mudanca,substantivo feminino,re-vo-lu-cao
+cancao,canto.cantico.hino.toada.cantiga.cantar.trova,substantivo feminino,can-cao
+madeira,pau.lenha.lenho,substantivo de dois generos,ma-dei-ra
+tripulacao,chusma,substantivo feminino,tri-pu-la-cao
+chuveiro,chuvisco,substantivo masculino,chu-vei-ro
+desatar,desdar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,de-sa-tar
+eternidade,evo.perpetuidade,substantivo feminino,e-ter-ni-da-de
+carie,destruicao,substantivo feminino,ca-ri-e
+buque,ramalhete.ramilhete,substantivo masculino,bu-que
+mascote,talisma.amuleto,substantivo feminino.substantivo masculino,mas-co-te
+telegrama,despacho.comunicado,substantivo masculino,te-le-gra-ma
+anunciar,proclamar.aclamar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,a-nun-ci-ar
+exercito,tropa,substantivo masculino,e-xer-ci-to
+procriar,gerar.germinar.produzir.conceber.multiplicar.criar.fazer,verbo intransitivo.verbo transitivo direto.regular,pro-cri-ar
+fabrica,industria.oficina.manufatura,substantivo de dois generos,fa-bri-ca
+calendario,almanaque.anuario.efemeride.folhinha.cronograma,substantivo masculino,ca-len-da-ri-o
+aposta,parada,substantivo feminino,a-pos-ta
+cativeiro,escravidao.jugo.servidao.prisao.dominio,substantivo masculino,ca-ti-vei-ro
+concha,valva,substantivo feminino,con-cha
+ilha,ilhota.ilheu,substantivo feminino,i-lha
+suspeito,equivoco.malvisto.perigoso.suspeicao.duvidoso,adjetivo.substantivo masculino,sus-pei-to
+policial,vigilante,adjetivo de dois generos.substantivo de dois generos,po-li-ci-al
+comprar,adquirir,verbo bitransitivo.verbo transitivo direto.verbo transitivo direto e indireto.regular,com-prar
+girafa,grande.alto.comprido,substantivo feminino,gi-ra-fa
+guerra,batalha,substantivo feminino,guer-ra
+cerco,sitio.assedio.bloqueio,substantivo masculino,cer-co
+dividir,disjungir.desunir.desconjuntar.apartar.cortar.repartir.fragmentar.quebrar.despedacar.partir.esconjuntar.separar,verbo bitransitivo.verbo bitransitivo e circunstancial.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,di-vi-dir
+folclore,mentira.lenda.invencao.populario,substantivo masculino,fol-clo-re
+gravidez,fetacao.gravidacao.prenhez.prenhidao.gestacao,substantivo feminino,gra-vi-dez
+declamar,pronunciar.proferir.articular.ler.recitar,verbo intransitivo.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,de-cla-mar
+prata,prataria.dinheiro,substantivo feminino,pra-ta
+sorte,destino.fado,substantivo feminino,sor-te
+oferta,esmola.doacao.donativo.dadiva.oferenda.oferecimento,substantivo feminino,o-fer-ta
+artificial,sintetico,adjetivo de dois generos,ar-ti-fi-ci-al
+chocalho,campainha.guizo,substantivo masculino,cho-ca-lho
+biscoito,bolacha,adjetivo de dois generos e dois numeros.substantivo masculino,bis-coi-to
+explorar,estudar.examinar.analisar.averiguar.indagar.investigar,verbo transitivo direto.regular,ex-plo-rar
+exercicio,manobra.tirocinio.treino,substantivo masculino,e-xer-ci-ci-o
+pirata,corsario,adjetivo de dois generos.substantivo de dois generos,pi-ra-ta
+montanha,serra,substantivo feminino,mon-ta-nha
+sapato,calcado,substantivo masculino,sa-pa-to
+ancoradouro,fundeadouro.surgidouro,substantivo masculino,an-co-ra-dou-ro
+aparar,apontar.afiar.agucar.amolar,verbo transitivo direto.regular,a-pa-rar
+franzir,crispar,verbo pronominal.verbo transitivo direto.regular,fran-zir
+cinta,cinto.cinturao,substantivo feminino,cin-ta
+cor,partido.faccao.bandeira.colorido.carater.coloracao.representacao.negalho,substantivo de dois generos,cor
+resposta,refutacao.reacao.replica,substantivo feminino,res-pos-ta
+interno,interior,adjetivo.substantivo masculino,in-ter-no
+beco,viela,substantivo masculino,be-co
+irritar,exasperar.tempestuar.raivar.enraivecer.enfurecer.enervar.encolerizar.embravecer.desesperar.assomar.acirrar.abespinhar.irar.zangar,verbo pronominal.verbo transitivo direto.regular,ir-ri-tar
+lanterna,fanal.farol.luminaria.farolete,substantivo de dois generos,lan-ter-na
+jantar,boiar,substantivo masculino.verbo intransitivo.verbo transitivo direto.regular,jan-tar
+noiva,prometida,substantivo feminino,noi-va
+epidemia,praga.andaco.contagio,substantivo feminino,e-pi-de-mi-a
+cumprimentar,salvar.congratular.felicitar.saudar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,cum-pri-men-tar
+contrato,pacto.acordo.combinacao.convencao.convenio.negocio.tratado,adjetivo.substantivo masculino,con-tra-to
+quina,esquina.canto,substantivo feminino,qui-na
+pintura,painel.quadro.tela,substantivo feminino,pin-tu-ra
+guia,guiao.itinerario.cicerone.derrota.rota.roteiro,substantivo de dois generos,gui-a
+bingo,loto.vispora,interjeicao.substantivo masculino,bin-go
+esboco,bosquejo.debuxo.desenho.escorco.rascunho.tracado.resumo.sintese.comeco,substantivo masculino,es-bo-co
+coluna,pilar.pilastra.poste,substantivo feminino,co-lu-na
+mobiliario,mobilia.mobilha,adjetivo.substantivo masculino,mo-bi-li-a-ri-o
+progenitor,pai.ancestral.antepassado.genitor,substantivo masculino,pro-ge-ni-tor
+submarino,imergido.submergido,adjetivo.substantivo masculino,sub-ma-ri-no
+cobertura,envoltorio.capote.capa.valhacouto.reduto.asilo.abrigo.abrigada.refugio.resguardo.revestimento.toga,substantivo feminino,co-ber-tu-ra
+cabeca,carola.bestunto.cachimonia,apositivo.substantivo de dois generos,ca-be-ca
+obeso,abdominoso.adiposo.barrigudo.anafado.gordo,adjetivo,o-be-so
+dicionario,lexico.glossario,substantivo masculino,di-ci-o-na-ri-o
+pista,perseguicao.trilha.treita.rastro.rasto.indignacao.encalco.vestigio.indicio.pegada.peugada.orientacao,substantivo feminino,pis-ta
+picante,acetoso.apimentado.amaro.amargoso.amargo.agro.agre.acre.acerbo.avinagrado.azedo,adjetivo de dois generos.substantivo masculino,pi-can-te
+fotografia,retrato,substantivo feminino,fo-to-gra-fi-a
+medida,escantilhao.estalao.padrao.norma.bitola.craveira,substantivo feminino,me-di-da
+verdor,vico.vicoso,substantivo masculino,ver-dor
+radiodifusor,radioemissor,adjetivo.substantivo masculino,ra-di-o-di-fu-sor
+ovelha,carneira,substantivo feminino,o-ve-lha
+balanco,abalo.acerto.trapezio.gangorra.solavanco.verificacao.sacudidela.inventario.balouco,substantivo masculino,ba-lan-co
+cinza,cinzento.desolacao,adjetivo de dois generos e dois numeros.substantivo de dois generos,cin-za
 servir,auxiliar.ajudar.satisfazer.alimentar.dar.fornecer.substituir,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,ser-vir
+amuleto,talisma.figa,substantivo masculino,a-mu-le-to
+gramado,relvado,adjetivo.substantivo masculino,gra-ma-do
+balanca,embalo,substantivo feminino,ba-lan-ca
+assistencia,adjutorio.ajuda.ambulancia.amparo.auditorio.cooperacao.presenca.socorro.auxilio,substantivo feminino,as-sis-ten-ci-a
 cana,aguardente,substantivo de dois generos,ca-na
 homicidio,assassinato.assassinio,substantivo masculino,ho-mi-ci-di-o
-inflamar,esbrasear.conflagrar.atear.acender.tostar.torrar.tisnar.queimar.incendiar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,in-fla-mar
-ar,aparencia.respiracao.folego.vento.razao.semblante.fisionomia.figura.aspecto.atmosfera,substantivo masculino,ar
-morto,cadaver.defunto.sucumbido,adjetivo.substantivo masculino,mor-to
+historiador,cronista.historiografo,adjetivo.substantivo masculino,his-to-ri-a-dor
+televisao,teve.tv.televisor.estacao,substantivo feminino,te-le-vi-sao
+freio,jugo.obstaculo.repressao.sujeicao,substantivo masculino,frei-o
+resto,demasia.excedente.excesso.remanescente.restante.sobejo.sobra.troco,substantivo masculino,res-to
+coletar,juntar.reunir.recolher.receber.cobrar.acumular.obrigar.onerar.taxar.contribuir,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,co-le-tar
+prisioneiro,encarcerado.enclausurado.aprisionado.cativo.detido,adjetivo.substantivo masculino,pri-si-o-nei-ro
+bairro,arrabalde.suburbio,substantivo masculino,bair-ro
+assistente,adjutor.auxiliador.auxiliante.acolito.ajudante.assessor.coadjutor,adjetivo de dois generos.substantivo de dois generos,as-sis-ten-te
+palacio,alcacaria.alcacer.corte,substantivo masculino,pa-la-ci-o
+raio,relampago,interjeicao.substantivo masculino,rai-o
+saida,partida.abalada,substantivo feminino,sa-i-da
+brinquedo,gracejo.folguedo.brinco.gaudio.jogo,substantivo masculino,brin-que-do
+produzir,criar.fabricar.gerar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,pro-du-zir
+catedral,convento.templo.santuario.igreja.basilica.abadia.se.presbiterio.mosteiro.adito,adjetivo de dois generos.substantivo feminino,ca-te-dral
+raiz,estirpe.radical.germe.fralda.origem.vinculo.fundamento.tema.comeco.causa.ligacao.sope.principio,substantivo feminino,ra-iz
+dado,oferecido,adjetivo.pronome indefinido.substantivo masculino,da-do
+assobio,apito.sibilo.silvo,substantivo masculino,as-so-bi-o
+campo,planicie.prado.dominio.area.assunto.terreno,substantivo masculino,cam-po
+agricultor,colono.cultivador.cultor.lavrador,adjetivo.substantivo masculino,a-gri-cul-tor
+espirito,razao.animo.raciocinio.inteligencia.duende.humor.mente.sal.memoria.imaginacao.essencia.acepcao.sentido.alma.finura.graca.aguardente.nume.alcool,substantivo masculino,es-pi-ri-to
+programa,plataforma.software.projeto.credo.designio.itinerario.plano.esboco.programacao.prospecto,substantivo masculino,pro-gra-ma
+lenhador,rachador,adjetivo.substantivo masculino,le-nha-dor
+toque,contato,substantivo masculino,to-que
+insurreicao,levantamento.motim.revolta.pronunciamento.sublevacao,substantivo feminino,in-sur-rei-cao
+arpao,abalroa.arpeu.balroa.fateixa.fisga,substantivo masculino,ar-pao
+enterrar,encovar.inumar.sepultar.tumular,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,en-ter-rar
+interprete,tradutor,substantivo de dois generos,in-ter-pre-te
+esporte,desporto,adjetivo de dois generos e dois numeros.substantivo masculino,es-por-te
+nota,anotacao.apontamento.assentamento.comentario.cedula.dinheiro.ementa.lembrete.marca.observacao,substantivo feminino,no-ta
+duplicar,dobrar.geminar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,du-pli-car
+natal,natalicio,adjetivo de dois generos.substantivo masculino,na-tal
+lesbica,lesbiana,substantivo feminino,les-bi-ca
+funil,garganta.fecho.rasgao,substantivo masculino,fu-nil
+gado,manada.mancheia.rebanho,substantivo masculino,ga-do
+atalho,estrada.caminho.senda.trilho.vereda.via.viela.tramite,substantivo masculino,a-ta-lho
+bilhete,passagem.passe.entrada.carta.recado.cedula,substantivo masculino,bi-lhe-te
+policia,fiscalizacao.milicia,substantivo de dois generos,po-li-ci-a
+mosquito,pernilongo.muricoca.perereca.mirim,adjetivo.substantivo masculino,mos-qui-to
+arbitro,avaliador.louvado.perito.juiz,substantivo masculino,ar-bi-tro
+clube,agremiacao.assembleia.associacao.corporacao.gremio.junta.sociedade,substantivo masculino,clu-be
+semeadura,plantio.semeacao.sementeira,substantivo feminino,se-me-a-du-ra
+escape,evasao.fuga,adjetivo de dois generos.substantivo masculino,es-ca-pe
+muculmano,maometano.muslim.islamita,adjetivo.substantivo masculino,mu-cul-ma-no
+rasgar,abscindir.golpear.fender.acutilar.cortar.ferir.lacerar.dilacerar.vulnerar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,ras-gar
+serpente,cobra.ofidio,substantivo feminino,ser-pen-te
+costurar,alinhavar.cerzir.coser,verbo intransitivo.verbo transitivo direto.regular,cos-tu-rar
+carta,bilhete.diploma.mapa.baralho.correspondencia.correio,substantivo feminino,car-ta
+bola,esfera.globo,substantivo feminino,bo-la
+coro,acompanhamento.refrao,substantivo masculino,co-ro
+excluir,exceptuar.marcar.limitar.reservar.restringir,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,ex-clu-ir
+selva,bosque.brenha.floresta.mata,substantivo feminino,sel-va
+sobremesa,pospasto,substantivo feminino,so-bre-me-sa
+puxao,atracao.repelao.encontrao.empuxao.empurrao.apertao.sacudidela.repuxao.esbarro.sacao.safanao,substantivo masculino,pu-xao
+violencia,frenesi.furor.furia.impetuosidade.repelo,substantivo feminino,vi-o-len-ci-a
+caspa,carepa,substantivo feminino,cas-pa
+esperar,aguardar.contar.confiar.acreditar.gestar.desejar,verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.regular,es-pe-rar
+capacete,penacho.cimeira.elmo,substantivo masculino,ca-pa-ce-te
+civil,afavel.cortes.civel.paisano.polido.secular.social.urbano,adjetivo de dois generos.substantivo masculino,ci-vil
+decorar,adernar.ornamentar.engalanar.enfeitar.embelezar.ataviar.aparatar.alindar.aformosear.adornar.ornar,verbo intransitivo.verbo transitivo direto.verbo transitivo direto e indireto.regular,de-co-rar
+nervo,tendao.nervura,substantivo masculino,ner-vo
+som,ruido.timbre.tinido.toada.voz,substantivo masculino,som
+imaginacao,devaneio.fantasia.ficcao.ilusao.quimera.sonho.visao.mentira.crendice.supersticao,substantivo feminino,i-ma-gi-na-cao
+jaqueta,jabona.jaleca,substantivo de dois generos,ja-que-ta
+moeda,dinheiro,substantivo feminino,mo-e-da
+medalhao,figurao,substantivo masculino,me-da-lhao
+vontade,pujanca.talante.arbitrio.robustez.forca.energia.determinacao.deliberacao.capricho.empenho,substantivo feminino,von-ta-de
+fora,excepto.alem de.a excepcao de.salvo,adverbio.interjeicao.preposicao.substantivo masculino,fo-ra
+remover,afastar.transferir.demitir.revolver.remexer,verbo bitransitivo.verbo transitivo direto.regular,re-mo-ver
+baixo,plebeu.inferior.ordinario.grave.reles.insignificante,adjetivo.adverbio.substantivo masculino,bai-xo
+conversa,palestra.palavreado.cavaco.coloquio.conversacao.dialogo.mentira,substantivo feminino,con-ver-sa
+prevencao,precaucao.sobreaviso,substantivo feminino,pre-ven-cao
+tinta,corante.tintura.colorante.cor.tom.colorido.mostra.indicio.sinal,substantivo feminino,tin-ta
+verde,verdejante.virente,adjetivo de dois generos.substantivo de dois generos,ver-de
+titulo,epigrafe,substantivo masculino,ti-tu-lo
+mercado,bazar.praca,substantivo masculino,mer-ca-do
+feminino,masculino,adjetivo.substantivo masculino,fe-mi-ni-no
+girassol,tornassol,substantivo masculino,gi-ras-sol
+circulo,arco.roda.associacao.ambiente.meio,substantivo masculino,cir-cu-lo
+remexer,escarafunchar.esgaravatar.esgravatar.procurar,verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,re-me-xer
+panela,recipiente.vasilha.caldeirao.arranjo.conluio.conspiracao.grupo.bando.faccao.carie.turbilhao.redemoinho.sorvedouro.magia.maleficio.despacho.buraco.toca.cova,substantivo feminino,pa-ne-la
+anel,argola.aro,substantivo masculino,a-nel
+peso,pesadume.macaca.jetatura.cabula.caiporismo.cafifa.urucubaca.fadiga.opressao.abatimento.incomodo,substantivo masculino,pe-so
+pagina,folha.lauda,substantivo feminino,pa-gi-na
+labio,beico,substantivo masculino,la-bio
+bisturi,escalpelo,substantivo masculino,bis-tu-ri
+cerimonia,protocolo.etiqueta.cortesia.formalidade.solenidade.rito.embaraco.cumprimento,substantivo feminino,ce-ri-mo-nia
+desviar,evitar.abster.impedir.sustar.distrair.afastar.abrir.abduzir.refrear,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,des-vi-ar
+truque,artificio.tramoia.ardil.trapaca,substantivo masculino,tru-que
+pilula,logro.fraude.mentira.contraceptivo.anticoncepcional,interjeicao.substantivo feminino,pi-lu-la
+aluno,estudante.aprendiz.discipulo.educando.academico.lecionando,substantivo masculino,a-lu-no
+purificador,higienico,adjetivo.substantivo masculino,pu-ri-fi-ca-dor
 barulhento,quieto.tacito.calado.calmo.tranquilo.pacifico,adjetivo.substantivo masculino,ba-ru-lhen-to
-longe,distanciado,adjetivo de dois generos.adverbio.interjeicao.substantivo masculino,lon-ge
-engrenagem,mecanismo,substantivo feminino,en-gre-na-gem
-reputacao,fama.renome.prestigio.estima,substantivo feminino,re-pu-ta-cao
-deslocamento,deslocacao,substantivo masculino,des-lo-ca-men-to
-todo,composto.completo.idiota.integro.total.inteiro.cada.totalmente,adjetivo.adverbio.pronome indefinido.pronome indefinido plural.substantivo masculino,to-do
-mascarar,esconder.paliar.disfarcar.dissimular.embucar.encapotar.encobrir,verbo pronominal.verbo transitivo direto.verbo transitivo direto predicativo.regular,mas-ca-rar
-aviador,aeronauta,adjetivo.substantivo masculino,a-vi-a-dor
-lenha,madeira,substantivo feminino,le-nha
-composto,constituido.formado,adjetivo.substantivo masculino,com-pos-to
-separado,desviado.desagregado.despegado.dissociado.cortado.apartado.desunido,adjetivo.substantivo masculino,se-pa-ra-do
-circular,rodear.circundar.circunvalar,adjetivo de dois generos.substantivo feminino.verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e indireto.regular,cir-cu-lar
-pontape,chuto.chute,substantivo masculino,pon-ta-pe
-picada,pontada.ferretoada.pontoada.aguilhoada.ferroada.lancaco,substantivo feminino,pi-ca-da
-manutencao,mantenca.conservacao.gerencia,substantivo feminino,ma-nu-ten-cao
-aluguel,aluguer.frete.locacao.renda,substantivo masculino,a-lu-guel
-multiplicacao,proliferacao.propagacao.aumento.reproducao.difusao.desdobramento,substantivo feminino,mul-ti-pli-ca-cao
-revendedor,pracista,adjetivo.substantivo masculino,re-ven-de-dor
-ninho,abrigo.antro.covil.esconderijo.guarida.habitacao.lar.valhacouto,substantivo masculino,ni-nho
-cego,desmedido.alucinado.desvairado.embotado.inconsciente,adjetivo.substantivo masculino,ce-go
-vicio,mania.perversao.pecado.depravacao.defeito,substantivo masculino,vi-ci-o
-catastrofe,adversidade.calamidade.desgraca.fatalidade.flagelo.infortunio.reves.tragedia,substantivo feminino,ca-tas-tro-fe
+vertical,direito.aprumado.reto,adjetivo de dois generos.substantivo de dois generos,ver-ti-cal
+no,sobre.encima.em,contracao.pronome pessoal,no
+elastico,ductil.flexivel.voluvel,adjetivo.substantivo masculino,e-las-ti-co
+irma,mana,substantivo feminino,ir-ma
+aplauso,ovacao,substantivo masculino,a-plau-so
+modelo,amostra.exemplar.padrao.prototipo.paradigma,substantivo de dois generos,mo-de-lo
+hipodromo,prado,substantivo masculino,hi-po-dro-mo
 monarquia,reino,substantivo feminino,mo-nar-qui-a
+observatorio,mirante.miradouro,substantivo masculino,ob-ser-va-to-ri-o
+danca,baile.embrulhada.folia.quadrilha.tripudio,substantivo feminino,dan-ca
+entrevista,visita.conferencia.encontro.audiencia,substantivo feminino,en-tre-vis-ta
+skate,esqueite,substantivo masculino,ska-te
+fumado,desusado,adjetivo,fu-ma-do
+corpo,assembleia.associacao.batalhao.consistencia.espessura.regimento.tropa.volume.vulto,substantivo masculino,cor-po
+veu,manto,substantivo masculino,veu
+vez,uma vez que.parcela.acontecimento.turno.circunstancia.situacao.ocasiao.oportunidade,substantivo feminino,vez
+matagal,mato.sarca.silvado.silvedo,substantivo masculino,ma-ta-gal
+envido,envide,substantivo masculino,en-vi-do
+noticia,comunicacao.informacao,substantivo feminino,no-ti-ci-a
+lareira,borralho,substantivo feminino,la-rei-ra
+paraiso,ceu.eden.viridario,substantivo masculino,pa-ra-i-so
+soluco,prantina.singulto,substantivo masculino,so-lu-co
+minuto,diminuto.pequeno,adjetivo.substantivo masculino,mi-nu-to
+vestido,enroupado.coberto,adjetivo.substantivo masculino,ves-ti-do
+anotar,assentar.apontar.consignar.inscrever.registrar,verbo transitivo direto.regular,a-no-tar
+brinde,presente.oferta.dadiva.saude.cumprimento.homenagem,substantivo masculino,brin-de
+posto,colocado.disposto,adjetivo.conjuncao.substantivo masculino,pos-to
+informador,olheiro.anunciador.informante.divulgador,adjetivo.substantivo masculino,in-for-ma-dor
+treno,treinagem.treino.tremo,substantivo masculino,tre-no
+hieroglifo,hieroglifo,substantivo masculino,hi-e-ro-gli-fo
+poro,intersticio.meato.orificio.ducto,substantivo masculino,po-ro
+claraboia,lucerna.trapeira.agua-furtada.claraboia,substantivo feminino,cla-ra-boi-a
+faculdade,capacidade.dom.virtude.propriedade.possibilidade.direito.poder.ocasiao.licenca.permissao,substantivo feminino,fa-cul-da-de
+boca,abertura.cavidade,interjeicao.substantivo de dois generos,bo-ca
+lixo,despejo.detrito.residuo,substantivo masculino,li-xo
+revista,exame.examinacao.fiscalizacao.vistoria.inspecao,substantivo feminino,re-vis-ta
+vinho,pinga,adjetivo de dois generos e dois numeros.substantivo masculino,vi-nho
+rugido,bramido.urro,substantivo masculino,ru-gi-do
+carga,fardo.armamento.carregamento.municao,substantivo feminino,car-ga
+molhado,empapado.encharcado.ensopado.embebido,adjetivo.substantivo masculino,mo-lha-do
+satelite,lua,adjetivo de dois generos.substantivo masculino,sa-te-li-te
+nacao,pais.patria.regiao.governo.nacionalidade,substantivo feminino,na-cao
+derramar,entornar.espargir.esparzir.verter,verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,der-ra-mar
+conhecido,divulgado.afamado.celebre.famoso.sabido,adjetivo.substantivo masculino,co-nhe-ci-do
+fronteira,marco.separacao.baliza.limite.marca.divisao,substantivo feminino,fron-tei-ra
+guardiao,arqueiro.capanga.goleiro,substantivo masculino,guar-di-ao
+funeral,enterro.enterramento.inumacao.mortorio.saimento.sepultamento.funebre,adjetivo de dois generos.substantivo masculino,fu-ne-ral
+juri,julgamento.banca,substantivo masculino,ju-ri
+estatua,escultura,substantivo feminino,es-ta-tu-a
+militar,armifero.tarimbeiro.soldado.guerreiro.combatente.beligerante.aguerrido.mavorcio.armigero.tropa,adjetivo de dois generos.substantivo masculino.verbo intransitivo.verbo transitivo indireto.regular,mi-li-tar
+exame,examinacao.fiscalizacao.inspecao.revista.vistoria,substantivo masculino,e-xa-me
+financas,erario,substantivo feminino plural,fi-nan-cas
+rosnar,amolar.resmonear.resmungar.rezingar,substantivo masculino.verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.regular,ros-nar
+cabelo,pelo,substantivo masculino,ca-be-lo
+italiano,italo.italico,adjetivo.substantivo masculino,i-ta-li-a-no
+jornal,publicacao.jorna.paga.gazeta.ordenado.remuneracao.salario.vencimento,substantivo masculino,jor-nal
+decoracao,embelezamento.enfeite.ornamentacao.memorizacao,substantivo feminino,de-co-ra-cao
+palhaco,bobo.histriao.truao,adjetivo.substantivo masculino,pa-lha-co
+piranha,meretriz.prostituta,substantivo feminino,pi-ra-nha
+terminal,final,adjetivo de dois generos.substantivo masculino,ter-mi-nal
+filme,fita.pelicula,substantivo masculino,fil-me
+angra,baia.calheta.enseada,substantivo feminino,an-gra
+ativista,militante.defensor,adjetivo de dois generos.substantivo de dois generos,a-ti-vis-ta
+licor,liquido.solucao,substantivo masculino,li-cor
+envelope,sobrescrito,substantivo masculino,en-ve-lo-pe
+bicicleta,zica.camelo.magrela.puxeta,substantivo feminino,bi-ci-cle-ta
+anuncio,pregao.proclamacao.previsao.aviso.indicio,substantivo masculino,a-nun-ci-o
+limpar,enxugar.expurgar.purgar.purificar.assear.lavar.mondar.acrisolar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.irregular,lim-par
+escultor,estatuario,substantivo masculino,es-cul-tor
+separacao,subdivisao.divisao.secessao.fragmentacao.desuniao.desmembracao.desmembramento.desintegracao.desagregacao.desanexacao.ramificacao,substantivo feminino,se-pa-ra-cao
+palavra,termo.vocabulo.frase.declaracao.promessa,interjeicao.substantivo feminino,pa-la-vra
+oliva,azeitona,adjetivo de dois generos e dois numeros.substantivo de dois generos,o-li-va
+tribunal,judicatura,substantivo masculino,tri-bu-nal
+eleito,designado.nomeado,adjetivo.substantivo masculino,e-lei-to
+inundacao,alagamento.aluviao.diluvio.enchente,substantivo feminino,i-nun-da-cao
+cao,mastim.perro.diabo.biltre.canalha.cachorro.capeta,adjetivo.substantivo masculino,cao
+morto,cadaver.defunto.sucumbido,adjetivo.substantivo masculino,mor-to
+filhote,protegido.filho.cria,substantivo masculino,fi-lho-te
+noite,tristeza.sombra.treva,substantivo feminino,noi-te
+embalagem,acondicionamento.enfardamento,substantivo feminino,em-ba-la-gem
+cadeado,aldraba.ferrolho.loquete.tranqueta.trinco,substantivo masculino,ca-de-a-do
+pintinho,pintainho,substantivo masculino,pin-ti-nho
+freezer,congelador,substantivo masculino,fre-e-zer
+identificacao,reconhecimento.consubstanciacao,substantivo feminino,i-den-ti-fi-ca-cao
+tributacao,taxacao,substantivo feminino,tri-bu-ta-cao
+profilatico,preventivo,adjetivo,pro-fi-la-ti-co
+mae,madre.causa.fonte.motivo.origem,substantivo feminino,mae
+mercenario,interesseiro.venal,adjetivo.substantivo masculino,mer-ce-na-ri-o
+suco,seiva,adjetivo.substantivo masculino,su-co
+projetil,pedra.lanca.bala,adjetivo de dois generos.substantivo masculino,pro-je-til
+sofrer,suportar.tolerar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,so-frer
+voce,vossemece,pronome de tratamento.pronome indefinido,vo-ce
+compartimento,divisao,substantivo masculino,com-par-ti-men-to
+febre,temperatura.interesse.desejo.sonho.inquietacao.agitacao.excitacao.moda.entusiasmo.mania.malaria.maleita.sezao,adjetivo de dois generos.substantivo de dois generos,fe-bre
+homossexual,heterossexual,adjetivo de dois generos.substantivo de dois generos,ho-mos-se-xu-al
+estudo,analise,substantivo masculino,es-tu-do
+fatia,pedaco.bocado.mica.naco,substantivo feminino,fa-ti-a
+colo,garganta.regaco.seio,substantivo masculino,co-lo
+erro,equivoco.engano.desacerto.incorrecao,substantivo masculino,er-ro
+tornozelo,maleolo.artelho,substantivo masculino,tor-no-ze-lo
+remetente,destinatario,adjetivo de dois generos.substantivo de dois generos,re-me-ten-te
+cola,grude,substantivo de dois generos,co-la
+forma,aparencia.arquitetura.aspecto.configuracao.conformacao.disposicao.feitio.figura.maneira.modelo.modo.molde.sistema.sorte.talho,substantivo feminino,for-ma
+museu,mistura.reuniao.variedade,substantivo masculino,mu-seu
+poesia,poema.trova.verso,substantivo feminino,po-e-si-a
+rosado,nacarado.roseo,adjetivo.substantivo masculino,ro-sa-do
+maio,maiozinho.primavera,adjetivo.substantivo masculino,mai-o
+entrada,ingressao.acesso.ingresso,substantivo feminino,en-tra-da
+parafuso,prego.cavilha.tarraxa,substantivo masculino,pa-ra-fu-so
+navegar,velejar,verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.regular,na-ve-gar
+maquina,aparelho,substantivo feminino,ma-qui-na
+recipiente,receptaculo.reservatorio.vasilha,adjetivo de dois generos.substantivo masculino,re-ci-pi-en-te
+sorriso,satisfacao.alegria.gentileza,substantivo masculino,sor-ri-so
+caracol,espiral.lesma.ziguezague,substantivo masculino,ca-ra-col
+sabao,censura.repreensao.descompostura,substantivo masculino,sa-bao
+bomba,explosivo.petardo,substantivo feminino,bom-ba
+costureira,modista,substantivo feminino,cos-tu-rei-ra
+orificio,abertura.brecha.buraco.fenda.rombo.ducto,substantivo masculino,o-ri-fi-ci-o
+construcao,edificacao.edificio.mecanismo.obra.sintaxe.sistema.esquema.estrutura,substantivo feminino,cons-tru-cao
+linchar,linchamento,verbo transitivo direto.regular,lin-char
+urna,escrutinio.feretro.capsula.vaso.caixa.receptaculo.eleicao,substantivo feminino,ur-na
+escurecer,abacanar.amorenar.ensombrar.enturvar.negrejar.sombrear.ofuscar.turvar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,es-cu-re-cer
+fritar,frigir,substantivo masculino.verbo intransitivo.verbo transitivo direto.regular,fri-tar
+mulher,dama.senhora.esposa.moca.conjuge,substantivo feminino,mu-lher
+padaria,panificacao,substantivo feminino,pa-da-ri-a
+asno,burro.ignorante.jumento,substantivo masculino,as-no
+alianca,associacao.coligacao.confederacao.federacao,substantivo feminino,a-li-an-ca
+cabra,malandro.mulato.mestico.cabrito.cafuzo,substantivo de dois generos,ca-bra
+internet,web,substantivo feminino,in-ter-net
+formula,preceito.regra.segredo.modelo.receita.recipe,substantivo feminino,for-mu-la
+donzela,moca.senhorinha.solteira.vestal.virgem.aia.dama de companhia,adjetivo feminino.substantivo feminino,don-ze-la
+chines,chim,adjetivo.substantivo masculino,chi-nes
+limpo,lavado.asseado.terso,adjetivo.adverbio.substantivo masculino,lim-po
+fisico,material.aspecto.natural.compleicao.constituicao.corporeo,adjetivo.substantivo masculino,fi-si-co
+zumbido,zoada.zoeira.zunido,adjetivo.substantivo masculino,zum-bi-do
+quitacao,liberacao.recibo.quitamento,substantivo feminino,qui-ta-cao
+poema,cantico.epopeia.hino.ode.salmo,substantivo masculino,po-e-ma
+departamento,provincia.reparticao.distrito.circunscricao.secao,substantivo masculino,de-par-ta-men-to
+oasis,prazer.conforto.bem-estar.palmar.palmeiral,substantivo masculino de dois numeros,o-a-sis
+diversao,entretenimento.passatempo.desvio.divertimento.recreio.distracao,substantivo feminino,di-ver-sao
+mandibula,maxila.maxilar.queixada,substantivo feminino,man-di-bu-la
+furacao,ventania.ciclone.tufao.turbilhao.tempestade.vendaval,substantivo masculino,fu-ra-cao
+mimo,afago.agrado.carinho.caricia.delicadeza.desvelo.dom.dadiva.finura.graca.lembranca.lisonja.meiguice.oferta.prenda.presente.primor.quindim.regalo.caricia,substantivo masculino,mi-mo
+sabor,gosto.paladar.palato,substantivo masculino,sa-bor
+brasil,pau-brasil,adjetivo de dois generos.substantivo de dois generos,bra-sil
+castelo,fortaleza.forte,substantivo masculino,cas-te-lo
+principe,alteza,adjetivo de dois generos.substantivo masculino,prin-ci-pe
+balbuciar,gaguejar.tartamudear.segredar.sussurrar,verbo intransitivo.verbo transitivo direto.regular,bal-bu-ci-ar
+reuniao,juncao.uniao.aglomeracao.aglomerado.conjunto.congregacao,substantivo feminino,re-u-ni-ao
+misturar,baralhar.confundir.desorientar.despistar.enlear,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,mis-tu-rar
+dinamite,petardo,substantivo feminino,di-na-mi-te
+carro,automovel.carruagem.coche.sege.veiculo.viatura,substantivo masculino,car-ro
+sorvete,gelado,substantivo masculino,sor-ve-te
+voto,jura.juramento.promessa.consentimento.aprovacao.sufragio.cedula,substantivo masculino,vo-to
+arado,amanhado.cultivado.lavrado,adjetivo.substantivo masculino,a-ra-do
+negocio,acordo.combinacao.comercio.contrato.convencao.convenio.pacto.tratado,substantivo masculino,ne-go-ci-o
+circo,circuito.circulo.estadio.praca,substantivo masculino,cir-co
+alivio,conforto.consolacao.refrigerio,substantivo masculino,a-li-vi-o
+investimento,aplicacao.emprego.inversao.dinheiro.capital.bens.agressao.ataque.impeto.nomeacao.investidura,substantivo masculino,in-ves-ti-men-to
+xarope,pocao.xaropada.tisana.calda.macador,adjetivo de dois generos.substantivo de dois generos,xa-ro-pe
+ocidente,oeste.poente,substantivo masculino,o-ci-den-te
+violacao,crime.delito.transgressao,substantivo feminino,vi-o-la-cao
+cerebro,cabeca.inteligencia.mioleira.miolo.talento,substantivo masculino,ce-re-bro
+tempero,adubo.condimento,substantivo masculino,tem-pe-ro
+blefe,enganacao.engano.logro.tapeacao.fingimento,substantivo masculino,ble-fe
+egua,guincha.poldra.potra,interjeicao.substantivo feminino,e-gua
+pegar,prender.agarrar.cativar.amparar.segurar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.verbo transitivo indireto.regular,pe-gar
+atleta,desportista,substantivo de dois generos,a-tle-ta
+telha,venerar.veneta,substantivo feminino,te-lha
+sal,espirito.graca.chiste,substantivo masculino,sal
+banhar,aguar.irrigar.regar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,ba-nhar
+plectro,estro.poesia.inspiracao,substantivo masculino,plec-tro
+preservativo,preventivo.defensivo.camisinha.contraceptivo,adjetivo.substantivo masculino,pre-ser-va-ti-vo
+detonar,estourar.estrondar.explodir.desarmar,verbo intransitivo.verbo transitivo direto.regular,de-to-nar
+fertil,fecundante.fecundo.feraz.frutuario.farto.proveitoso.inventivo.criativo,adjetivo de dois generos,fer-til
+submeter,dominar.subjugar.subordinar.sujeitar.controlar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.irregular,sub-me-ter
+obrigatorio,essencial.basico.capital.fundamental.imprescindivel.indispensavel.substancial.vital,adjetivo,o-bri-ga-to-ri-o
+cemiterio,necropole,substantivo masculino,ce-mi-te-ri-o
+cantor,canconetista.bardo.aedo,adjetivo.substantivo masculino,can-tor
+massa,macarrao.povo.multidao.tamanho.volume.dinheiro.pasta,adjetivo de dois generos.substantivo feminino,mas-sa
+forjar,manipular.maquinar.fabricar.inventar.fazer.tramar.urdir,verbo transitivo direto.regular,for-jar
+convento,mosteiro.santuario.claustro.clausura.penitenciaria,substantivo masculino,con-ven-to
+escavacao,depressao.vala.cova.furo.cabouco.desaferro.desentulho.socavao,substantivo feminino,es-ca-va-cao
+molecula,corpusculo,substantivo feminino,mo-le-cu-la
+laranja,alaranjado.ingenuo,adjetivo de dois generos e dois numeros.substantivo de dois generos,la-ran-ja
+ressalto,destaque.relevo.saliencia.ressalte.ricochete.desvio,substantivo masculino,res-sal-to
+numero,algarismo.quorum.quantidade,substantivo masculino,nu-me-ro
+morder,petiscar.debicar.dentar.depenicar.lambiscar.mordiscar.trincar.abocanhar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.regular,mor-der
+pais,patria.terra.meio.nacao.lugar,substantivo masculino,pa-is
+liderar,orientar.conduzir.nortear,verbo intransitivo.verbo transitivo direto.regular,li-de-rar
+choque,abalroacao.abalroamento.colisao.embate.encontro,substantivo masculino,cho-que
+rastejar,inquirir.investigar,verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.regular,ras-te-jar
+seguir,proceder.progredir.prosseguir.avancar.continuar.acompanhar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.irregular,se-guir
+graduado,elevado.douto.distinto.diplomado,adjetivo.substantivo masculino,gra-du-a-do
+pedreiro,trolha.macom.alvanel.guincho.forneiro.gaivao,substantivo masculino,pe-drei-ro
+endereco,sobrescrito,substantivo masculino,en-de-re-co
+olho,atencao.broto.cuidado.furo.gomo.olhar.perspicacia.renovo.vista,interjeicao.substantivo masculino,o-lho
+germe,embriao.fermento.feto.raiz.semente.cicatricula.esporo.germen,substantivo masculino,ger-me
+sismo,abalo.terremoto,substantivo masculino,sis-mo
+engano,equivoco.ilusao.desacerto.taboca.recusa.logro.decepcao.erro.miragem,substantivo masculino,en-ga-no
+ouvir,escutar.auscultar,verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.irregular,ou-vir
+crime,delito.transgressao.violacao,adjetivo de dois generos e dois numeros.substantivo masculino,cri-me
+osso,dificuldade.embaraco,adjetivo.substantivo masculino,os-so
+telefone,aparelho,substantivo masculino,te-le-fo-ne
+resgate,salvacao.libertamento.redencao.salvamento.livramento,substantivo masculino,res-ga-te
+inflamacao,escandescencia.ardor.calor.infeccao.incendimento,substantivo feminino,in-fla-ma-cao
+amigavel,amical.afavel.benigno.conciliador.amistoso.cordial,adjetivo de dois generos,a-mi-ga-vel
+rabino,mestre.rabi,adjetivo.substantivo masculino,ra-bi-no
+primo,essencial.fundamental.indispensavel.primeiro,adjetivo.adverbio.substantivo masculino,pri-mo
+saliva,seiva,substantivo feminino,sa-li-va
+farmacia,botica,substantivo feminino,far-ma-ci-a
+chupar,absorver.aspirar.haurir.sorver.sugar,verbo intransitivo.verbo transitivo direto.regular,chu-par
+bebida,pocao.grito,substantivo feminino,be-bi-da
+decapitar,descabecar.degolar.guilhotinar,verbo transitivo direto.regular,de-ca-pi-tar
+ingreme,clivoso.declivoso.alcantilado.escarpado.abrupto.ladeirento.empinado,adjetivo de dois generos,in-gre-me
+defeito,deformidade.imperfeicao.falha.dano.avaria.enguico.macula.vicio.mania,substantivo masculino,de-fei-to
+vivo,espertalhao.sagaz.astuto.astucioso.arteiro.ardiloso.bulicoso.picaro.manhoso.esperto,adjetivo.substantivo masculino,vi-vo
+temporada,periodo.fase.tempo,substantivo feminino,tem-po-ra-da
+chuva,agua,substantivo de dois generos,chu-va
+um,singular.uno.unico.aproximadamente.primeiro.qualquer,adjetivo.artigo indefinido.numeral.pronome indefinido.substantivo masculino,um
+pomada,charlatanice.presuncao.unguento.peta.impostura.vaidade.intrujice.mentira,substantivo feminino,po-ma-da
+infusao,cozimento,substantivo feminino,in-fu-sao
+camping,acampamento.campismo,substantivo masculino,cam-ping
+pano,fazenda.lado.lanco.superficie.tecido.tela,adjetivo de dois generos.substantivo de dois generos,pa-no
+profundidade,profundeza.altura.fundura,substantivo feminino,pro-fun-di-da-de
+descobrir,desenredar.deslindar.desvendar.achar.encontrar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,des-co-brir
+biblioteca,livraria,substantivo feminino,bi-bli-o-te-ca
+aviso,advertencia.mensagem.recado,substantivo masculino,a-vi-so
+sanduiche,hamburguer,substantivo masculino,san-du-i-che
+operacao,conta.calculo.computo,substantivo feminino,o-pe-ra-cao
+quadro,painel.panorama.pintura.quadrado.quadrilatero.quadrangulo.tela,substantivo masculino,qua-dro
+coma,j.modorra.copa.letargia.cabeleira.torpor.coorte.iba,adverbio.conjuncao.substantivo de dois generos,co-ma
+refletir,espelhar.consultar.deliberar.cuidar.cismar.considerar.pensar.meditar.matutar.exprimir.excogitar.incidir,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,re-fle-tir
+elefante,esmerado,substantivo masculino,e-le-fan-te
+ronco,bazofia.bravata.descarga.urro,adjetivo.substantivo masculino,ron-co
+supersticao,crendice.abusao,substantivo feminino,su-pers-ti-cao
+comer,consumir.manducar.ingerir.ocultar.alimentar.roer.carcomer.manjar.papar,substantivo masculino.verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,co-mer
+droga,medicamento.entorpecente.remedio.narcotico,interjeicao.substantivo de dois generos,dro-ga
+agrilhoado,acorrentado.algemado.encadeado,adjetivo,a-gri-lho-a-do
+despedida,saudacao.fim.termo.acabamento.conclusao.apartado.adeus,substantivo feminino,des-pe-di-da
+polo,polo,substantivo masculino,po-lo
+gotejamento,destilacao,substantivo masculino,go-te-ja-men-to
+barreira,palicada.estorvo.escarpa.barranco.obstaculo.limite.empecilho.talude,substantivo feminino,bar-rei-ra
+adocar,abrandar.acalmar.amenizar.suavizar,verbo pronominal.verbo transitivo direto.regular,a-do-car
+cupido,amor,substantivo masculino,cu-pi-do
+milionario,argentario.rico,adjetivo.substantivo masculino,mi-li-o-na-ri-o
+pessoa,personagem.individuo.individualidade.criatura.ser,substantivo feminino,pes-so-a
+industria,fabrica.manufatura,substantivo feminino,in-dus-tri-a
+aviao,aeronave.aeroplano,substantivo masculino,a-vi-ao
+subtrair,baixar.decrescer.diminuir.encolher.minguar,verbo bitransitivo e circunstancial.verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e indireto.regular,sub-tra-ir
+partida,abalada.saida,substantivo feminino,par-ti-da
+imovel,parado.imoto.quedo.quieto,adjetivo de dois generos.substantivo masculino,i-mo-vel
+arvore,pau,substantivo feminino,ar-vo-re
+minar,escavar.assolapar.cavar.solapar,substantivo masculino.verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.regular,mi-nar
+ameacar,amedrontar.bravatear.sobressaltar.intimidar.assustar.apavorar.prometer.pairar.cafangar,verbo intransitivo.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,a-me-a-car
+alvo,escopo.meta.intuito.mira.niveo.candido.branco.claro.fim.objetivo,adjetivo.substantivo masculino,al-vo
+canoa,escaler.batel.bote,adjetivo de dois generos.substantivo de dois generos,ca-no-a
+rabisco,tracos.risco.garatuja,substantivo masculino,ra-bis-co
+corneta,trombeta.tuba,adjetivo de dois generos.substantivo de dois generos,cor-ne-ta
+juventude,puberdade.adolescencia.juvenilidade.mocidade,substantivo feminino,ju-ven-tu-de
+consulta,parecer.conselho.opiniao,substantivo feminino,con-sul-ta
+vagao,carro.carruagem,substantivo masculino,va-gao
+golpe,pancada.incisao.desgraca.estratagema.ardil.lance.desgosto.reves,substantivo masculino,gol-pe
+medio,meao.medial.mediano.central,adjetivo.substantivo de dois generos,me-di-o
+media,inteiro,substantivo feminino,me-di-a
+lava,chama.fogo.torrente,substantivo feminino,la-va
+bocal,betilho.boca.abertura,substantivo masculino,bo-cal
+punhal,espada.gladio,substantivo masculino,pu-nhal
+dobrado,agachado.alapado.encolhido.vergado,adjetivo.substantivo masculino,do-bra-do
+luta,pendencia.testilha.rixa.recontro.disputa.desavenca.combate.briga.bulha.pugna.peleja.zanga,substantivo feminino,lu-ta
+potro,poldro.corcel,substantivo masculino,po-tro
+ninho,abrigo.antro.covil.esconderijo.guarida.habitacao.lar.valhacouto,substantivo masculino,ni-nho
+costa,praia.litoral.dorso.declive.lombo.marinha,substantivo feminino,cos-ta
+cego,desmedido.alucinado.desvairado.embotado.inconsciente,adjetivo.substantivo masculino,ce-go
+colheita,apanha.coleta.safra.recolhida,substantivo feminino,co-lhei-ta
+catastrofe,adversidade.calamidade.desgraca.fatalidade.flagelo.infortunio.reves.tragedia,substantivo feminino,ca-tas-tro-fe
+ceu,firmamento.tempo.paraiso.celeste,substantivo masculino,ceu
+fantasma,espectro.avantesma.avejao,substantivo masculino,fan-tas-ma
+fumo,exalacao.vapor.fumaca.maconha.tabaco,substantivo masculino,fu-mo
+joelho,articulacao.rotula.colo.regaco,substantivo masculino,jo-e-lho
+berco,cama.comeco.leito.nascimento.origem.procedencia.patria,substantivo masculino,ber-co
+areia,po.silica,adjetivo de dois generos e dois numeros.substantivo de dois generos,a-rei-a
+cirurgiao,medico.operador,substantivo masculino,ci-rur-gi-ao
+rosa,tristeza.amargura.desgraca,adjetivo de dois generos e dois numeros.substantivo de dois generos,ro-sa
+espada,punhal.gladio,substantivo de dois generos,es-pa-da
+enteada,filha,substantivo feminino,en-te-a-da
+verso,poesia.trova,adjetivo.substantivo masculino,ver-so
+meteorito,aerolito,substantivo masculino,me-te-o-ri-to
+segar,finalizar.colher.cortar.separar.ceifar,verbo intransitivo.verbo transitivo direto.regular,se-gar
+real,genuino.autentico.fidedigno.verdadeiro.veridico,adjetivo de dois generos.substantivo de dois generos,re-al
+banco,assento.escabelo.mocho,substantivo de dois generos,ban-co
+floresta,bosque.brenha.mata.selva,substantivo feminino,flo-res-ta
+peludo,cabeludo.viloso,adjetivo.substantivo masculino,pe-lu-do
+lado,ala.flanco,adjetivo.substantivo masculino,la-do
+anchova,enchova,substantivo feminino,an-cho-va
+espectador,testemunha.observador,substantivo masculino,es-pec-ta-dor
+irmao,mano.igual.semelhante.sectario.confrade,adjetivo.substantivo masculino,ir-mao
+antepassado,avito.ancestral.anciao.antigo.ascendente.avoengo.antecessor,adjetivo.substantivo masculino,an-te-pas-sa-do
+algemar,maniatar.manietar,verbo transitivo direto.regular,al-ge-mar
+abrigo,abrigamento.asilo.cobertura.reduto.refugio.resguardo,substantivo masculino,a-bri-go
+murchar,desbotar.emurchecer.mirrar.ressequir.secar.enfraquecer.cair,verbo intransitivo.verbo pronominal.verbo transitivo direto.irregular,mur-char
+esfregar,rostir.cocar.friccionar.rocar.arear,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,es-fre-gar
+curral,aprisco.cercado.redil.estabulo.cercada,substantivo masculino,cur-ral
+pronunciar,proferir.articular.declamar.ler.recitar,verbo pronominal.verbo transitivo direto.regular,pro-nun-ci-ar
+dureza,rijeza.aspereza.austeridade.rispidez.rudeza.severidade,substantivo feminino,du-re-za
+falhar,errar.malograr.baldar.fracassar.frustrar.gorar,verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo indireto.regular,fa-lhar
+hospedagem,estalagem.pousada.albergaria.albergue.hospedaria.hospitalidade,substantivo feminino,hos-pe-da-gem
+tubo,cano.canudo,substantivo masculino,tu-bo
+manchar,enxovalhar.macular.emporcalhar.enodoar.laivar.sujar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.regular,man-char
+definir,esclarecer.decretar.demarcar.delimitar.decidir.determinar.interpretar.declarar.precisar.explicar,verbo pronominal.verbo transitivo direto.regular,de-fi-nir
+hoje,atualmente.presentemente.presente.atualidade,adverbio.substantivo masculino,ho-je
+divorciado,separado,substantivo masculino.adjetivo,di-vor-ci-a-do
+credito,confianca,substantivo masculino,cre-di-to
+apertado,estreito.acanhado,adjetivo.adverbio.substantivo masculino,a-per-ta-do
+dobradica,charneira.gonzo,substantivo feminino,do-bra-di-ca
+chefe,dirigente.encarregado.gerente.patrao.cabeca.lider,substantivo de dois generos,che-fe
+barril,barrica.pipa.tonel,substantivo masculino,bar-ril
+esquilo,serelepe,substantivo masculino,es-qui-lo
+acordeao,concertina.harmonica.sanfona,substantivo masculino,a-cor-de-ao
+antiguidade,ancianidade,substantivo feminino,an-ti-gui-da-de
+corda,amarra.cabo.talinga,substantivo feminino,cor-da
+juiz,julgador.arbitro.magistrado,substantivo masculino,ju-iz
+antidoto,contraveneno.antiveneno,adjetivo.substantivo masculino,an-ti-do-to
+empresa,associacao.cometimento.companhia.designio.empreendimento.negocio,substantivo feminino,em-pre-sa
+paragrafo,item,substantivo masculino,pa-ra-gra-fo
+campones,maloio.aldeao.camponio.ruricola.vilao,adjetivo.substantivo masculino,cam-po-nes
+diretor,mentor.paredro.dirigente.administrador.orientador.guia.cineasta.condutor,adjetivo.substantivo masculino,di-re-tor
+abracar,abarcar.abranger.admitir.adotar.aproximar.cingir.circundar.compreender.conter.encerrar,verbo pronominal.verbo transitivo direto.verbo transitivo direto predicativo.regular,a-bra-car
+corcunda,carcova.corcova.gebo.giba,adjetivo de dois generos.substantivo de dois generos,cor-cun-da
+banho,ablucao.lavadura.lavagem,substantivo masculino,ba-nho
+bruto,bravio.truculento.severo.selvagem.rispido.feroz.cruel.barbaro.brutal.atroz.violento,adjetivo.substantivo masculino,bru-to
+barco,paquete.embarcacao.navio,substantivo masculino,bar-co
+roer,ratar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,ro-er
+logica,coerencia.metodo.raciocinio,substantivo feminino,lo-gi-ca
+colher,plantar.apanhar.recolher.cultivar.colherada,substantivo feminino.verbo bitransitivo.verbo intransitivo.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,co-lher
+completo,lotado.acabado.farto.cheio.atestado.abarrotado.repleto.terminado.concluido.feito,adjetivo.substantivo masculino,com-ple-to
+corso,pilhagem.pirataria,adjetivo.substantivo masculino,cor-so
+colisao,abalroacao.abalroamento.choque.embate.encontro,substantivo feminino,co-li-sao
+esqueleto,ossamenta.ossada.cavername.carcaca.armacao.arcabouco.arcaboico.ossamento.estrutura.ossatura,substantivo masculino,es-que-le-to
+cena,espetaculo.paisagem.palco.panorama.lance,substantivo feminino,ce-na
+fervura,alvoroco.agitacao.ebulicao.efervescencia.cachao.fervedouro,substantivo feminino,fer-vu-ra
+advogado,mediador.defensor.jurisconsulto.jurisperito.jurista.legisperito.legista,adjetivo.substantivo masculino,ad-vo-ga-do
+planeta,astro.casula.paramento,substantivo de dois generos,pla-ne-ta
+politico,polido.cortes.delicado.desconfiado.astuto.estadista,adjetivo.substantivo masculino,po-li-ti-co
+enfeiticar,enamorar.seduzir.encantar.historiar,verbo pronominal.verbo transitivo direto.regular,en-fei-ti-car
+mundo,globo.orbe.universo.firmamento.terra,adjetivo.substantivo masculino,mun-do
+celeiro,grandiosidade.tulha,substantivo masculino,ce-lei-ro
+ar,aparencia.respiracao.folego.vento.razao.semblante.fisionomia.figura.aspecto.atmosfera,substantivo masculino,ar
+novico,aprendiz.inexperiente.novato.novel,adjetivo.substantivo masculino,no-vi-co
+mensageiro,embaixador.legado.emissario,adjetivo.substantivo masculino,men-sa-gei-ro
+sobretudo,especialmente.principalmente.mormente.capa.capote.casaco,adverbio.substantivo masculino,so-bre-tu-do
+centelha,chispa.corisco.fagulha.faisca.faulha,substantivo feminino,cen-te-lha
+cova,algar.gruta.furna.fossa.covil.cavidade.caverna.catacumba.antro.lapa,substantivo feminino,co-va
+pesquisa,perquiricao.perquisicao.averiguacao.devassa.indagacao.inquiricao.investigacao,substantivo feminino,pes-qui-sa
+pulseira,bracelete,substantivo feminino,pul-sei-ra
+apartamento,afastamento,substantivo masculino,a-par-ta-men-to
+mente,entendimento.cognicao.pensamento.intelecto.memoria.lembranca.concepcao.intencao.plano,substantivo feminino,men-te
+curva,rodeio.desvio,substantivo feminino,cur-va
+garganta,gasganete.goela.gorgomilos,adjetivo de dois generos.substantivo de dois generos,gar-gan-ta
+ubere,frutuario.seio.fertil.feraz.fecundo.peito.mama.pubere.produtivo.pomo.seminal,adjetivo de dois generos.substantivo masculino,u-be-re
+doenca,achaque.afeccao.enfermidade.mal.molestia.morbo.padecimento,substantivo feminino,do-en-ca
+promotor,fomentador,adjetivo.substantivo masculino,pro-mo-tor
+contagioso,transmissivel.contagiante,adjetivo,con-ta-gi-o-so
+horrivel,horroroso,adjetivo de dois generos,hor-ri-vel
+monte,cabeco.colina.comoro.monticulo.morro.outeiro,substantivo masculino,mon-te
+relaxamento,afrouxamento.desleixo.desalinho.desmazelo.negligencia.desidia.diarreia.relax,substantivo masculino,re-la-xa-men-to
+selecao,escolha.apuracao.combinado.antologia.selecionado,substantivo feminino,se-le-cao
+suculento,sucoso.sumoso.substancial.sumarento,adjetivo,su-cu-len-to
+gaveta,cacifo,substantivo feminino,ga-ve-ta
+velha,decrepita.caduca,substantivo feminino,ve-lha
+alcatrao,pez.breu.piche,substantivo masculino,al-ca-trao
+cientista,pesquisador.investigador.observador,adjetivo de dois generos.substantivo de dois generos,ci-en-tis-ta
+cachoeira,cascata.catadupa.catarata,substantivo feminino,ca-cho-ei-ra
+praca,rossio.terreiro,substantivo de dois generos,pra-ca
+podre,putrefacto.putrido.decomposto.fetido,adjetivo de dois generos.substantivo de dois generos,po-dre
+armadilha,cilada.emboscada.embuste.insidia,substantivo feminino,ar-ma-di-lha
+sono,letargia,substantivo masculino,so-no
+desenrolar,estender.expandir.alongar.desenvolver.desdobrar.desenroscar,verbo pronominal.verbo transitivo direto.regular,de-sen-ro-lar
+alma,espirito.psique.origem.vida.consciencia.carater.sentimento,substantivo feminino,al-ma
+saude,forca.robustez.saudacao.vigor.brinde,interjeicao.substantivo feminino,sa-u-de
+sermao,pregacao.predica.homilia.bronca,substantivo masculino,ser-mao
+moagem,moedura,substantivo feminino,mo-a-gem
+publicacao,gazeta.jornal,substantivo feminino,pu-bli-ca-cao
+perspectiva,aparencia.panorama.possibilidade.vista.expectativa,substantivo feminino,pers-pec-ti-va
+zero,cifra.nada,numeral.substantivo masculino,ze-ro
+rato,rata.ratazana.ratao.gatuno.ladrao.tratante.excentrico.roedor,adjetivo de dois generos e dois numeros.substantivo masculino,ra-to
+novidade,nova.originalidade.fofoca.mexerico.novo,substantivo feminino,no-vi-da-de
+aba,amparo.apoio.beira.beirada.encosta.falda.fralda.prestigio.protecao.sope.vertente.extremidade,substantivo de dois generos,a-ba
+abc,principios.abecedario.alfabeto,substantivo masculino,abc
+populacao,multidao.povo,substantivo feminino,po-pu-la-cao
+perfurar,abrir.furar.penetrar.terebrar.transfixar.escavar.cavar,verbo transitivo direto.regular,per-fu-rar
+vitima,martir,substantivo feminino,vi-ti-ma
+sul,meridional,adjetivo de dois generos.substantivo masculino,sul
+celebracao,festividade.festejo.comemoracao,substantivo feminino,ce-le-bra-cao
+arranhao,escoriacao.esfoladura.arranhadura.raspao,substantivo masculino,ar-ra-nhao
+turbulencia,perturbacao.desordem.inquietacao.agitacao.motim.alvoroto,substantivo feminino,tur-bu-len-ci-a
+evaporar,evolar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,e-va-po-rar
+traseiro,posterior,adjetivo.substantivo masculino,tra-sei-ro
+maremoto,tsunami,substantivo masculino,ma-re-mo-to
+vale,cupao.depressao.grota.varzea,interjeicao.substantivo masculino,va-le
+irritacao,exacerbacao.exasperacao.colera,substantivo feminino,ir-ri-ta-cao
+transportar,acarrear.acarretar.carrear.conduzir,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,trans-por-tar
+congelar,enregelar.gelar.gelificar.regelar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,con-ge-lar
+medico,clinico.galeno,adjetivo.substantivo masculino,me-di-co
+conta,calculo.computo.operacao,substantivo feminino,con-ta
+espaco,dimensao.durabilidade.duracao.extensao.superficie.area,substantivo masculino,es-pa-co
+anedota,piada.historieta.episodio.caso,substantivo feminino,a-ne-do-ta
+surpresa,espanto.emocao.comocao.imprevisto.assombro.admiracao.abalo.presente.pasmo.espavento.susto,substantivo feminino,sur-pre-sa
+alienigena,estrangeiro.estranho.forasteiro.extraterrestre,adjetivo de dois generos.substantivo de dois generos,a-li-e-ni-ge-na
+bochecha,engano.burla.mentira,substantivo feminino,bo-che-cha
+trecho,excerto.extrato.fragmento.lance.lanco.parte.passagem.passo.situacao,substantivo masculino,tre-cho
+ampliar,estender.desenvolver.avultar.aumentar.amplificar.acrescer.acrescentar.alongar.medrar.expandir.dilatar,verbo pronominal.verbo transitivo direto.regular,am-pli-ar
+capela,ermida.santuario.templo.orada,substantivo feminino,ca-pe-la
+precipicio,profundeza.abismo.abisso.barranco.despenhadeiro,substantivo masculino,pre-ci-pi-ci-o
+corte,corte.patio.paco,substantivo feminino,cor-te
+enfermeira,enfermeiro,substantivo feminino,en-fer-mei-ra
+transbordar,extravasar.trasbordar,verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.regular,trans-bor-dar
+torre,campanario,substantivo feminino,tor-re
+nuca,cerviz,substantivo feminino,nu-ca
+computador,calculador.calculista.pc,substantivo masculino,com-pu-ta-dor
+estouro,estampido.estrepito.estrondo.estoiro.traque.troada,substantivo masculino,es-tou-ro
+rapinagem,pilhagem.furto.latrocinio.rapacidade.rapina,substantivo feminino,ra-pi-na-gem
+caca,busca.encalco.investigacao.perseguicao.procura.cacada,substantivo de dois generos,ca-ca
+dez,dezena.decada,numeral.substantivo masculino de dois numeros,dez
+articulacao,pronunciacao.fala,substantivo feminino,ar-ti-cu-la-cao
+importacao,exportacao,substantivo feminino,im-por-ta-cao
+salto,pinote.pincho.cabriola.pulo,substantivo masculino,sal-to
+ponta,bico,substantivo de dois generos,pon-ta
+agrupar,coligir.juntar.reunir.adir.ajuntar.grupar.colecionar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,a-gru-par
+ponto,assunto.materia.objeto.tema.topico,substantivo masculino,pon-to
+azul,firmamento.ceu,adjetivo de dois generos.substantivo masculino,a-zul
+sueter,pulover,substantivo de dois generos,su-e-ter
+fama,gloria.nomeada.notabilidade.renome.reputacao.notoriedade.boato,substantivo de dois generos,fa-ma
+concordar,estribar.aprovar.admitir.apoiar.assinar.subscrever.aceitar,verbo bitransitivo.verbo bitransitivo indireto.verbo intransitivo.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,con-cor-dar
+mapa,planta.relacao.carta.lista.quadro,substantivo masculino,ma-pa
+musica,harmonia.melopeia.melodia.filarmonica.orquestra,substantivo feminino,mu-si-ca
+musico,musical,adjetivo.substantivo masculino,mu-si-co
+arremesso,lancadura,substantivo masculino,ar-re-mes-so
+estrabico,zambaio.vesgo.zanaga.zarolho,adjetivo.substantivo masculino,es-tra-bi-co
+sesta,madorna.meridiana,substantivo feminino,ses-ta
+ferramenta,instrumento.utensilio,substantivo feminino,fer-ra-men-ta
+tartaruga,cagado,substantivo de dois generos,tar-ta-ru-ga
+plano,macio.chato.liso.raso.rente.res,adjetivo.substantivo masculino,pla-no
+rosto,cara.face.faceta.rostro,substantivo masculino,ros-to
+orbita,trajectoria,substantivo feminino,or-bi-ta
+seca,estiagem.estio.macada.verao.aborrecimento.enfado.amolacao,substantivo de dois generos.substantivo feminino,se-ca
+barba,mento,substantivo feminino,bar-ba
 dentro,intimamente.incluido.incorporado.anexo.incluso.adentro.interiormente,adverbio.interjeicao,den-tro
-mascote,talisma.amuleto,substantivo feminino.substantivo masculino,mas-co-te
+aproximacao,abeiramento.avizinhamento.chegada.acesso,substantivo feminino,a-pro-xi-ma-cao
+personalidade,efigie.individualidade.vulto.celebridade.imagem.pessoalidade,substantivo feminino,per-so-na-li-da-de
+vendedor,pracista,adjetivo.substantivo masculino,ven-de-dor
+papel,personagem.dever.obrigacao.funcao.emprego,adjetivo de dois generos.substantivo de dois generos,pa-pel
+cabana,palhoca.colmado,substantivo feminino,ca-ba-na
+estreia,comeco.inauguracao.inicio.luzeiro,substantivo feminino,es-trei-a
+segurar,pegar.prender.agarrar.cativar.amparar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.irregular,se-gu-rar
+passagem,cedencia.passadico.passadoiro.transicao.cessao.delegacao.transferencia,substantivo feminino,pas-sa-gem
+comedia,dissimulacao.farsa.fingimento.hipocrisia.teatro,substantivo feminino,co-me-di-a
+argentino,patagao.prateado.argenteo.patagonio,adjetivo.substantivo masculino,ar-gen-ti-no
+ficar,permanecer,verbo intransitivo.verbo predicativo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto e indireto.verbo transitivo indireto.regular,fi-car
+parceria,sociedade.acordo.uniao.companhia,substantivo feminino,par-ce-ri-a
+dedo,aptidao.ato.habilidade.jeito,substantivo masculino,de-do
+recreacao,entretenimento.parque.passatempo.divertimento.recreio.folguedo.desporto.distracao,substantivo feminino,re-cre-a-cao
+porta,passagem.entrada.caminho.acesso.abertura.ingresso.adito,substantivo feminino,por-ta
+cercar,contornar.encurralar.ladear.rodear,verbo transitivo direto.verbo transitivo direto e indireto.regular,cer-car
+macarrao,massa,substantivo masculino,ma-car-rao
+mendigo,pedinte.pobre.mendicante,substantivo masculino,men-di-go
+mental,espiritual.intelectual,adjetivo de dois generos,men-tal
+piada,graca.chalaca.laracha,substantivo feminino,pi-a-da
+palha,junto.caule.vime.camisa.cartucho.folhelho.nada.minucia.banalidade.canudo.roca.milharal.ruim.mau.inferior.chato.aborrecido.enfadonho,adjetivo de dois generos.substantivo feminino,pa-lha
+todo,composto.completo.idiota.integro.total.inteiro.cada.totalmente,adjetivo.adverbio.pronome indefinido.pronome indefinido plural.substantivo masculino,to-do
+milho,dinheiro,adjetivo.substantivo masculino,mi-lho
+coberto,obducto.velado.oculto.latente.encoberto.acacapado.tapado.resguardado.enroupado.sonegado.escondido.vestido,adjetivo.substantivo masculino,co-ber-to
+ameaca,prenuncio.ameaco.arremesso.advertencia.intimacao.bravata.cominacao,substantivo feminino,a-me-a-ca
+caravana,comboio.frota,substantivo feminino,ca-ra-va-na
+secretario,auxiliar.ajudante.ministro,substantivo masculino,se-cre-ta-ri-o
+guincho,berro.grito.guindaste,substantivo masculino,guin-cho
+projeto,esquema.tracado.traco.plano.esboco.programacao.programa.planta.prospecto,substantivo masculino,pro-je-to
+blusa,camisa.sueter.jaqueta.jaleco.avental.bata,substantivo feminino,blu-sa
+prender,pegar.unir.enredar.coadunar.atar.amarrar.adstringir.amparar.anexar.juntar.cativar.ligar.agarrar.segurar,verbo bitransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.verbo transitivo indireto.irregular,pren-der
+combinacao,pacto.acordo.contrato.convencao.convenio.negocio.tratado,substantivo feminino,com-bi-na-cao
+vizinho,propinquo.proximo.chegado.confinante.imediato.adjacente.convizinho,adjetivo.substantivo masculino,vi-zi-nho
+puberdade,pubescencia.adolescencia.juvenilidade.juventude.mocidade,substantivo feminino,pu-ber-da-de
+perseguicao,persecucao.acossa.acossamento,substantivo feminino,per-se-gui-cao
+temperatura,tempera,substantivo feminino,tem-pe-ra-tu-ra
+nome,denominacao.titulo.antenome.prenome.sobrenome.familia.apelido,substantivo masculino,no-me
+estresse,estriccao.estricao,substantivo masculino,es-tres-se
+adorno,adereco.atavio.enfeite.ornamento,substantivo masculino,a-dor-no
+guilhotina,forca.patibulo.cadafalso,substantivo feminino,gui-lho-ti-na
+banana,palerma.idiota.molenga,substantivo de dois generos,ba-na-na
+natureza,natura.essencia.tipo.carater,substantivo feminino,na-tu-re-za
+colina,cabeco.comoro.monte.monticulo.morro.outeiro,substantivo feminino,co-li-na
+seta,dardo.flecha.lanca,adjetivo de dois generos.substantivo de dois generos,se-ta
+vocal,oral.verbal,adjetivo de dois generos.substantivo masculino,vo-cal
+fixar,estabilizar.assentar.alicercar.cimentar.consolidar.firmar.fundar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,fi-xar
+gemeo,igual.proximo.semelhante,adjetivo.substantivo masculino,ge-me-o
+tabela,tabua,substantivo feminino,ta-be-la
+ruga,carquilha.prega.plica.dobra.refolho.vinco.gelha,substantivo feminino,ru-ga
+pilha,montao.acervo.ror.rima,substantivo de dois generos,pi-lha
+gala,pompa.ostentacao.fausto.solenidade.jactancia,adjetivo de dois generos.substantivo de dois generos,ga-la
+galo,equimose.inchacao.tumor,adjetivo de dois generos.substantivo de dois generos,ga-lo
+engrenagem,mecanismo,substantivo feminino,en-gre-na-gem
+revelar,evidenciar.patentear.confessar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,re-ve-lar
+selo,carimbo.chancela.sinete.timbre,adjetivo.substantivo masculino,se-lo
+travesseiro,almofada,substantivo masculino,tra-ves-sei-ro
+internar,afundar,verbo pronominal.verbo transitivo direto.regular,in-ter-nar
+gaiola,prisao.cadeia.carcere.jaula,substantivo de dois generos,gai-o-la
+estojo,capsula.caixa,substantivo masculino,es-to-jo
+separado,desviado.desagregado.despegado.dissociado.cortado.apartado.desunido,adjetivo.substantivo masculino,se-pa-ra-do
+bailarina,bailadeira.dancadeira.dancarina,substantivo feminino,bai-la-ri-na
+nivel,paridade.estado.norma.igualdade.situacao.horizontalidade,substantivo masculino,ni-vel
+poluir,conspurcar,verbo pronominal.verbo transitivo direto.regular,po-lu-ir
+copia,exemplar.afluencia.duplicata.extrato.quantidade.transcrito.apografo.arremedo.decalque.abastanca.fartura.abastamento.multidao.abundancia.imitacao.reproducao.traslado.transcricao.acervo.transunto,substantivo feminino,co-pi-a
+cercado,cingido.circunvalado.encurralado.ladeado.sitiado,adjetivo.substantivo masculino,cer-ca-do
+maca,macaneta.bezoar,substantivo feminino,ma-ca
+aldeola,lugarejo.arraial,substantivo feminino,al-de-o-la
+desafio,duelo.repto,substantivo masculino,de-sa-fi-o
+cordeiro,agno.manso.docil.humilde.carneiro.anho,substantivo masculino,cor-dei-ro
+gravador,burilador,adjetivo.substantivo masculino,gra-va-dor
+grama,erva.relva,substantivo de dois generos,gra-ma
+casulo,alveolo.abrigo.crisalida,substantivo masculino,ca-su-lo
+orfao,desamparado.desvalido.privado.abandonado,adjetivo.substantivo masculino,or-fao
+jogada,lance.cartada,substantivo feminino,jo-ga-da
+embrulho,pacote,substantivo masculino,em-bru-lho
+ampola,bolha.borbulha.empola,substantivo feminino,am-po-la
+superar,sobrepujar.suplantar.ultrapassar.vencer.subjugar.dominar.dobrar.sobrelevar.exceder.remover.resolver,verbo pronominal.verbo transitivo direto.regular,su-pe-rar
+carne,polpa,substantivo de dois generos,car-ne
+fino,magro.delgado.franzino,adjetivo.adverbio.substantivo masculino,fi-no
+fina,fino.finura.cortante.boa.cortes.delicada.astucia,substantivo feminino.adjetivo,fi-na
+varanda,palanque.tribuna,substantivo feminino,va-ran-da
+desenho,esboco.escorco.estampa.figura.tracado.gravura.ilustracao.imagem,substantivo masculino,de-se-nho
+pugilista,boxista.boxeador,substantivo de dois generos,pu-gi-lis-ta
+provincia,interior.regiao.distrito.cidade,substantivo feminino,pro-vin-ci-a
+zumbi,alma.espirito.fantasma.zambi,substantivo masculino,zum-bi
+tapecaria,alcatifa.tapete,substantivo feminino,ta-pe-ca-ri-a
+relampago,raio,adjetivo de dois generos.substantivo masculino,re-lam-pa-go
+deserto,abandonado.desabitado.despovoado.ermo,adjetivo.substantivo masculino,de-ser-to
+autopsia,necropsia.autopse.autopsia,substantivo feminino,au-top-si-a
+acusado,criminado.denunciado.culpado.indiciado.reu,adjetivo.substantivo masculino,a-cu-sa-do
+canhao,peca,substantivo masculino,ca-nhao
+capsula,envoltorio.involucro,substantivo feminino,cap-su-la
+correio,mensageiro.estafeta.posta.correspondencia,substantivo masculino,cor-rei-o
+receita,prescricao.recipe,substantivo feminino,re-cei-ta
+prescricao,receita.recipe.determinacao.regra.principio.ordem.ditame,substantivo feminino,pres-cri-cao
+motocicleta,moto.motoca.motociclo,substantivo feminino,mo-to-ci-cle-ta
+altura,profundeza.profundidade.fundura,substantivo feminino,al-tu-ra
+publicidade,propaganda.divulgacao.notoriedade.vulgarizacao,substantivo feminino,pu-bli-ci-da-de
+icebergue,iceberg,substantivo masculino,i-ce-ber-gue
+aro,anel.argola,substantivo masculino,a-ro
+piso,andar.assoalho.pavimento.soalho,substantivo masculino,pi-so
+fazenda,herdade.quinta.rancho,substantivo feminino,fa-zen-da
+malha,pirraca.laco.enredo.trama.pinta.malhada,substantivo feminino,ma-lha
+creme,nata,adjetivo de dois generos e dois numeros.substantivo masculino,cre-me
+pagar,remunerar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.verbo transitivo indireto e circunstancial.irregular,pa-gar
+spray,liquido,substantivo masculino,spray
+tres,trinca.terceiro,numeral.substantivo masculino de dois numeros,tres
+acampamento,abarracamento.aquartelamento.bivaque,substantivo masculino,a-cam-pa-men-to
+impressao,sensacao.sentimento.palpite,substantivo feminino,im-pres-sao
+suspiro,aspiracao.lamento.inspiracao.respiradouro,substantivo masculino,sus-pi-ro
+automatico,maquinal,adjetivo.substantivo masculino,au-to-ma-ti-co
+imortal,imorredoiro.imorredouro.imperecivel,adjetivo de dois generos.substantivo de dois generos,i-mor-tal
+alinhar,perfilar.compor.igualar.regrar.retificar.enfileirar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,a-li-nhar
+pessoal,particular.privado.individual.exclusivo.subjetivo.proprio,adjetivo de dois generos.substantivo de dois generos,pes-so-al
+rezar,orar.suplicar.certificar.determinar.ordenar.falar.murmurar,verbo regencia multipla.verbo transitivo direto.regular,re-zar
+bussola,orientacao.guia,substantivo feminino,bus-so-la
+escritorio,dependencia.agencia.filial.sucursal,substantivo masculino,es-cri-to-ri-o
+epitafio,epigrafe.inscricao.louvor.enaltecimento.tumulo.lapide.sepulcro,substantivo masculino,e-pi-ta-fi-o
+investigador,pesquisador.cientista.observador,adjetivo.substantivo masculino,in-ves-ti-ga-dor
+frito,perdido.prejudicado.liquidado,adjetivo.substantivo masculino,fri-to
+ditador,potentado.soberano,substantivo masculino,di-ta-dor
+marcha,estirao.passeio.caminhada.jornada,substantivo feminino,mar-cha
+talco,esteatita.ouropel,substantivo masculino,tal-co
+planta,mapa.vegetal,substantivo feminino,plan-ta
+libertacao,alforria.emancipacao,substantivo feminino,li-ber-ta-cao
+sombra,guarda-sol,substantivo feminino,som-bra
+simbolo,distintivo.emblema.insignia.marca.comparacao.alegoria.metafora,substantivo masculino,sim-bo-lo
+declarar,afirmar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,de-cla-rar
+categoria,camada.classe.estrato.divisao.subdivisao,substantivo feminino,ca-te-go-ri-a
+bagagem,arrecova.equipagem.tralha,substantivo feminino,ba-ga-gem
+inimigo,opoente.opositor.oponente.justador.contendor.contendedor.competidor.adversario.rival,adjetivo.substantivo masculino,i-ni-mi-go
+aquario,viveiro,adjetivo.substantivo masculino,a-qua-ri-o
+rio,curso.agua.torrente,substantivo masculino,ri-o
+sarda,efelide,substantivo feminino,sar-da
+triplo,triplice,adjetivo.numeral.substantivo masculino,tri-plo
+calabouco,ergastulo.prisao.enxovia.masmorra.cadeia.carcere,substantivo masculino,ca-la-bou-co
+remedio,farmaco.medicamento,substantivo masculino,re-me-di-o
+mascarar,esconder.paliar.disfarcar.dissimular.embucar.encapotar.encobrir,verbo pronominal.verbo transitivo direto.verbo transitivo direto predicativo.regular,mas-ca-rar
+conectar,acessar.ligar.unir.agregar.conetar.interligar,verbo bitransitivo.verbo pronominal.verbo transitivo direto.regular,co-nec-tar
+enfurecer,exasperar.tempestuar.raivar.irritar.enraivecer.enervar.encolerizar.embravecer.desesperar.assomar.acirrar.abespinhar.irar.zangar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,en-fu-re-cer
+literatura,bibliografia,substantivo feminino,li-te-ra-tu-ra
+inflar,inchar.intumescer.aflar.soprar.empolar.empandeirar.enfunar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,in-flar
+censura,exprobacao.increpacao.repreensao,substantivo feminino,cen-su-ra
+nervosismo,desinquietacao.apoquentacao.desassossego.inquietacao.ralacao,substantivo masculino,ner-vo-sis-mo
+tiroteio,troada,substantivo masculino,ti-ro-tei-o
+labirinto,complicacao.confusao.dedalo.embaraco.enredo.meada,substantivo masculino,la-bi-rin-to
+deportar,expatriar.degredar,verbo transitivo direto.verbo transitivo direto e circunstancial.regular,de-por-tar
+estofar,acolchoar.chumacar,verbo transitivo direto.regular,es-to-far
+percentagem,comissao.porcentagem,substantivo feminino,per-cen-ta-gem
+escolta,guarda.acompanhamento.sequito.piquete,substantivo feminino,es-col-ta
+maravilha,portento.encanto,adjetivo de dois generos e dois numeros.substantivo de dois generos,ma-ra-vi-lha
+tranca,madeixa.intriga.rabicho,substantivo feminino,tran-ca
+parente,afim.analogo.congenere.igual.semelhante.aparentado.parecido,adjetivo de dois generos.substantivo de dois generos,pa-ren-te
+calor,ardor,substantivo masculino,ca-lor
+abobada,arcada.arqueamento.cupula.zimborio.aboboda,substantivo feminino,a-bo-ba-da
+erosao,corrosao,substantivo feminino,e-ro-sao
+emigrar,homiziar,verbo intransitivo.verbo transitivo circunstancial.verbo transitivo indireto.regular,e-mi-grar
+monstro,aborto.monstruosidade,adjetivo de dois generos e dois numeros.substantivo masculino,mons-tro
+tomar,capturar.conquistar.beber.ingerir,verbo bitransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e indireto.regular,to-mar
+transpiracao,exsudacao.suor.transudacao.sudacao,substantivo feminino,trans-pi-ra-cao
+sufragio,votacao.eleicao,substantivo masculino,su-fra-gi-o
+marca,pecha.assinalamento.pinta.mossa.signo.nota.firma.estigma.cicatriz.divisa.timbre.chancela.limite.categoria.sinal.cunho,substantivo feminino,mar-ca
+albino,alvo.claro,adjetivo.substantivo masculino,al-bi-no
+bolsa,maleta.carteira.capanga.mochila.saco.valise,substantivo de dois generos,bol-sa
+bolso,algibeira,substantivo masculino,bol-so
+popular,conhecido.vulgar.notorio.sabido.democratico,adjetivo de dois generos.substantivo de dois generos,po-pu-lar
+motor,causador.agente.impulsor.mobil,adjetivo.substantivo masculino,mo-tor
+soma,adicao,substantivo de dois generos,so-ma
+lenda,mito,substantivo feminino,len-da
+espantalho,estafermo.paspalho,substantivo masculino,es-pan-ta-lho
+publico,povo.manifesto.comum.notorio.sabido.apregoado.auditorio,adjetivo.substantivo masculino,pu-bli-co
+ulcera,chaga,substantivo feminino,ul-ce-ra
+ovacao,aplauso,substantivo feminino,o-va-cao
+fragmento,mica.miga.migalha.migalho.pedaco.excerto.secao,substantivo masculino,frag-men-to
+bicada,picada,substantivo feminino,bi-ca-da
+apoio,base.fundamento.suporte.ajuda.contribuicao.protecao.defesa.aceitacao.anuencia.argumento.prova.comprovacao,substantivo masculino,a-poi-o
+armadura,contextura.conexao.cota.couraca.madeiramento.vigamento,substantivo feminino,ar-ma-du-ra
+templo,abadia.basilica.catedral.convento.igreja.mosteiro.presbiterio.santuario.se.adito,substantivo masculino,tem-plo
+pele,couro.cutis.epiderme.tez.casca.membrana,substantivo de dois generos,pe-le
+provisao,abastecimento.aprovisionamento.fornecimento.provimento.abundancia.reserva,substantivo feminino,pro-vi-sao
+cintura,cinta.cinto,substantivo feminino,cin-tu-ra
+dirigivel,aerostato.balao,adjetivo de dois generos.substantivo masculino,di-ri-gi-vel
+ufo,ovni,substantivo masculino,u-fo
+odor,perfume.fedor.aroma.cheiro.fragrancia.olor.olencia,substantivo masculino,o-dor
+rua,logradouro,interjeicao.substantivo feminino,ru-a
+goma,polvilho.amido.borracha,substantivo feminino,go-ma
+perpendicular,normal,adjetivo de dois generos.substantivo feminino.verbo intransitivo.regular,per-pen-di-cu-lar
+idade,epoca.era.estacao.quadra.velhice,substantivo feminino,i-da-de
+fechado,encerrado.entupido.obstruido.cerrado.ocluso.selado.tapado,adjetivo.substantivo masculino,fe-cha-do
+injetar,inocular,verbo bitransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,in-je-tar
+batalha,guerra,substantivo feminino,ba-ta-lha
+inscricao,matricula.letreiro,substantivo feminino,ins-cri-cao
+violino,rabeca.rebeca.violinista,substantivo masculino,vi-o-li-no
+arrumador,roaz,adjetivo.substantivo masculino,ar-ru-ma-dor
+colecao,excesso.repositorio.compilacao.arquivo.acumulo.coletanea,substantivo feminino,co-le-cao
+fantasia,ficcao.ilusao.devaneio.imaginacao.quimera.sonho.visao,substantivo feminino,fan-ta-si-a
+gastar,deteriorar.estragar.inutilizar.despender.consumir.destruir.arruinar.empregar.usar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.irregular,gas-tar
+pintado,matizado.tingido.variegado.colorido.sarapintado,adjetivo.substantivo masculino,pin-ta-do
+imitacao,plagio.contrafaccao.copia.reproducao.traslado,substantivo feminino,i-mi-ta-cao
+guidao,guiao.direcao.volante.guidom,substantivo masculino,gui-dao
+cabo,amarra.corda.talinga,substantivo masculino,ca-bo
+escolher,adotar.designar.eleger.nomear.optar.selecionar.usar.preferir.filtrar.assinalar,verbo bitransitivo.verbo transitivo direto.regular,es-co-lher
+varinha,bastonete,substantivo feminino,va-ri-nha
+predicao,vaticinacao,substantivo feminino,pre-di-cao
+insonia,insonolencia.insolencia.espertina,substantivo feminino,in-so-ni-a
+sinal,indicio.vestigio,substantivo masculino,si-nal
+amputar,estropiar.decepar.mutilar,verbo transitivo direto.regular,am-pu-tar
+harem,lupanar.serralho,substantivo masculino,ha-rem
+dados,conhecimentos.saberes,substantivo masculino plural,da-dos
+ator,comediante,substantivo masculino,a-tor
+punicao,pena.penalidade.licao.castigo,substantivo feminino,pu-ni-cao
+verniz,finura.distincao.lustre.polimento,substantivo masculino,ver-niz
+mansao,morada.casa.lar.moradia.vivenda,substantivo feminino,man-sao
+tensao,preocupacao.medo.ansiedade.pressao.voltagem.distensao.estiramento,substantivo feminino,ten-sao
+cinzeiro,borralho,substantivo masculino,cin-zei-ro
+governo,administracao.gestao.governanca,substantivo masculino,go-ver-no
+foguete,rojao.repreensao.descompostura,adjetivo de dois generos.substantivo masculino,fo-gue-te
+goleiro,guardiao,substantivo masculino,go-lei-ro
+dinheiro,moeda.numerario.quantia.verba.cedula,substantivo masculino,di-nhei-ro
+desfrutar,gozar.usufruir.apreciar.zombar,verbo transitivo direto.verbo transitivo indireto.regular,des-fru-tar
+circuito,giro.rodeio.rotacao.volta,substantivo masculino,cir-cui-to
+ontem,outrora.vespera,adverbio.substantivo masculino,on-tem
+escrita,caligrafia.letra.escritura.estilo.escrituracao,substantivo feminino,es-cri-ta
+desfile,parada,substantivo masculino,des-fi-le
+chao,pavimento.soalho.solo.simples.terra,adjetivo.substantivo masculino,chao
+chamariz,engodo.isca,substantivo masculino,cha-ma-riz
+papagaio,louro,adjetivo.interjeicao.substantivo masculino,pa-pa-gai-o
+urgencia,premencia.necessidade,substantivo feminino,ur-gen-ci-a
+manequim,modelo.boneco.fantoche.titere,substantivo de dois generos,ma-ne-quim
+cura,paroco.abade.sacerdote.tratamento.vigario.clerigo.emenda.terapeutica.pastor.confessor,substantivo de dois generos,cu-ra
+cafe,moca.botequim.bar,adjetivo de dois generos e dois numeros.substantivo masculino,ca-fe
+mordomo,caseiro,substantivo masculino,mor-do-mo
+engolir,lambear.devorar.lamber.tragar.deglutir,verbo transitivo direto.regular,en-go-lir
+cadeia,ergastulo.prisao.enxovia.masmorra.calabouco.carcere,substantivo feminino,ca-dei-a
+semente,germen,substantivo feminino,se-men-te
+assassinato,assassinio.homicidio,substantivo masculino,as-sas-si-na-to
+conselho,juizo.parecer.recomendacao.opiniao.comissao.diretoria.prudencia.tino.assembleia.sabedoria,substantivo masculino,con-se-lho
+perfil,aspecto.contorno.feicao.representacao,substantivo masculino,per-fil
+dardo,flecha.lanca.seta.venabulo,adjetivo.substantivo masculino,dar-do
+citacao,mencao.notificacao.cita,substantivo feminino,ci-ta-cao
+maos,garra.mao,substantivo feminino plural,maos
+militante,combatente.soldado,adjetivo de dois generos.substantivo de dois generos.substantivo masculino,mi-li-tan-te
+missil,foguete,adjetivo de dois generos.substantivo masculino,mis-sil
+jacare,crocodilo.tambor.monjolo.tamboril.lagarto.despacho.feitico.macumba.colarinho,adjetivo de dois generos.substantivo de dois generos,ja-ca-re
+fenda,racha.rombo.orificio.buraco.brecha.abertura.sulco.greta.frincha.fresta.fissura.diafragma,substantivo feminino,fen-da
+pagamento,prestacao.reembolso.recompensa.salario.remuneracao.ordenado.comissao.volta.embolso,substantivo masculino,pa-ga-men-to
+representar,simbolizar.retratar.significar.refletir.patentear.encenar,verbo bitransitivo.verbo intransitivo.verbo transitivo direto.regular,re-pre-sen-tar
+visita,visitante.menstruacao.visitacao,substantivo feminino,vi-si-ta
+ladrao,ratoneiro.gatuno.larapio.rapace.rapinante.vigarista,adjetivo.substantivo masculino,la-drao
+selvagem,achavascado.rude.inculto.desabrido.bronco.violento.truculento.severo.rispido.feroz.cruel.barbaro.bruto.brutal.atroz.bravio.agreste.tosco,adjetivo de dois generos.substantivo de dois generos,sel-va-gem
+outono,ocaso,substantivo masculino,ou-to-no
+teto,habitacao.cobertura.casa.lar.estuque,substantivo masculino,te-to
+teta,ubre.mama.peito.ubere,substantivo de dois generos e dois numeros,te-ta
+mentira,endromina.balao.embromacao.lorota.mendacidade.caraminhola.invencionice.patarata.lenda.novela.lampana.maranhao.pomada.patranha.peta.balela.embuste.falsidade.potoca,substantivo feminino,men-ti-ra
+excursao,passeata.passeio.digressao.invasao,substantivo feminino,ex-cur-sao
+ataque,investida.ofensiva.acesso.disputa.ofensa.injuria,substantivo masculino,a-ta-que
+aquecimento,esquentacao.calefacao.acaloramento.entusiasmo.excitacao.exaltacao,substantivo masculino,a-que-ci-men-to
+gordura,adiposidade.banha.obesidade,substantivo de dois generos,gor-du-ra
+acalmar,abrandar.adocar.amenizar.suavizar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,a-cal-mar
+astronauta,cosmonauta.espaconauta,substantivo de dois generos,as-tro-nau-ta
+garantir,prometer.afiancar.caucionar,verbo transitivo direto.verbo transitivo direto e indireto.regular,ga-ran-tir
+cavalo,pingo.corcel.montaria,substantivo masculino,ca-va-lo
+pingente,brinco.berloque,substantivo masculino,pin-gen-te
+lancamento,escrituracao.registro.assentamento,substantivo masculino,lan-ca-men-to
+listra,estria.raia.raja,substantivo feminino,lis-tra
+vestir,entrajar.enroupar.trajar,substantivo masculino.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,ves-tir
+veredito,veredicto,substantivo masculino,ve-re-di-to
+agua,chuva,substantivo de dois generos,a-gua
+toalete,penteadeira.roupa.vestimenta.banheiro.toucador,substantivo de dois generos,to-a-le-te
+explosao,detonacao,substantivo feminino,ex-plo-sao
+magia,encanto.feitico.bruxaria.feiticaria.magica,substantivo feminino,ma-gi-a
+criatura,individuo.pessoa.ser,substantivo feminino,cri-a-tu-ra
+roubar,escamotear.surripiar.saquear.rapinar.larapiar.furtar.empalmar.arrebatar.tirar.abafar.raptar,verbo intransitivo.verbo pronominal.verbo regencia multipla.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,rou-bar
+careca,calvicie.calva.calvo,adjetivo de dois generos.substantivo de dois generos,ca-re-ca
+radio,emissora.radiofusao.radiodifusora.radioemissora.radiograma,substantivo de dois generos,ra-di-o
+assado,apertura.irritado.dificuldade.zangado.queimado.torrado.embaraco.churrasco,adjetivo.substantivo masculino,as-sa-do
+freira,madre,substantivo feminino,frei-ra
+vela,cirio.filtro,substantivo feminino,ve-la
+filtro,passador,substantivo masculino,fil-tro
+video,filme.fita.cassete.clipe.videoclipe.televisao.monitor.televisor,substantivo masculino,vi-de-o
+ofensivo,agressivo.hostil.invasivo,adjetivo,o-fen-si-vo
+veiculo,automovel.carro.viatura,substantivo masculino,ve-i-cu-lo
+contagem,descricao.enumeracao.escrutinacao.escrutinio.escore.placar,substantivo feminino,con-ta-gem
+cozinhar,cozer,verbo intransitivo.verbo transitivo direto.regular,co-zi-nhar
+escola,colegio,substantivo feminino,es-co-la
+emergencia,aparecimento.surgimento,substantivo feminino,e-mer-gen-ci-a
+urso,feio.falso.idiota,substantivo masculino,ur-so
+camada,estrato.categoria.classe,substantivo feminino,ca-ma-da
+descricao,exposicao,substantivo feminino,des-cri-cao
+vibrar,abanar.agitar.sacudir,verbo intransitivo.verbo transitivo direto.verbo transitivo direto e indireto.regular,vi-brar
+lei,preceito.mandamento.determinacao.formalidade.norma.regra,substantivo feminino,lei
+alcool,espirito,substantivo masculino,al-co-ol
+ler,estudar.pronunciar.proferir.compreender.depreender.articular.declamar.adivinhar,verbo intransitivo.verbo transitivo direto.irregular,ler
+filosofo,pensador,adjetivo.substantivo masculino,fi-lo-so-fo
+volante,movel.ambulante.automobilista,adjetivo de dois generos.substantivo de dois generos,vo-lan-te
+remendar,arranjar.consertar.emendar.refazer.reparar.restaurar,verbo transitivo direto.regular,re-men-dar
+acidente,acaso.desastre.irregularidade.batida.ocorrencia,substantivo masculino,a-ci-den-te
+penteado,toucado,adjetivo.substantivo masculino,pen-te-a-do
+coracao,amago.peito.carater.indole.amor.afeicao.memoria.centro,substantivo de dois generos,co-ra-cao
+terraplanagem,terraplenagem,substantivo feminino,ter-ra-pla-na-gem
+cliente,constituinte.fregues,substantivo de dois generos,cli-en-te
+investir,abalar.enristar.saltear.arremeter.arremessar.abalroar.atacar.assaltar.acometer.grimpar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,in-ves-tir
+clara,esclerotica.esclera,substantivo feminino,cla-ra
+menina,moca.mocoila.rapariga.garota.adolescente.jovem,substantivo feminino,me-ni-na
+refugio,abrigada.abrigo.asilo.cobertura.escaninho.esconderijo.retiro,substantivo masculino,re-fu-gi-o
+rede,barga.armadilha,substantivo feminino,re-de
+oval,ovado,adjetivo de dois generos.substantivo feminino,o-val
+menino,curumim.guri.pequeno.pequerrucho.petiz.pirralho.parvulo,adjetivo.substantivo masculino,me-ni-no
+presidente,chefe.dirigente,adjetivo de dois generos.substantivo de dois generos,pre-si-den-te
+uso,pratica.costume.habito.rotina,substantivo masculino,u-so
+camera,camara.cinegrafista.cameraman,substantivo feminino,ca-me-ra
+chamada,chamado.chamamento.avocamento,substantivo feminino,cha-ma-da
+dentista,odontologista.odontologo,adjetivo de dois generos.substantivo de dois generos,den-tis-ta
+ocupar,conquistar.invadir,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,o-cu-par
+ratoeira,cilada.emboscada.ardil,substantivo feminino,ra-to-ei-ra
+comissario,agente.delegado,adjetivo.substantivo masculino,co-mis-sa-ri-o
+estudante,aprendiz.aluno.discipulo.educando.academico.lecionando,adjetivo de dois generos.substantivo de dois generos,es-tu-dan-te
+roda,arco.circulo,substantivo feminino,ro-da
+leme,direcao.governanca,substantivo masculino,le-me
+peitoral,cordial,adjetivo de dois generos.substantivo de dois generos,pei-to-ral
+cigano,gitano.romani.mascate.nomade.zingaro,adjetivo.substantivo masculino,ci-ga-no
+lama,limo.lodo.vasa,substantivo de dois generos,la-ma
+deslocamento,deslocacao,substantivo masculino,des-lo-ca-men-to
+sentimento,sensacao.tristeza.entusiasmo.senso.consciencia.emocao.pesames.pressentimento,substantivo masculino,sen-ti-men-to
+aguaceiro,chuvada.batega.chuvarada,substantivo masculino,a-gua-cei-ro
+ciclone,furacao.tufao,substantivo masculino,ci-clo-ne
+animal,bicho,adjetivo de dois generos.substantivo masculino,a-ni-mal
+trofeu,coisa.troco.negocio.exito.vitoria.gloria.triunfo,substantivo masculino,tro-feu
+circular,rodear.circundar.circunvalar,adjetivo de dois generos.substantivo feminino.verbo intransitivo.verbo transitivo circunstancial.verbo transitivo direto.verbo transitivo direto e indireto.regular,cir-cu-lar
+marrom,castanho,adjetivo de dois generos.substantivo masculino,mar-rom
+aspirina,alexipiretico.lexipireto.analgesico.febrifugo.anticoagulante.antifebril.antitermico,substantivo feminino,as-pi-ri-na
+gosto,paladar.palato.apetite.sabor,substantivo masculino,gos-to
+espectro,avantesma.avejao.fantasma.ameaca.perigo.prenuncio,substantivo masculino,es-pec-tro
+revendedor,pracista,adjetivo.substantivo masculino,re-ven-de-dor
+escada,escala,substantivo feminino,es-ca-da
+sujo,manchado.torpe.sordido.repelente.nojento.nauseabundo.imundo.ignobil.desprezivel.asqueroso.abjeto.tinto,adjetivo.substantivo masculino,su-jo
+espiao,malsim.espia.espreitador,adjetivo.substantivo masculino,es-pi-ao
+tomate,tomateiro,substantivo masculino,to-ma-te
+classe,estrato.camada.categoria,substantivo feminino,clas-se
+erupcao,focagem.sarna,substantivo feminino,e-rup-cao
+lavatorio,lavabo.pia,substantivo masculino,la-va-to-ri-o
+borda,extremo.margem.extremidade.beirada.orla.cercadura.beira.ourela,substantivo feminino,bor-da
+votacao,sufragio.eleicao.escrutinio.pleito,substantivo feminino,vo-ta-cao
+tronco,ascendencia.caule.cepo.estirpe.familia.haste.linhagem.madeiro.progenie.raca,adjetivo.substantivo masculino,tron-co
+artista,artifice,adjetivo de dois generos.substantivo de dois generos,ar-tis-ta
+orelha,ouvido,substantivo feminino,o-re-lha
+nostalgia,abatimento.melancolia.tristeza,substantivo feminino,nos-tal-gi-a
+primordial,essencial.primario.primeiro.principal.primitivo.originario,adjetivo de dois generos,pri-mor-di-al
+chicote,azorrague.acoite.latego.pingalim.pinguelim.vergalho,substantivo masculino,chi-co-te
+helicoptero,aeronave.libelula.autogiro,substantivo masculino,he-li-cop-te-ro
+serra,montanha.monte.morro.cordilheira,substantivo de dois generos,ser-ra
+material,materia,adjetivo de dois generos.substantivo masculino,ma-te-ri-al
+dar,dadivar.oferecer.obsequiar.facultar.doar.conceder.brindar.ceder.outorgar.presentear.ofertar,verbo bitransitivo.verbo predicativo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.irregular,dar
+doce,aprazivel.meigo.harmonioso.brando.afavel.rebucado.gulosice.guloseima.gulodice.gula.terno,adjetivo de dois generos.substantivo masculino,do-ce
+varejo,advertencia.repressao.reprimenda,substantivo masculino,va-re-jo
+atmosfera,espaco.ar.tempo.ceu.vento.clima,substantivo feminino,at-mos-fe-ra
+interceptar,interromper.impedir.deter.cortar.eclipsar,verbo transitivo direto.regular,in-ter-cep-tar
+truta,negociata.treta.parceiro.amigo.mentira,substantivo feminino,tru-ta
+aplicacao,emprego,substantivo feminino,a-pli-ca-cao
+vermelho,purpureo.esbraseado.sanguineo.rubido.rubro.encarnado.carmesim.afogueado.abrasado.escarlate.rubicundo,adjetivo.substantivo masculino,ver-me-lho
+administracao,gestao.governo,substantivo feminino,ad-mi-nis-tra-cao
+saudar,salvar.congratular.cumprimentar.felicitar,substantivo masculino.verbo pronominal.verbo transitivo direto.regular,sau-dar
+grito,berro.brado.clamor.voz,substantivo masculino,gri-to
+rei,soberano.monarca.regio,substantivo masculino,rei
+arrimar,postar.por.assentar.apoiar.colocar.acostar.depositar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,ar-ri-mar
+bandeja,tabuleiro.salva,substantivo feminino,ban-de-ja
+tempo,fase.periodo.temporada.pulsacao.andamento,substantivo masculino,tem-po
+diagonal,obliquo,adjetivo de dois generos.substantivo feminino,di-a-go-nal
+princesa,alteza,substantivo feminino,prin-ce-sa
+segredo,sigilo,adjetivo.substantivo masculino,se-gre-do
+jogar,sampar.arremessar.atirar.brincar.arriscar.aventurar.apostar,verbo intransitivo.verbo pronominal.verbo transitivo circunstancial e indireto.verbo transitivo direto.verbo transitivo direto e indireto.verbo transitivo indireto.regular,jo-gar
+cenario,cena.conjuntura,adjetivo.substantivo masculino,ce-na-ri-o
+armazem,arrecadacao,substantivo masculino,ar-ma-zem
+area,espaco.territorio.superficie.dimensao.regiao.ambito.campo.patio.extensao.desktop,substantivo feminino,a-re-a
+segador,ceifador.ceifeiro,adjetivo.substantivo masculino,se-ga-dor
+livraria,biblioteca,substantivo feminino,li-vra-ri-a
+critico,exegeta.abalizador.ajuizador.avaliador.comentador.analista.censor,adjetivo.substantivo masculino,cri-ti-co
+orquestra,banda.filarmonica,substantivo feminino,or-ques-tra
+cheiro,perfume.odor.aroma.fragrancia.olor.olencia,substantivo masculino,chei-ro
+xale,xaile,substantivo masculino,xa-le
+capricho,pertinacia.obstinacao.relutancia.renitencia.resistencia.teimosia,substantivo masculino,ca-pri-cho
+saco,bolsa,substantivo masculino,sa-co
+plastico,macio.ductil.brando,adjetivo.substantivo masculino,plas-ti-co
+reclinar,encostar.recostar,verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.regular,re-cli-nar
+festival,alegre.divertido.animado.festa.festividade.quantidade.serie.acumulo,adjetivo de dois generos.substantivo masculino,fes-ti-val
+redondo,rotundo,adjetivo.adverbio.substantivo masculino,re-don-do
+trafego,convivencia.movimento.trabalho.trafico.lida.transito,substantivo masculino,tra-fe-go
+inteligencia,perceptibilidade.lucidez,substantivo feminino,in-te-li-gen-ci-a
+rocha,penedo.penha.penhasco.fraga.rochedo,substantivo feminino,ro-cha
+asilo,abrigada.abrigo.cobertura.reduto.refugio.resguardo.valhacouto,substantivo masculino,a-si-lo
+trincheira,tranqueira,substantivo feminino,trin-chei-ra
+mariana,fruta-de-sabia,substantivo feminino,ma-ri-a-na
+mormaco,bafo.chato.desagradavel.quente.umido.namoro,substantivo masculino,mor-ma-co
+alfabeto,abc.principios.abecedario,substantivo masculino,al-fa-be-to
+erecao,estabelecimento.levantamento,substantivo feminino,e-re-cao
+flutuante,duvidoso.inconstante.indeterminado.irresoluto.indeciso.incerto.movedico.vacilante.ondulante,adjetivo de dois generos.substantivo masculino,flu-tu-an-te
+espigao,pua.espinho.aguilhao.ferrao,substantivo masculino,es-pi-gao
+nuvem,grupo.multidao.monte.embaciamento.embacamento.preocupacao.tristeza.dor.escuridao.trevas.obscuridade,adjetivo de dois generos.substantivo de dois generos,nu-vem
+colar,grudar,substantivo masculino.verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.regular,co-lar
+peito,mama.pomo.seio.ubere,substantivo masculino,pei-to
+igreja,convento.templo.santuario.catedral.basilica.abadia.se.presbiterio.mosteiro.adito,substantivo feminino,i-gre-ja
+diariamente,cotidianamente,adverbio,di-a-ri-a-men-te
+refrescar,arrefecer.ventilar.refrigerar.reverdecer,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,re-fres-car
+degelo,descongelacao,substantivo masculino,de-ge-lo
+rodeio,circuito,substantivo masculino,ro-dei-o
+banimento,exilio.expatriacao.proscricao.degredo.deportacao.desterro,substantivo masculino,ba-ni-men-to
+vaca,vaquinha,substantivo feminino,va-ca
+encerramento,fechamento.fecho,substantivo masculino,en-cer-ra-men-to
+catapulta,manganela.onagro,substantivo feminino,ca-ta-pul-ta
+documento,escritura.instrucao.titulo.instrumento.ordem.demonstracao.prova.preceito.papel.exemplo,substantivo masculino,do-cu-men-to
+lugar,cargo.classe.emprego.enchanca.espaco.local.localidade.palco.paragem.parte.posicao.povoado.sitio.terra,substantivo masculino,lu-gar
+fingir,aparentar.simular,verbo intransitivo.verbo predicativo.verbo pronominal.verbo transitivo direto.regular,fin-gir
+picada,pontada.ferretoada.pontoada.aguilhoada.ferroada.lancaco,substantivo feminino,pi-ca-da
+camiseta,quere-quere.sargento.castanheta,substantivo feminino,ca-mi-se-ta
+centro,meio.nucleo,substantivo masculino,cen-tro
+levedura,fermento.levedo,substantivo feminino,le-ve-du-ra
+poeira,po.terra.chao.solo.cisco,adjetivo.substantivo de dois generos,po-ei-ra
+substituicao,permutacao.comutacao,substantivo feminino,subs-ti-tu-i-cao
+uivo,ululado.ganido.ululacao.ululo,substantivo masculino,ui-vo
+perpetuo,duradouro.eterno.infindavel.perduravel.perenal.perene.sempiterno,adjetivo,per-pe-tuo
+microbio,bacilo.bacteria.microrganismo,substantivo masculino,mi-cro-bi-o
+renda,receita.salario,substantivo feminino,ren-da
+lesma,espiral,substantivo feminino,les-ma
+tambor,caixa,substantivo masculino,tam-bor
+elevador,ascensor.elator,adjetivo.substantivo masculino,e-le-va-dor
+apendice,apenso.complemento.acessorio.acrescimo.prolongamento.adendo.anexo,substantivo masculino,a-pen-di-ce
+torneio,certame.concurso,substantivo masculino,tor-nei-o
+debate,altercacao.contenda.controversia.discussao.litigio.polemica.peleja,substantivo masculino,de-ba-te
+principal,essencial.primario.importante.central.saliente,adjetivo de dois generos.substantivo de dois generos,prin-ci-pal
+celebridade,extravagante.extraordinario.afamado.celebre.notoriedade.celebracao,substantivo feminino,ce-le-bri-da-de
+pausa,intervalo,substantivo feminino,pau-sa
+capataz,feitor.olheiro.rendeiro.braco direito,substantivo masculino,ca-pa-taz
+tapa,bofetada.tabefe.pitomba.tapona,adjetivo de dois generos.substantivo de dois generos,ta-pa
+pensar,matutar.raciocinar.discorrer.cuidar.cogitar.cismar.ruminar.considerar.ponderar.meditar.refletir,substantivo masculino.verbo intransitivo.verbo transitivo direto.verbo transitivo indireto.regular,pen-sar
+piano,liso,adjetivo de dois generos.adverbio.substantivo de dois generos,pi-a-no
+local,lugar.sitio,adjetivo de dois generos.substantivo de dois generos,lo-cal
+fratura,ruptura.quebra.quebradura,substantivo feminino,fra-tu-ra
+cuba,tonel.balseiro.dorna,adjetivo de dois generos.substantivo de dois generos,cu-ba
+mochila,patua.bolsa.sacola.bissaco,substantivo de dois generos,mo-chi-la
+condutor,veiculo.guia.diretor.vector,adjetivo.substantivo masculino,con-du-tor
+tunel,galeria.subterraneo.latada.ramada,substantivo masculino,tu-nel
+grau,intensidade.proporcao.categoria.conceito.nivel.classe,substantivo masculino,grau
+grao,bago.granito.granulo,adjetivo de dois generos.substantivo masculino,grao
+farol,fanal,substantivo masculino,fa-rol
+estribo,arcobotante,substantivo masculino,es-tri-bo
+jardim,horto.logradouro,substantivo masculino,jar-dim
+parque,tapada.logradouro,substantivo masculino,par-que
+lua,satelite.prata.luna,substantivo feminino,lu-a
+membrana,tunica,substantivo feminino,mem-bra-na
+ginastica,exercicio.esporte.atletismo,substantivo feminino,gi-nas-ti-ca
+terraco,eira.eirado.terrado.terreiro,substantivo masculino,ter-ra-co
+grafite,grafito.plumbagina,substantivo de dois generos,gra-fi-te
+domador,domesticador,adjetivo.substantivo masculino,do-ma-dor
+peruano,peruviano,adjetivo.substantivo masculino,pe-ru-a-no
+concorrencia,afluencia.disputa.competicao.concordancia,substantivo feminino,con-cor-ren-ci-a
+trilha,peugada.debulha.treita.rastro.rasto.indignacao.encalco.vestigio.pegada.pista.trilhada,substantivo feminino,tri-lha
+trilho,atalho.caminho.estrada.senda.vereda.via.viela.tramite,substantivo masculino,tri-lho
+afogar,estrangular.asfixiar.sufocar.mergulhar.submergir,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,a-fo-gar
+murmurio,cicio.murmuracao.sussurro,substantivo masculino,mur-mu-ri-o
+intrometido,abelhudo.atrevido.curioso.descarado.insolente.metedico,adjetivo.substantivo masculino,in-tro-me-ti-do
+ramo,ramalhete.rama.ramada.ramalho,adjetivo.substantivo masculino,ra-mo
+submergir,reprofundar.mergulhar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,sub-mer-gir
+escudo,brasao.egide,substantivo masculino,es-cu-do
+diplomata,educado.habil,substantivo de dois generos,di-plo-ma-ta
+amigo,benigno.amante.camarada.colega.companheiro,adjetivo.substantivo masculino,a-mi-go
+salgado,salso,adjetivo.substantivo masculino,sal-ga-do
+compor,conceber.criar.imaginar.inventar.produzir.desenvolver.integrar.preparar.aprontar.consertar.demonstrar.refazer.arranjar.conciliar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,com-por
+queimar,esbrasear.inflamar.tisnar.torrar.tostar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,quei-mar
+ferrao,espigao.pua.espinho.aguilhao,substantivo masculino,fer-rao
+onibus,coletivo.sopa.jardineira,substantivo masculino de dois numeros,o-ni-bus
+aerossol,nebulizador,substantivo masculino,a-e-ros-sol
+adivinhar,conjecturar.pressentir.pressupor.presumir.prognosticar.imaginar.julgar.supor,verbo transitivo direto.verbo transitivo direto e indireto.regular,a-di-vi-nhar
+afrouxar,alargar.desapertar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,a-frou-xar
+alcoolico,alcoolatra,adjetivo.substantivo masculino,al-co-o-li-co
+demolir,destruir.desfazer.desmanchar.desmantelar,verbo transitivo direto.regular,de-mo-lir
+ombro,espadua,substantivo masculino,om-bro
+atirar,propelir.impelir.arremessar.arrojar.disparar.impulsionar.lancar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e circunstancial.verbo transitivo direto e indireto.verbo transitivo indireto.regular,a-ti-rar
+reputacao,fama.renome.prestigio.estima,substantivo feminino,re-pu-ta-cao
+captura,conquista.tomada,substantivo feminino,cap-tu-ra
+romance,novela,adjetivo de dois generos.substantivo masculino,ro-man-ce
+regras,menstruacao.menstruo.catamenio.principios.preceitos,substantivo feminino plural,re-gras
+sonhar,idear.devanear.fantasiar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo indireto.regular,so-nhar
+mostra,prova.demonstracao,substantivo feminino,mos-tra
+espinho,espigao.pua.estrepe.aguilhao.ferrao.abrolho,adjetivo de dois generos.substantivo de dois generos,es-pi-nho
+cartucho,embrulho.empenho.pistolao.recomendacao,substantivo masculino,car-tu-cho
+bala,projectil,substantivo feminino,ba-la
+praia,margem.especialidade.costa.borda.litoral.beira-mar.areal.orla.marinha,substantivo feminino,prai-a
+sopa,possivel.propicio.bom.moleza.facil,substantivo feminino,so-pa
+isca,chamariz.engodo,interjeicao.substantivo feminino,is-ca
+estado,circunstancia.condicao.situacao.fausto.luxo.pompa,substantivo masculino,es-ta-do
+resultado,produto.efeito.consequencia.solucao.resolucao.lucro,substantivo masculino,re-sul-ta-do
+traduzir,transcrever.trasladar.manifestar.exprimir.reproduzir.interpretar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,tra-du-zir
+descoberta,achado.inventiva.invento.invencao.descobrimento,substantivo feminino,des-co-ber-ta
+celula,particula.alveolo.corpusculo,substantivo feminino,ce-lu-la
+largura,largueza,substantivo feminino,lar-gu-ra
+inconsciente,maquinal.cego.involuntario,adjetivo de dois generos.substantivo de dois generos,in-cons-ci-en-te
+ravina,grota,substantivo feminino,ra-vi-na
+amarelo,croceo.flavo.louro.flavescente,adjetivo.substantivo masculino,a-ma-re-lo
+onda,vaga,substantivo feminino,on-da
+comentario,observacao.glosa,substantivo masculino,co-men-ta-ri-o
+noivo,nubente,substantivo masculino,noi-vo
+nacional,patrio.vernaculo,adjetivo de dois generos.substantivo masculino,na-ci-o-nal
+dispositivo,mecanismo.preceito.prescricao.ordem,adjetivo.substantivo masculino,dis-po-si-ti-vo
+pressao,coacao.violencia.aperto.compressao,substantivo feminino,pres-sao
+agitacao,perturbacao.revolta.motim.embrulhada.conflito.desordem.alvoroco.zaragata.matinada.espalhafato.tumulto,substantivo feminino,a-gi-ta-cao
+historia,conto.narrativa.raconto.enredo.trama.estoria,substantivo feminino,his-to-ria
+cicatriz,sinal.marca.cesura.gilvaz,substantivo feminino,ci-ca-triz
+teste,arguicao.prova.exame.concurso,substantivo de dois generos,tes-te
+diminuir,baixar.decrescer.encolher.minguar.subtrair,verbo bitransitivo e circunstancial.verbo intransitivo.verbo pronominal.verbo transitivo circunstancial e indireto.verbo transitivo direto.verbo transitivo indireto.regular,di-mi-nu-ir
+retrato,exemplo.modelo.fotografia.sosia,adjetivo.substantivo masculino,re-tra-to
+congresso,assembleia.parlamento.reuniao.encontro.convencao,substantivo masculino,con-gres-so
+gladiador,pelejador.pugnador.combatente.batalhador.lidador.lutador,substantivo masculino,gla-di-a-dor
+canibal,antropofago,adjetivo de dois generos.substantivo de dois generos,ca-ni-bal
+rubrica,sinal.observacao.firma.nota.jamegao,substantivo feminino,ru-bri-ca
+impressora,prensa.plotadora,substantivo masculino,im-pres-so-ra
+ondulacao,flutuacao.arfada,substantivo feminino,on-du-la-cao
+borboleta,mariposa.charneira.catraca,substantivo de dois generos,bor-bo-le-ta
+monologo,soliloquio.monodrama,substantivo masculino,mo-no-lo-go
+acoes,acao.ato.comportamento.titulo,substantivo feminino plural,a-coes
+consumir,manducar.aborrecer.debilitar.gastar.comer,verbo pronominal.verbo transitivo direto.regular,con-su-mir
+pasto,pastagem,substantivo masculino,pas-to
+pasta,massa.carteira,substantivo feminino,pas-ta
+sufocar,estrangular.asfixiar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,su-fo-car
+propagacao,prolongamento.crescimento.desenvolvimento.incremento,substantivo feminino,pro-pa-ga-cao
+contrabando,muamba,substantivo masculino,con-tra-ban-do
+gemido,lamento.plangor.vagido,adjetivo.substantivo masculino,ge-mi-do
+tomo,fasciculo,substantivo masculino,to-mo
+subida,alta.ascensao,substantivo feminino,su-bi-da
+mudo,calado.silencioso.silente.oculto,adjetivo.substantivo masculino,mu-do
+elevacao,evidencia.distincao.eminencia.realce.relevo.saliencia,substantivo feminino,e-le-va-cao
+software,programa,substantivo masculino,soft-wa-re
+mostruario,escaparate.mostrador.vitrine,substantivo masculino,mos-tru-a-ri-o
+chama,pio.labareda.luz.incendio.atrativo.luminosidade.chamada,substantivo de dois generos,cha-ma
+pistola,revolver,substantivo feminino,pis-to-la
+falsificar,esbulhar.lesar.fraudar.despojar.trapacear.trampolinar.burlar.enganar.espoliar.usurpar,verbo transitivo direto.regular,fal-si-fi-car
+infeccao,contaminacao.contagio.corrupcao.inflamacao,substantivo feminino,in-fec-cao
+encontro,abalroamento.abalroacao.choque.colisao.embate.briga.encontrao.congresso,substantivo masculino,en-con-tro
+respirar,espirar.exalar.expirar.alentar.descansar.repousar.resfolegar.viver,verbo intransitivo.verbo transitivo direto.regular,res-pi-rar
+exposicao,discurso.oracao,substantivo feminino,ex-po-si-cao
+parede,mandao.medalhao.procer.muro.tapume.tabique.greve.quadrela,substantivo feminino,pa-re-de
+norte,orientacao.rumo.guia.setentriao.direcao,adjetivo de dois generos e dois numeros.substantivo masculino,nor-te
+pe,calcante.causa.condicao.ensejo.motivo.pretexto.razao.situacao.pata.base.verso,substantivo masculino,pe
+volume,massa.tamanho,substantivo masculino,vo-lu-me
+funda,fundibulo,substantivo feminino,fun-da
+arquitetura,contextura.forma.projeto,substantivo feminino,ar-qui-te-tu-ra
+converter,metamorfosear.transformar.transmudar.transmutar,verbo bitransitivo.verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,con-ver-ter
+descongelar,derreter.dissolver.degelar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,des-con-ge-lar
+duro,aspero.forte.resistente.rijo,adjetivo.adverbio.substantivo masculino,du-ro
+etapa,lanco,substantivo feminino,e-ta-pa
+plagio,plagiato.contrafaccao.imitacao,substantivo masculino,pla-gi-o
+antro,algar.catacumba.caverna.cavidade.cova.covil.fossa.furna.gruta.lapa,substantivo masculino,an-tro
+inflamar,esbrasear.conflagrar.atear.acender.tostar.torrar.tisnar.queimar.incendiar,verbo intransitivo.verbo pronominal.verbo transitivo direto.verbo transitivo direto e indireto.regular,in-fla-mar
+beliscar,petiscar.pinicar.debicar,verbo intransitivo.verbo pronominal.verbo transitivo direto.regular,be-lis-car
+hospicio,manicomio.protecao.abrigo.asilo.acolhida,substantivo masculino,hos-pi-ci-o
+coisa,cousa.troco.negocio.objeto.acontecimento.situacao.materia.assunto.bens.ataque,substantivo de dois generos,coi-sa
+ingles,anglicano.britanico,adjetivo.substantivo masculino,in-gles
+arame,dinheiro,substantivo masculino,a-ra-me
+balao,aerostato.dirigivel,substantivo masculino,ba-lao
+composto,constituido.formado,adjetivo.substantivo masculino,com-pos-to
+lanca,venabulo.hasta.pique,substantivo de dois generos,lan-ca
+manutencao,mantenca.conservacao.gerencia,substantivo feminino,ma-nu-ten-cao
+veia,vaso.nervura.riacho.veio,substantivo feminino,vei-a
+quarto,aposento.sala,apositivo.numeral.substantivo masculino de dois numeros,quar-to
+derrota,guiao.itinerario.guia.rota.roteiro,substantivo feminino,der-ro-ta
+mosaico,uniao.mistura.reuniao.peca.pedra.placa.xadrez.quadriculado.axadrezado.judeu.semita.hebraico,adjetivo.substantivo masculino,mo-sai-co
+perigo,risco.transe,substantivo masculino,pe-ri-go
+relatividade,contingencia.condicionalidade,substantivo feminino,re-la-ti-vi-da-de
+fantoche,marionete.boneco.titere,substantivo masculino,fan-to-che
+nublado,nuvioso.enevoado.nebuloso.nevoento.nubiloso,adjetivo,nu-bla-do
