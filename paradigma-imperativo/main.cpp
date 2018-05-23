@@ -82,15 +82,6 @@ void penalize_player(level actual_level, player gamer) {
 	gamer.lifes -= 1;
 }
 
-string selection_word() {
-	string word;
-	cout << "Sorteando a palavra..." << endl;
-	sleep(2);
-	cout << "1" << endl;
-	//pega uma palavra no arquivo
-	return word;
-}
-
 vector<int> contains(string actual_word, char letter) {
     vector<int> index;
     for (int i = 0; i < actual_word.size(); i++) {
@@ -108,40 +99,40 @@ string update_status_of_word(vector<int> index, string actual_status_of_word, ch
 	return actual_status_of_word;
 }
 
-/* Verifica se a letra esta na palavra, 
+/* Verifica se a letra esta na palavra,
  * e imprime a situacao da palavra no momento
 */
-void verify_letter(player gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
+string verify_letter(player gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
 	string result;
 	vector<int> index = contains(actual_word, letter);
-	if (index.size() != 0) {
-        result = update_status_of_word(index, actual_status_of_word, letter);
+	if (index.size() == 0) {
+        cout << "A palavra nao possui essa letra! -1 tentativa, proximo:\n\n";
 	} else {
         penalize_player(actual_level, gamer);
-        result = "A palavra nao possui essa letra! -1 tentativa, proximo:\n\n";
 	}
-	cout << result;
+	result = update_status_of_word(index, actual_status_of_word, letter);
+	return result;
 }
 
-void model_word(int word_length, string actual_status_of_word) {
+string model_word(int word_length, string actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
 		actual_status_of_word += "_";
 	}
+	return actual_status_of_word;
 }
 
 void player_status(player gamer) {
-	/*cout << "Status: " + gamer.nickname << endl;
-	cout << "=> Tentativas restantes: " + gamer.lifes << endl;
-	cout << "=> Total de pontos: " + gamer.points << endl;
-	*/
+	cout << endl << "Status: " << gamer.nickname << endl;
+	cout << "=> Tentativas restantes: " << gamer.lifes << endl;
+	cout << "=> Total de pontos: " << gamer.points << endl;
 }
 
-void receive_letter(player gamer, level actual_level, string actual_word, string actual_status_of_word){
+string receive_letter(player gamer, level actual_level, string actual_word, string actual_status_of_word){
     char letter;
     cout << gamer.nickname + ", digite uma letra: ";
     cin >> letter;
-    verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word);
 	player_status(gamer);
+	return verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word);
 }
 
 //========================FILES AREA============================
@@ -213,6 +204,13 @@ void to_string_word_data(word_data w) {
 
 //===========================FILES AREA=================================
 
+string selection_word(word_data data) {
+	string word = data.word;
+	cout << endl << "Sorteando a palavra..." << endl;
+	sleep(2);
+	return word;
+}
+
 int main() {
 	// VARIAVEIS
 	player player1, player2;
@@ -239,16 +237,17 @@ int main() {
 	state_game = player1.lifes != 0 || player2.lifes != 0;
 
 	string line_data = get_line_data(); //Linha com dados da palavra obtida do dicionario
-  word_data actual_word_data = get_word_data(line_data); // struct contendo dados da palavra
-  actual_word = selection_word();
+  	word_data actual_word_data = get_word_data(line_data); // struct contendo dados da palavra
+  	actual_word = selection_word(actual_word_data);
+	actual_status_of_word = model_word(actual_word.size(), actual_status_of_word);
 
 	while (state_game) {
-		// SORTEANDO PALAVRA
-		model_word(actual_word.size(), actual_status_of_word);
-    
-		// RECEBENDO UMA LETRA E ATUALIZANDO SITUACAO DA PALAVRA
-		receive_letter(player1, actual_level, actual_word, actual_status_of_word);
-		receive_letter(player2, actual_level, actual_word, actual_status_of_word);
+		actual_status_of_word = receive_letter(player1, actual_level, actual_word, actual_status_of_word);
+		cout << actual_status_of_word << endl << endl;
+		// system("clear");
+		actual_status_of_word = receive_letter(player2, actual_level, actual_word, actual_status_of_word);
+		cout << actual_status_of_word << endl << endl;
+		// system("clear");
 	}
 	return 0;
 }
