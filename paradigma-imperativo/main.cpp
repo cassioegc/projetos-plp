@@ -13,7 +13,7 @@ typedef struct{
 	string name;
 }level;
 
-void add_points(player gamer, level actual_level) {
+void add_points(player &gamer, level &actual_level) {
 	if (actual_level.name == "PYTHON") {
 		gamer.points += 20;
 	} else if (actual_level.name == "JAVA") {
@@ -25,33 +25,40 @@ void add_points(player gamer, level actual_level) {
 
 /* Set level
 */
-string set_level(level actual_level, int round) {
-	string level_name;
+void set_level(level &actual_level, int round) {
 	if (round <= 3) {
-		level_name = "PYTHON";
+		actual_level.name = "PYTHON";
 	} else if (round >= 4 && round <= 6) {
-		level_name = "JAVA";
+        actual_level.name = "JAVA";
 	} else if (round >= 7 && round <= 10) {
-		level_name = "ASSEMBLY";
+        actual_level.name = "ASSEMBLY";
 	}
-	return level_name;
+}
+
+void start_score(player &gamer1, player &gamer2) {
+	gamer1.points = 0;
+	gamer2.points = 0;
+}
+
+void start_life(player &gamer1, player &gamer2) {
+	gamer1.lifes = 0;
+	gamer2.lifes = 0;
 }
 
 /* This function add  to the player
  */
-int add_lifes(player gamer, level actual_level, int actual_lifes) {
-	int lifes = actual_lifes;
+
+ void add_lifes(player &gamer, level &actual_level) {
 	if (actual_level.name == "PYTHON") {
-		lifes += 7;
+		gamer.lifes += 7;
 	} else if (actual_level.name == "JAVA") {
-		lifes += 5;
+		gamer.lifes += 5;
 	} else if (actual_level.name == "ASSEMBLY") {
-		lifes += 3;
+		gamer.lifes += 3;
 	}
-	return lifes;
 }
 
-void transfer_points(level actual_level, player winner_player, player loser_player) {
+void transfer_points(level &actual_level, player &winner_player, player &loser_player) {
 	int points;
 	if (actual_level.name == "PYTHON") {
 		points = loser_player.points * 0.1;
@@ -216,15 +223,17 @@ int main() {
 	int round_game;
 	string actual_word;
 	string actual_status_of_word;
-	int number_word = 1750;
+	int number_word = 95;
 
 	// INICIALIZANDO AS VARIAVEIS
 	round_game = 1;
-	actual_level.name = set_level(actual_level, round_game);
-	player1.lifes = add_lifes(player1, actual_level, 0);
-	player2.lifes = add_lifes(player2, actual_level, 0);
-	player1.points = 0;
-	player2.points = 0;
+    set_level(actual_level, round_game);
+    start_score(player1, player2);
+    start_life(player1, player2);
+	add_lifes(player1, actual_level);
+	add_lifes(player2, actual_level);
+	add_points(player1, actual_level);
+	add_points(player2, actual_level);
 
 	// DADOS JOGADOR
 	cout << "Nome jogador 1: ";
