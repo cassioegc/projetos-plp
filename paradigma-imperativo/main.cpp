@@ -96,47 +96,43 @@ vector<int> contains(string actual_word, char letter) {
     return index;
 }
 
-string update_status_of_word(vector<int> index, string actual_status_of_word, char letter) {
+void update_status_of_word(vector<int> index, string &actual_status_of_word, char letter) {
 	for (int i = 0; i < index.size(); i++) {
 		actual_status_of_word[index[i]] = letter;
 	}
-	return actual_status_of_word;
 }
 
 /* Verifica se a letra esta na palavra,
  * e imprime a situacao da palavra no momento
 */
-string verify_letter(player &gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
-	string result;
+void verify_letter(player &gamer, char letter, level &actual_level, string actual_word, string &actual_status_of_word) {
 	vector<int> index = contains(actual_word, letter);
 	if (index.size() == 0) {
         cout << "A palavra nao possui essa letra! -1 tentativa, proximo:\n\n";
         penalize_player(actual_level, gamer);
 	}
 
-	result = update_status_of_word(index, actual_status_of_word, letter);
-	return result;
+	update_status_of_word(index, actual_status_of_word, letter);
 }
 
-string model_word(int word_length, string actual_status_of_word) {
+void model_word(int word_length, string &actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
 		actual_status_of_word += "_";
 	}
-	return actual_status_of_word;
 }
 
 void player_status(player &gamer) {
-	cout << endl << "Status: " << gamer.nickname << endl;
+	cout << "Status: " << gamer.nickname << endl;
 	cout << "=> Tentativas restantes: " << gamer.lifes << endl;
 	cout << "=> Total de pontos: " << gamer.points << endl;
 }
 
-string receive_letter(player &gamer, level actual_level, string actual_word, string actual_status_of_word){
+void receive_letter(player &gamer, level &actual_level, string actual_word, string &actual_status_of_word){
     char letter;
     cout << gamer.nickname + ", digite uma letra: ";
     cin >> letter;
+	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word);
 	player_status(gamer);
-	return verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word);
 }
 
 //========================FILES AREA============================
@@ -215,6 +211,15 @@ string selection_word(word_data data) {
 	return word;
 }
 
+void compare_words(string actual_word, player &actual_player, level &actual_level) {
+    string word;
+    cin >> word;
+    if (actual_word != word) {
+        penalize_player(actual_level, actual_player);
+    }
+}
+
+
 int main() {
 	// VARIAVEIS
 	player player1, player2;
@@ -224,6 +229,8 @@ int main() {
 	string actual_word;
 	string actual_status_of_word;
 	int number_word = 95;
+    bool gamer_win = 0;
+    player actual_player;
 
 	// INICIALIZANDO AS VARIAVEIS
 	round_game = 1;
@@ -246,15 +253,27 @@ int main() {
 	string line_data = get_line_data(number_word); //Linha com dados da palavra obtida do dicionario
   	word_data actual_word_data = get_word_data(line_data); // struct contendo dados da palavra
   	actual_word = selection_word(actual_word_data);
-	actual_status_of_word = model_word(actual_word.size(), actual_status_of_word);
+	model_word(actual_word.size(), actual_status_of_word);
 
 	while (state_game) {
-		actual_status_of_word = receive_letter(player1, actual_level, actual_word, actual_status_of_word);
+		receive_letter(player1, actual_level, actual_word, actual_status_of_word);
+		actual_player = player1;
 		cout << actual_status_of_word << endl << endl;
 		// system("clear");
-		actual_status_of_word = receive_letter(player2, actual_level, actual_word, actual_status_of_word);
+		receive_letter(player2, actual_level, actual_word, actual_status_of_word);
+		actual_player = player2;
 		cout << actual_status_of_word << endl << endl;
 		// system("clear");
+
+        int covered_size = actual_word.size() - contains(actual_status_of_word, '_').size();
+        if (covered_size >= (actual_word.size() * 0.4)) {
+            cout << "Digite a palavra completa: ";
+            compare_words(actual_word, actual_player, actual_level);
+        }
+		if (covered_size == 0) {
+            round_game++;
+            cout << "Parabens! Proxima rodada..." << endl;
+		}
 	}
 	return 0;
 }
