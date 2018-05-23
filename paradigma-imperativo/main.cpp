@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <unistd.h>
+
 using namespace std;
 
 typedef struct{
@@ -36,7 +37,7 @@ string set_level(level actual_level, int round) {
 	return level_name;
 }
 
-/* This function add lifes to the player
+/* This function add  to the player
  */
 int add_lifes(player gamer, level actual_level, int actual_lifes) {
 	int lifes = actual_lifes;
@@ -63,8 +64,9 @@ void transfer_points(level actual_level, player winner_player, player loser_play
 	loser_player.points -= points;
 }
 
-void penalize_player(level actual_level, player gamer) {
+void  penalize_player(level actual_level, player &gamer) {
 	int penalty;
+
 	if (actual_level.name == "PYTHON") {
 		penalty = 2;
 	} else if (actual_level.name == "JAVA") {
@@ -72,8 +74,9 @@ void penalize_player(level actual_level, player gamer) {
 	} else if (actual_level.name == "ASSEMBLY") {
 		penalty = 8;
 	}
+
+	gamer.lifes--;
 	gamer.points -= penalty;
-	gamer.lifes -= 1;
 }
 
 vector<int> contains(string actual_word, char letter) {
@@ -96,14 +99,14 @@ string update_status_of_word(vector<int> index, string actual_status_of_word, ch
 /* Verifica se a letra esta na palavra,
  * e imprime a situacao da palavra no momento
 */
-string verify_letter(player gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
+string verify_letter(player &gamer, char letter, level actual_level, string actual_word, string actual_status_of_word) {
 	string result;
 	vector<int> index = contains(actual_word, letter);
 	if (index.size() == 0) {
         cout << "A palavra nao possui essa letra! -1 tentativa, proximo:\n\n";
-	} else {
         penalize_player(actual_level, gamer);
 	}
+
 	result = update_status_of_word(index, actual_status_of_word, letter);
 	return result;
 }
@@ -115,13 +118,13 @@ string model_word(int word_length, string actual_status_of_word) {
 	return actual_status_of_word;
 }
 
-void player_status(player gamer) {
+void player_status(player &gamer) {
 	cout << endl << "Status: " << gamer.nickname << endl;
 	cout << "=> Tentativas restantes: " << gamer.lifes << endl;
 	cout << "=> Total de pontos: " << gamer.points << endl;
 }
 
-string receive_letter(player gamer, level actual_level, string actual_word, string actual_status_of_word){
+string receive_letter(player &gamer, level actual_level, string actual_word, string actual_status_of_word){
     char letter;
     cout << gamer.nickname + ", digite uma letra: ";
     cin >> letter;
@@ -152,9 +155,9 @@ vector<string> split(string s, char c) {
 	return v;
 }
 
-string get_line_data() {
+string get_line_data(int number_word) {
     srand(time(NULL));
-    int line = rand() % 95 + 1;
+    int line = rand() % number_word + 1;
     ifstream file("dicionario.csv");
     string value;
     for (int i = 0; i < line; i++)
@@ -213,6 +216,7 @@ int main() {
 	int round_game;
 	string actual_word;
 	string actual_status_of_word;
+	int number_word = 1750;
 
 	// INICIALIZANDO AS VARIAVEIS
 	round_game = 1;
@@ -230,7 +234,7 @@ int main() {
 
 	state_game = player1.lifes != 0 || player2.lifes != 0;
 
-	string line_data = get_line_data(); //Linha com dados da palavra obtida do dicionario
+	string line_data = get_line_data(number_word); //Linha com dados da palavra obtida do dicionario
   	word_data actual_word_data = get_word_data(line_data); // struct contendo dados da palavra
   	actual_word = selection_word(actual_word_data);
 	actual_status_of_word = model_word(actual_word.size(), actual_status_of_word);
