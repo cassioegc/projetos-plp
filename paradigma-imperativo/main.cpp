@@ -153,7 +153,7 @@ int main() {
 	start_score(player1);
 	start_score(player2);
 
-	// DADOS JOGADOR
+	// DADOS JOGADORES
 	cout << "Nome jogador 1: ";
 	cin >> player1.nickname;
 
@@ -161,7 +161,6 @@ int main() {
 	cin >> player2.nickname;
 
 	state_game = player1.lifes != 0 || player2.lifes != 0;
-
     actual_word = selection_word();
 
 	while (!state_game) {
