@@ -452,7 +452,7 @@ void played(player &player1, player &player2, level &actual_level, string &actua
         add_points(player2, actual_level);
         reset_words(actual_word, actual_status_of_word);
         string line_data = get_line_data(actual_level);
-        word_data actual_word_data = get_word_data(line_data);
+        actual_word_data = get_word_data(line_data);
         actual_word = selection_word(actual_word_data);
         model_word(actual_word.size(), actual_status_of_word);
         inicialize_bonus(player1);
