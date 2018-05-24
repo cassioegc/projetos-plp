@@ -219,6 +219,10 @@ void compare_words(string actual_word, player &actual_player, level &actual_leve
     }
 }
 
+void set_actual_player(player &actual_player, player &last_player, string &actual_status_of_word){
+	actual_player = last_player;
+	cout << actual_status_of_word << endl << endl;
+}
 
 int main() {
 	// VARIAVEIS
@@ -257,12 +261,11 @@ int main() {
 
 	while (state_game) {
 		receive_letter(player1, actual_level, actual_word, actual_status_of_word);
-		actual_player = player1;
-		cout << actual_status_of_word << endl << endl;
+		set_actual_player(actual_player, player1, actual_status_of_word);
+
 		// system("clear");
 		receive_letter(player2, actual_level, actual_word, actual_status_of_word);
-		actual_player = player2;
-		cout << actual_status_of_word << endl << endl;
+		set_actual_player(actual_player, player2, actual_status_of_word);
 		// system("clear");
 
         int covered_size = actual_word.size() - contains(actual_status_of_word, '_').size();
