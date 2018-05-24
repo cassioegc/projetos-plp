@@ -324,6 +324,31 @@ void menu(player &gamer, level &actual_level, string &actual_word, string &actua
     }
 }
 
+void reset_words(string &actual_word, string &actual_status_of_word) {
+    actual_word = "";
+    actual_status_of_word = "";
+}
+
+void played(player &player1, player &player2, level &actual_level, string &actual_word, strint &actual_status_of_word, int &covered_size, int &number_word, bool &state_game, int &round_game, bool &checked) {
+    menu(player1, actual_level, actual_word, actual_status_of_word);
+		actual_player = player1;
+		cout << "RODADA: " << round_game << " => " << actual_status_of_word << endl << endl;
+		update_covered_size(covered_size, actual_word, actual_status_of_word);
+		checked = complete_word(actual_player, actual_word, covered_size, actual_level);
+		if (checked) {
+            round_game += 1;
+            set_level(actual_level, round_game);
+            add_lifes(player1, actual_level);
+            add_points(player1, actual_level);
+            reset_words(actual_word, actual_status_of_word);
+            string line_data = get_line_data(number_word);
+            word_data actual_word_data = get_word_data(line_data);
+            actual_word = selection_word(actual_word_data);
+            model_word(actual_word.size(), actual_status_of_word);
+		}
+	update_state_game(state_game, player1, player2);
+}
+
 int main() {
 	// VARIAVEIS
 	player player1, player2;
@@ -363,45 +388,11 @@ int main() {
 
 	while (!state_game) {
         // PLAYER 1
-		menu(player1, actual_level, actual_word, actual_status_of_word);
-		actual_player = player1;
-		cout << "RODADA: " << round_game << " => " << actual_status_of_word << endl << endl;
-		update_covered_size(covered_size, actual_word, actual_status_of_word);
-		checked = complete_word(actual_player, actual_word, covered_size, actual_level);
-		if (checked) {
-            round_game += 1;
-            set_level(actual_level, round_game);
-            add_lifes(player1, actual_level);
-            add_points(player1, actual_level);
-            actual_word = "";
-            actual_status_of_word = "";
-            string line_data = get_line_data(number_word);
-            word_data actual_word_data = get_word_data(line_data);
-            actual_word = selection_word(actual_word_data);
-            model_word(actual_word.size(), actual_status_of_word);
-		}
-		update_state_game(state_game, player1, player2);
+        played(player1, player2, actual_level, actual_word, actual_status_of_word, convered_size, number_word, state_game, round_game, checked);
 		// system("clear");
 
 		// PLAYER 2
-        menu(player2, actual_level, actual_word, actual_status_of_word);
-		actual_player = player2;
-		cout << "RODADA: " << round_game << " => " << actual_status_of_word << endl << endl;
-        update_covered_size(covered_size, actual_word, actual_status_of_word);
-		checked = complete_word(actual_player, actual_word, covered_size, actual_level);
-		if (checked) {
-            round_game += 1;
-            set_level(actual_level, round_game);
-            add_lifes(player2, actual_level);
-            add_points(player2, actual_level);
-            actual_word = "";
-            actual_status_of_word = "";
-            string line_data = get_line_data(number_word);
-            word_data actual_word_data = get_word_data(line_data);
-            actual_word = selection_word(actual_word_data);
-            model_word(actual_word.size(), actual_status_of_word);
-		}
-		update_state_game(state_game, player1, player2);
+        played(player2, player1, actual_level, actual_word, actual_status_of_word, convered_size, number_word, state_game, round_game, checked);
 		// system("clear");
 	}
 	return 0;
