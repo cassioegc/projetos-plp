@@ -184,15 +184,52 @@ vector<string> split(string s, char c) {
 	return v;
 }
 
-string get_line_data() {
-    srand(time(NULL));
-    int line = rand() % _NUMBER_WORDS + 1;
-    ifstream file("dicionario.csv");
-    string value;
-    for (int i = 0; i < line; i++)
-    {
-         getline ( file, value, '\n' );
+int get_lower_limit(string level) {
+    int result;
+    if (level == "ASSEMBLY") {
+        result = 10;
     }
+    else {
+        result = 0;
+    }
+    return result;
+}
+
+int get_upper_limit(string level) {
+    int result;
+    if (level == "PYTHON") {
+        result = 10;
+    }
+    else if (level == "JAVA") {
+        result = 15;
+    }
+    else {
+        result = 20;
+    }
+    return result;
+}
+
+string get_line_data(level actual_level) {
+    string level = actual_level.name;
+    int word_size_limit_up = get_upper_limit(level);
+    int word_size_limit_lw = get_lower_limit(level);
+    
+    string value;
+    string word;
+    do
+    {
+        srand(time(NULL));
+        int line = rand() % _NUMBER_WORDS + 1;
+        ifstream file("dicionario.csv");
+        
+        for (int i = 0; i < line; i++)
+        {
+            getline ( file, value, '\n' );
+        }
+        vector<string> data = split(value, ',');
+        word = data[0];
+    } while ((word.size() < word_size_limit_lw) && (word.size() > word_size_limit_up));
+    
     return value;
 }
 
@@ -343,7 +380,7 @@ void played(player &player1, player &player2, player actual_player, level &actua
             add_lifes(player1, actual_level);
             add_points(player1, actual_level);
             reset_words(actual_word, actual_status_of_word);
-            string line_data = get_line_data();
+            string line_data = get_line_data(actual_level);
             word_data actual_word_data = get_word_data(line_data);
             actual_word = selection_word(actual_word_data);
             model_word(actual_word.size(), actual_status_of_word);
@@ -383,7 +420,7 @@ int main() {
 	cin >> player2.nickname;
 
 	update_state_game(state_game, player1, player2);
-	string line_data = get_line_data();
+	string line_data = get_line_data(actual_level);
   	word_data actual_word_data = get_word_data(line_data);
   	actual_word = selection_word(actual_word_data);
 	model_word(actual_word.size(), actual_status_of_word);
