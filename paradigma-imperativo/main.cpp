@@ -3,6 +3,8 @@
 
 using namespace std;
 
+int _NUMBER_WORDS = 1627;
+
 typedef struct{
 	int points;
 	int lifes;
@@ -182,9 +184,9 @@ vector<string> split(string s, char c) {
 	return v;
 }
 
-string get_line_data(int number_word) {
+string get_line_data() {
     srand(time(NULL));
-    int line = rand() % number_word + 1;
+    int line = rand() % _NUMBER_WORDS + 1;
     ifstream file("dicionario.csv");
     string value;
     for (int i = 0; i < line; i++)
@@ -329,7 +331,7 @@ void reset_words(string &actual_word, string &actual_status_of_word) {
     actual_status_of_word = "";
 }
 
-void played(player &player1, player &player2, level &actual_level, string &actual_word, strint &actual_status_of_word, int &covered_size, int &number_word, bool &state_game, int &round_game, bool &checked) {
+void played(player &player1, player &player2, player actual_player, level &actual_level, string &actual_word, string &actual_status_of_word, int &covered_size, bool &state_game, int &round_game, bool &checked) {
     menu(player1, actual_level, actual_word, actual_status_of_word);
 		actual_player = player1;
 		cout << "RODADA: " << round_game << " => " << actual_status_of_word << endl << endl;
@@ -341,7 +343,7 @@ void played(player &player1, player &player2, level &actual_level, string &actua
             add_lifes(player1, actual_level);
             add_points(player1, actual_level);
             reset_words(actual_word, actual_status_of_word);
-            string line_data = get_line_data(number_word);
+            string line_data = get_line_data();
             word_data actual_word_data = get_word_data(line_data);
             actual_word = selection_word(actual_word_data);
             model_word(actual_word.size(), actual_status_of_word);
@@ -381,18 +383,18 @@ int main() {
 	cin >> player2.nickname;
 
 	update_state_game(state_game, player1, player2);
-	string line_data = get_line_data(number_word);
+	string line_data = get_line_data();
   	word_data actual_word_data = get_word_data(line_data);
   	actual_word = selection_word(actual_word_data);
 	model_word(actual_word.size(), actual_status_of_word);
 
 	while (!state_game) {
         // PLAYER 1
-        played(player1, player2, actual_level, actual_word, actual_status_of_word, convered_size, number_word, state_game, round_game, checked);
+        played(player1, player2, actual_player, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked);
 		// system("clear");
 
 		// PLAYER 2
-        played(player2, player1, actual_level, actual_word, actual_status_of_word, convered_size, number_word, state_game, round_game, checked);
+        played(player2, player1, actual_player, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked);
 		// system("clear");
 	}
 	return 0;
