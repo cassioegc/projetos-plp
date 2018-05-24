@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <unistd.h>
+#include <windows.h>
 
 using namespace std;
 
@@ -130,11 +131,13 @@ void update_status_of_word(vector<int> index, string &actual_status_of_word, cha
 /* Verifica se a letra esta na palavra,
  * e imprime a situacao da palavra no momento
 */
-void verify_letter(player &gamer, char letter, level &actual_level, string actual_word, string &actual_status_of_word) {
+void verify_letter(player &gamer, char letter, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize) {
 	vector<int> index = contains(actual_word, letter);
 	if (index.size() == 0) {
-        cout << "A palavra nao possui essa letra! -1 tentativa,\n\n";
-        penalize_player(actual_level, gamer);
+        cout << "            A palavra nao possui essa letra!" << endl << endl;
+        if (penalize) {
+            penalize_player(actual_level, gamer);
+        }
 	}
 
 	update_status_of_word(index, actual_status_of_word, letter);
@@ -143,6 +146,7 @@ void verify_letter(player &gamer, char letter, level &actual_level, string actua
 void model_word(int word_length, string &actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
 		actual_status_of_word += "_";
+		Sleep(50);
 	}
 }
 
@@ -153,12 +157,12 @@ void player_status(player &gamer) {
 	cout << "===> SUBTOTAL DE PONTOS: " << gamer.points << endl;
 }
 
-void receive_letter(player &gamer, level &actual_level, string actual_word, string &actual_status_of_word){
+void receive_letter(player &gamer, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize){
     char letter;
     cout << endl << gamer.nickname + ", digite uma letra: ";
     cin >> letter;
     cout << endl;
-	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word);
+	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word, penalize);
 	player_status(gamer);
 }
 
@@ -320,9 +324,7 @@ string get_first_element_list(vector<string> &word_list) {
 
 void select_bonus(int value, player &gamer, string &actual_word, word_data &actual_word_data) {
     cout << endl << "===========================================================" << endl;
-    if (value == 1 && gamer.choose_letter) {
-        // inserir manipulacao
-    } else if (value == 2 && gamer.type_word) {
+    if (value == 2 && gamer.type_word) {
         cout << "TIPO DA PALAVRA: " << get_first_element_list(actual_word_data._class) << endl;
         set_bonus(gamer, "type_word", false);
     } else if (value == 3 && gamer.synonyms) {
@@ -351,9 +353,8 @@ void inicialize_menu() {
 
     cout << "              Pressione enter para continuar" << endl;
     cin.ignore();
-    // limpa tela
-
-    cout << "================== INICIANDO PARTIDA ======================" << endl;
+    system("CLS");
+    //system("clear");
 }
 
 void end_menu(player &player1, player &player2) {
@@ -361,6 +362,7 @@ void end_menu(player &player1, player &player2) {
     cout << "--------------------- FIM DE JOGO -------------------------" << endl << endl;
     cout << "~~~~~~~~~~~~~~~~~~ E O VENCEDOR FOI ~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
     //sleep(1);
+    Sleep(2000);
     if (player1.points > player2.points) {
         cout << player1.nickname + ", PARABENS!!" << endl;
 	} else if (player2.points > player1.points) {
@@ -375,6 +377,7 @@ void resume_players(player &player1, player &player2) {
 
     cout << "JOGADOR 1: " + player1.nickname << endl;
     cout << "TOTAL DE PONTOS: " << player1.points << endl;
+    Sleep(1000);
     cout << "-----------------------------------------------------------" << endl;
     cout << "JOGADOR 2: " + player2.nickname << endl;
     cout << "TOTAL DE PONTOS: " << player2.points << endl;
@@ -412,10 +415,18 @@ void menu(player &gamer, level &actual_level, string &actual_word, string &actua
         cout << "===========================================================" << endl;
         cout << "R: ";
         cin >> bonus;
-        select_bonus(bonus, gamer, actual_word, actual_word_data);
-        receive_letter(gamer, actual_level, actual_word, actual_status_of_word);
+
+        // CONDICAO PARA O PRIMEIRO BONUS, POIS EXIGE QUE O USUARIO NAO SOFRA PENALIZACAO
+        if (bonus == 1 && gamer.choose_letter) {
+            receive_letter(gamer, actual_level, actual_word, actual_status_of_word, false);
+            cout << " ==> " << actual_status_of_word << endl << endl;
+            set_bonus(gamer, "choose_letter", false);
+        } else {
+            select_bonus(bonus, gamer, actual_word, actual_word_data);
+        }
+        receive_letter(gamer, actual_level, actual_word, actual_status_of_word, true);
     } else if (option == 0) {
-        receive_letter(gamer, actual_level, actual_word, actual_status_of_word);
+        receive_letter(gamer, actual_level, actual_word, actual_status_of_word, true);
     } else {
         cout << "Opcao invalida!" << endl;
     }
@@ -436,7 +447,9 @@ void played(player &player1, player &player2, level &actual_level, string &actua
         round_game += 1;
         set_level(actual_level, round_game);
         add_lifes(player1, actual_level);
+        add_lifes(player2, actual_level);
         add_points(player1, actual_level);
+        add_points(player2, actual_level);
         reset_words(actual_word, actual_status_of_word);
         string line_data = get_line_data(actual_level);
         word_data actual_word_data = get_word_data(line_data);
@@ -475,8 +488,11 @@ int main() {
 
 	// INICIANDO MENU
 	inicialize_menu();
+    system("CLS");
+    //system("clear");
 
 	// DADOS JOGADOR
+	cout << "================== INICIANDO PARTIDA ======================" << endl;
 	cout << "NOME JOGADOR 1: ";
 	cin >> player1.nickname;
 	cout << "NOME JOGADOR 2: ";
@@ -490,8 +506,13 @@ int main() {
 
 	while (!state_game) {
         played(player1, player2, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
+		Sleep(2500);
+		system("CLS");
 		// system("clear");
+
         played(player2, player1, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
+		Sleep(2500);
+		system("CLS");
 		// system("clear");
 	}
 	end_menu(player1, player2);
