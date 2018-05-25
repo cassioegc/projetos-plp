@@ -1,10 +1,20 @@
+#ifdef _WIN32
+    #define clear_comand "CLS"
+    #include <Windows.h>
+    void so_sleep(int time) { Sleep(time * 1000); }
+#endif // _WIN32
+
+#ifdef __unix
+    #include <unistd.h>
+    #define clear_comand "clear"
+    void so_sleep(int time) { sleep(time); }
+#endif // __unix__
+
 #include <bits/stdc++.h>
-#include <unistd.h>
-#include <windows.h>
 
 using namespace std;
 
-int _NUMBER_WORDS = 1627;
+#define _NUMBER_WORDS 1627
 
 typedef struct{
 	int points;
@@ -146,7 +156,6 @@ void verify_letter(player &gamer, char letter, level &actual_level, string actua
 void model_word(int word_length, string &actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
 		actual_status_of_word += "_";
-		Sleep(50);
 	}
 }
 
@@ -195,7 +204,7 @@ int get_lower_limit(string level) {
         result = 10;
     }
     else {
-        result = 0;
+        result = 2;
     }
     return result;
 }
@@ -233,7 +242,7 @@ string get_line_data(level actual_level) {
         }
         vector<string> data = split(value, ',');
         word = data[0];
-    } while ((word.size() < word_size_limit_lw) && (word.size() > word_size_limit_up));
+    } while ((word.size() < word_size_limit_lw) || (word.size() > word_size_limit_up));
 
     return value;
 }
@@ -353,8 +362,8 @@ void inicialize_menu() {
 
     cout << "              Pressione enter para continuar" << endl;
     cin.ignore();
-    system("CLS");
-    //system("clear");
+    system(clear_comand);
+
 }
 
 void end_menu(player &player1, player &player2) {
@@ -362,7 +371,7 @@ void end_menu(player &player1, player &player2) {
     cout << "--------------------- FIM DE JOGO -------------------------" << endl << endl;
     cout << "~~~~~~~~~~~~~~~~~~ E O VENCEDOR FOI ~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
     //sleep(1);
-    Sleep(2000);
+    so_sleep(2);
     if (player1.points > player2.points) {
         cout << player1.nickname + ", PARABENS!!" << endl;
 	} else if (player2.points > player1.points) {
@@ -377,13 +386,13 @@ void resume_players(player &player1, player &player2) {
 
     cout << "JOGADOR 1: " + player1.nickname << endl;
     cout << "TOTAL DE PONTOS: " << player1.points << endl;
-    Sleep(1000);
+    so_sleep(1);
     cout << "-----------------------------------------------------------" << endl;
     cout << "JOGADOR 2: " + player2.nickname << endl;
     cout << "TOTAL DE PONTOS: " << player2.points << endl;
 }
 
-void menu(player &gamer, level &actual_level, string &actual_word, string &actual_status_of_word, word_data actual_word_data) {
+void menu(player &gamer, level &actual_level, string &actual_word, string &actual_status_of_word, word_data &actual_word_data) {
     cout << "============/// ESTADO ATUAL DA PALAVRA ///================" << endl;
     cout << "NIVEL: " + actual_level.name << endl;
     cout << "PLAYER: " + gamer.nickname << endl;
@@ -488,8 +497,7 @@ int main() {
 
 	// INICIANDO MENU
 	inicialize_menu();
-    system("CLS");
-    //system("clear");
+    system(clear_comand);
 
 	// DADOS JOGADOR
 	cout << "================== INICIANDO PARTIDA ======================" << endl;
@@ -506,14 +514,12 @@ int main() {
 
 	while (!state_game) {
         played(player1, player2, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
-		Sleep(2500);
-		system("CLS");
-		// system("clear");
+		so_sleep(2.5);
+		system(clear_comand);
 
         played(player2, player1, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
-		Sleep(2500);
-		system("CLS");
-		// system("clear");
+		so_sleep(2.5);
+		system(clear_comand);
 	}
 	end_menu(player1, player2);
 	resume_players(player1, player2);
