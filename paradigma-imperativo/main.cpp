@@ -32,6 +32,10 @@ typedef struct{
 	string name;
 }level;
 
+void clear_screen() {
+    system(clear_comand);
+}
+
 string repeat(char chr, int x) {
     string str = "";
     for (int i = 0; i < x; i++) {
@@ -62,22 +66,22 @@ void wait(string message, float tempo) {
       so_sleep(tempo);
     }
     so_sleep(1);
-    system(clear_comand);
+    clear_screen();
 }
 
 void fade_word(string msg) {
   string message = "";
   int size_msg = msg.size();
-  system(clear_comand);
+  clear_screen();
   cout << repeat(' ', (COLUNAS-size_msg)/2) << message << endl;
   so_sleep(1);
   for (int i = 0; i < size_msg; i++) {
     message += "_";
-    system(clear_comand);
+    clear_screen();
     cout << repeat(' ', (COLUNAS-size_msg)/2) << message << endl;
     so_sleep(0.1);
   }
-  system(clear_comand);
+  clear_screen();
 }
 
 void inicialize_bonus(player &gamer) {
@@ -195,6 +199,7 @@ void verify_letter(player &gamer, char letter, level &actual_level, string actua
 	vector<int> index = contains(actual_word, letter);
 	if (index.size() == 0) {
         cout << "            A palavra nao possui essa letra!" << endl << endl;
+        so_sleep(3);
         if (penalize) {
             penalize_player(actual_level, gamer);
         }
@@ -222,7 +227,6 @@ void receive_letter(player &gamer, level &actual_level, string actual_word, stri
     cin >> letter;
     cout << endl;
 	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word, penalize);
-	player_status(gamer);
 }
 
 //========================FILES AREA============================
@@ -333,8 +337,6 @@ void to_string_word_data(word_data w) {
 
 string selection_word(word_data data) {
 	string word = data.word;
-	cout << endl << "================= SORTEANDO A PALAVRA =====================" << endl << endl;
-	//sleep(2);
 	return word;
 }
 
@@ -399,21 +401,17 @@ void select_bonus(int value, player &gamer, string &actual_word, word_data &actu
     }
 }
 
-void inicialize_menu() {
-    cout << "===========================================================" << endl;
-    cout << "|               FORCA, RODA jequiti A RODA                |" << endl;
-    cout << "===========================================================" << endl << endl;
-
-    cout << "--------------------- COMO FUNCIONA -----------------------" << endl;
-    cout << "REGRAS AQUI" << endl;
-    cout << "REGRAS AQUI" << endl;
-    cout << "REGRAS AQUI" << endl;
-    cout << "REGRAS AQUI" << endl << endl;
-
-    cout << "              Pressione enter para continuar" << endl;
-    cin.ignore();
-    system(clear_comand);
-
+string inicialize_menu() {
+    string menu = "===========================================================\n";
+    menu += "|               FORCA, RODA jequiti A RODA                |\n";
+    menu += "===========================================================\n" ;
+    menu += "--------------------- COMO FUNCIONA -----------------------\n";
+    menu += "REGRAS AQUI\n";
+    menu += "REGRAS AQUI\n";
+    menu += "REGRAS AQUI\n";
+    menu += "REGRAS AQUI\n";
+    menu += "              Pressione enter para continuar\n";
+    return menu;
 }
 
 void end_menu(player &player1, player &player2) {
@@ -546,8 +544,9 @@ int main() {
 	inicialize_bonus(player2);
 
 	// INICIANDO MENU
-	inicialize_menu();
-    system(clear_comand);
+	cout << inicialize_menu();
+    cin.ignore();
+    clear_screen();
 
 	// DADOS JOGADOR
 	cout << "================== INICIANDO PARTIDA ======================" << endl;
@@ -556,19 +555,20 @@ int main() {
 	cout << "NOME JOGADOR 2: ";
 	cin >> player2.nickname;
 
+    wait("PREPARANDO O AMBIENTE", 0.3);
+
 	update_state_game(state_game, player1, player2);
 	string line_data = get_line_data(actual_level);
   	word_data actual_word_data = get_word_data(line_data);
+    wait("SORTEANDO PALAVRA", 0.4);
   	actual_word = selection_word(actual_word_data);
 	model_word(actual_word.size(), actual_status_of_word);
 
 	while (!state_game) {
         played(player1, player2, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
-		so_sleep(2.5);
 		system(clear_comand);
 
         played(player2, player1, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
-		so_sleep(2.5);
 		system(clear_comand);
 	}
 	end_menu(player1, player2);
