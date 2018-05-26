@@ -17,6 +17,7 @@ using namespace std;
 
 #define _NUMBER_WORDS 1627
 int LINHAS, COLUNAS;
+int CENTRALIZE = 48;
 
 typedef struct{
 	int points;
@@ -140,7 +141,7 @@ void start_life(player &gamer1, player &gamer2) {
 
  void add_lifes(player &gamer, level &actual_level) {
 	if (actual_level.name == "PYTHON") {
-		gamer.lifes += 1;
+		gamer.lifes += 7;
 	} else if (actual_level.name == "JAVA") {
 		gamer.lifes += 5;
 	} else if (actual_level.name == "ASSEMBLY") {
@@ -196,13 +197,6 @@ void model_word(int word_length, string &actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
 		actual_status_of_word += "_";
 	}
-}
-
-void player_status(player &gamer) {
-    cout << "======================== STATUS ===========================" << endl;
-	cout << "===> PLAYER: " << gamer.nickname << endl;
-	cout << "===> TENTATIVAS RESTANTES: " << gamer.lifes << endl;
-	cout << "===> SUBTOTAL DE PONTOS: " << gamer.points << endl;
 }
 
 //========================FILES AREA============================
@@ -313,20 +307,24 @@ void to_string_word_data(word_data w) {
 
 string selection_word(word_data data) {
 	string word = data.word;
+    wait("SORTEANDO PALAVRA", 0.4);
 	return word;
 }
 
 bool compare_words(string actual_word, string word, player &actual_player, level &actual_level) {
     bool result;
-    string status = "\n===========================================================\n";
+    string status;
     if (actual_word != word) {
         result = false;
         penalize_player(actual_level, actual_player);
-        status += "               ERRROOOOOOOWW, PUTZA VIDA :'(\n\n";
+        status = "ERRROOOOOOOWW, PUTZA VIDA :'(\n\n";
+        status = "\n" + repeat(' ', (COLUNAS-status.size())/2) + status;
     } else {
         result = true;
-        status += "             OLOCO BICHO, BRINCADEIRA MEU!!\n";
-        status += "                    Proxima rodada..\n";
+        status = "OLOCO BICHO, BRINCADEIRA MEU!!\n";
+        status = "\n" + repeat(' ', (COLUNAS-status.size())/2) + status;
+        string comp = "Proxima rodada..\n";
+        status += repeat(' ', (COLUNAS-comp.size())/2) + comp;
     }
     cout << status;
     so_sleep(3);
@@ -338,7 +336,7 @@ bool complete_word(player &gamer, string &actual_word, int &covered_size, level 
     string word_player;
     
     if (covered_size >= actual_word.size() * 0.4) {
-        cout << gamer.nickname + ", Digite a palavra completa: ";
+        cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << gamer.nickname + ", Digite a palavra completa: ";
         cin >> word_player;
         result = compare_words(actual_word, word_player, gamer, actual_level);
     }
@@ -363,33 +361,35 @@ string get_first_element_list(vector<string> &word_list) {
 }
 
 void select_bonus(int value, player &gamer, string &actual_word, word_data &actual_word_data) {
-    cout << endl << "===========================================================" << endl;
+    string espacos = repeat(' ', (COLUNAS-CENTRALIZE)/2);
     if (value == 2 && gamer.type_word) {
-        cout << "TIPO DA PALAVRA: " << get_first_element_list(actual_word_data._class) << endl;
+        cout << espacos << "TIPO DA PALAVRA: " << get_first_element_list(actual_word_data._class) << endl;
         set_bonus(gamer, "type_word", false);
     } else if (value == 3 && gamer.synonyms) {
-        cout << "SINONIMO: "  << get_first_element_list(actual_word_data.synonyms) << endl;
+        cout << espacos << "SINONIMO: "  << get_first_element_list(actual_word_data.synonyms) << endl;
         set_bonus(gamer, "synonyms", false);
     } else if (value == 4 && gamer.syllables) {
-        cout << "QUANTIDADE DE SILABAS: "  << actual_word_data.syllables << endl;
+        cout << espacos << "QUANTIDADE DE SILABAS: "  << actual_word_data.syllables << endl;
         set_bonus(gamer, "syllables", false);
     } else if (value > 0 && value < 5){
-        cout << "Esse bonus ja foi utilizado!" << endl << endl;
+        cout << espacos << "Esse bonus ja foi utilizado!" << endl << endl;
     } else {
-        cout << "Opcao invalida" << endl << endl;
+        cout << espacos << "Opcao invalida" << endl << endl;
     }
 }
 
 string inicialize_menu() {
     string menu = "===========================================================\n";
-    menu += "|               FORCA, RODA jequiti A RODA                |\n";
-    menu += "===========================================================\n" ;
-    menu += "--------------------- COMO FUNCIONA -----------------------\n";
-    menu += "REGRAS AQUI\n";
-    menu += "REGRAS AQUI\n";
-    menu += "REGRAS AQUI\n";
-    menu += "REGRAS AQUI\n";
-    menu += "              Pressione enter para continuar\n";
+    string espacos = repeat(' ', (COLUNAS - menu.size())/2); 
+    menu = espacos + menu;   
+    menu += espacos + "|               FORCA, RODA jequiti A RODA                |\n";
+    menu += espacos + "===========================================================\n" ;
+    menu += espacos + "--------------------- COMO FUNCIONA -----------------------\n";
+    menu += espacos + "REGRAS AQUI\n";
+    menu += espacos + "REGRAS AQUI\n";
+    menu += espacos + "REGRAS AQUI\n";
+    menu += espacos + "REGRAS AQUI\n";
+    menu += espacos + "              Pressione enter para continuar\n";
     return menu;
 }
 
@@ -412,31 +412,86 @@ void fade_end_game(string head, string player) {
 void end_menu(player &player1, player &player2) {
     clear_screen();
     string end_menu =  "===========================================================\n";
-    end_menu += "--------------------- FIM DE JOGO -------------------------\n\n";
-    end_menu += "~~~~~~~~~~~~~~~~~~ E O VENCEDOR FOI ~~~~~~~~~~~~~~~~~~~~~~~\n\n";
+    string espacos = repeat(' ', (COLUNAS-end_menu.size())/2);
+    end_menu = espacos + end_menu;
+    end_menu += espacos + "--------------------- FIM DE JOGO -------------------------\n\n";
+    end_menu += espacos + "~~~~~~~~~~~~~~~~~~ E O VENCEDOR FOI ~~~~~~~~~~~~~~~~~~~~~~~\n\n";
+    end_menu += espacos;
     so_sleep(2);
     
     if (player1.points > player2.points) {
         fade_end_game(end_menu, player1.nickname);
-        cout << endl << "PARABENS!!" << endl;
+        cout << endl << espacos << "PARABENS!!" << endl;
 	} else if (player2.points > player1.points) {
 	    fade_end_game(end_menu, player2.nickname);
-        cout << endl << "PARABENS!!" << endl;
+        cout << endl << espacos << "PARABENS!!" << endl;
 	} else {
         fade_end_game(end_menu, "EMPATE");
-        cout << endl << "PARABENS! " << player1.nickname + ", " << player2.nickname << endl;
+        cout << endl << espacos << "PARABENS! " << player1.nickname + ", " << player2.nickname << endl;
 	}
 }
 
-void resume_players(player &player1, player &player2) {
-    cout << "================== RESUMO DA PARTIDA ======================" << endl << endl;
+void status_actual(player player1, player player2, int round_game, bool end_game) {
+  string p1 = player1.nickname;
+  string p2 = player2.nickname;
+  int len = 6;
+  if (p1.size() > len) {
+    len = p1.size();
+  }
+  if (p2.size() > len) {
+    len = p2.size();
+  }
+  string players = "Player";
+  if (len != 6) {
+    players += repeat(' ', len-6);
+  }
+  if (len != p1.size()) {
+    p1 += repeat(' ', len-p1.size());
+  }
+  if (len != p2.size()) {
+    p2 += repeat(' ', len-p2.size());
+  }
 
-    cout << "JOGADOR 1: " + player1.nickname << endl;
-    cout << "TOTAL DE PONTOS: " << player1.points << endl;
-    so_sleep(1);
-    cout << "-----------------------------------------------------------" << endl;
-    cout << "JOGADOR 2: " + player2.nickname << endl;
-    cout << "TOTAL DE PONTOS: " << player2.points << endl;
+  string spp1 = to_string ( player1.points );
+  string spp2 = to_string ( player2.points );
+  spp1 += repeat(' ', 6-spp1.size());
+  spp2 += repeat(' ', 6-spp2.size());
+
+  string divi = repeat('-', len+13) + "\n";
+  string saida, head, espacos_head, espacos_line;
+  if (end_game) {
+    head = "================== RESUMO DA PARTIDA ======================\n";
+    espacos_head = repeat(' ', (COLUNAS-head.size())/2);
+    saida = "\n\n" + espacos_head + head;
+  }
+  else {
+    head = "SITUACAO APOS A " + to_string( round_game ) + "ª RODADA\n";
+    espacos_head = repeat(' ', (COLUNAS-head.size())/2);
+    saida = espacos_head + head;
+  }
+
+  espacos_line = repeat(' ', (COLUNAS-divi.size())/2);
+  saida += espacos_line + divi;
+  saida += espacos_line + "| " + players + " | Pontos |\n";
+  saida += espacos_line + divi;
+  saida += espacos_line + "| " + p1 + " | " + spp1 + " |\n";
+  saida += espacos_line + divi;
+  saida += espacos_line + "| " + p2 + " | " + spp2 + " |\n";
+  saida += espacos_line + divi;
+  int cont = 10;
+
+  if (end_game) {
+    cout << saida;
+  }
+  else {
+    while (cont > 0) {
+      system("clear");
+      cout << saida << endl << endl << repeat(' ', (COLUNAS-2)/2) << cont << endl;
+      cont--;
+      so_sleep(0.7);
+
+    }
+  }
 }
 
 /* Verifica se a letra esta na palavra,
@@ -445,7 +500,7 @@ void resume_players(player &player1, player &player2) {
 void verify_letter(player &gamer, char letter, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize) {
 	vector<int> index = contains(actual_word, letter);
 	if (index.size() == 0) {
-        cout << "            A palavra nao possui essa letra!" << endl << endl;
+        cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << "A palavra nao possui essa letra!" << endl << endl;
         so_sleep(3);
         if (penalize) {
             penalize_player(actual_level, gamer);
@@ -457,7 +512,7 @@ void verify_letter(player &gamer, char letter, level &actual_level, string actua
 
 void receive_letter(player &gamer, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize){
     char letter;
-    cout << endl << gamer.nickname + ", digite uma letra: ";
+    cout << endl << repeat(' ', (COLUNAS-CENTRALIZE)/2) << gamer.nickname + ", digite uma letra: ";
     cin >> letter;
     cout << endl;
 	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word, penalize);
@@ -465,7 +520,7 @@ void receive_letter(player &gamer, level &actual_level, string actual_word, stri
 
 void display_round(string actual_status_of_word, player gamer, level actual_level) {
   clear_screen();
-  cout << "Nivel: " << actual_level.name << endl;
+  cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << "Nivel: " << actual_level.name << endl;
   string spaces_word = repeat(' ', (COLUNAS-actual_status_of_word.size())/2);
   cout << spaces_word << actual_status_of_word << endl << endl;
 
@@ -499,7 +554,7 @@ void menu(player &gamer, level &actual_level, string &actual_word, string &actua
     display_round(actual_status_of_word, gamer, actual_level);
 
     char option;
-    cout << gamer.nickname << ": ";
+    cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << gamer.nickname << ": ";
     cin >> option;
 
     if (is_numeric(option)) {
@@ -536,6 +591,7 @@ void played(player &player1, player &player2, level &actual_level, string &actua
     update_covered_size(covered_size, actual_word, actual_status_of_word);
     checked = complete_word(player1, actual_word, covered_size, actual_level);
     if (checked) {
+        status_actual(player1, player2, round_game, false);
         round_game += 1;
         set_level(actual_level, round_game);
         add_lifes(player1, actual_level);
@@ -553,7 +609,16 @@ void played(player &player1, player &player2, level &actual_level, string &actua
 	update_state_game(state_game, player1, player2);
 }
 
+void set_dimensions(int &linhas, int &colunas) {
+  struct winsize w;
+  ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+  colunas = w.ws_col;
+  linhas = w.ws_row;
+}
+
 int main() {
+    clear_screen();
+    set_dimensions(LINHAS, COLUNAS);
 	// VARIAVEIS
 	player player1, player2;
 	level actual_level;
@@ -584,10 +649,12 @@ int main() {
     clear_screen();
 
 	// DADOS JOGADOR
-	cout << "================== INICIANDO PARTIDA ======================" << endl;
-	cout << "NOME JOGADOR 1: ";
+	string head = "================== INICIANDO PARTIDA ======================\n";
+    string espacos = repeat(' ', (COLUNAS - head.size())/2);
+    cout << espacos << head;
+	cout << espacos << "NOME JOGADOR 1: ";
 	cin >> player1.nickname;
-	cout << "NOME JOGADOR 2: ";
+	cout << espacos << "NOME JOGADOR 2: ";
 	cin >> player2.nickname;
 
     wait("PREPARANDO O AMBIENTE", 0.3);
@@ -595,7 +662,6 @@ int main() {
 	update_state_game(state_game, player1, player2);
 	string line_data = get_line_data(actual_level);
   	word_data actual_word_data = get_word_data(line_data);
-    wait("SORTEANDO PALAVRA", 0.4);
   	actual_word = selection_word(actual_word_data);
 	model_word(actual_word.size(), actual_status_of_word);
 
@@ -605,6 +671,6 @@ int main() {
         played(player2, player1, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
 	}
 	end_menu(player1, player2);
-	resume_players(player1, player2);
+	status_actual(player1, player2, round_game, true);
 	return 0;
 }
