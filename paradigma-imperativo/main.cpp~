@@ -1,14 +1,13 @@
 #ifdef _WIN32
     #define clear_comand "CLS"
     #include <Windows.h>
-    void so_sleep(float time) { Sleep(time * 1000); }
+    void so_sleep(int time) { Sleep(time * 1000); }
 #endif // _WIN32
 
 #ifdef __unix
     #include <unistd.h>
-    #include <sys/ioctl.h>
     #define clear_comand "clear"
-    void so_sleep(float time) { usleep(time * 1000000); }
+    void so_sleep(int time) { sleep(time); }
 #endif // __unix__
 
 #include <bits/stdc++.h>
@@ -16,7 +15,6 @@
 using namespace std;
 
 #define _NUMBER_WORDS 1627
-int LINHAS, COLUNAS;
 
 typedef struct{
 	int points;
