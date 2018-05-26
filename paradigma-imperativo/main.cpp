@@ -32,6 +32,54 @@ typedef struct{
 	string name;
 }level;
 
+string repeat(char chr, int x) {
+    string str = "";
+    for (int i = 0; i < x; i++) {
+        str += chr;
+    }
+    return str;
+}
+
+int to_int(char chr) {
+  int result = chr-'0';
+  return result;
+}
+
+bool is_numeric(char chr) {
+  return int(chr) >= 48 and int(chr) <= 57;
+}
+
+void wait(string message, float tempo) {
+    system(clear_comand);
+    int size_original_msg = message.size();
+    cout << repeat('\n', (LINHAS-1)/2);
+    cout << repeat(' ', (COLUNAS-size_original_msg)/2) << message << endl;
+    for (int i = 0; i < 5; i++) {
+      message += ".";
+      system(clear_comand);
+      cout << repeat('\n', (LINHAS-1)/2);
+      cout << repeat(' ', (COLUNAS-size_original_msg)/2) << message << endl;
+      so_sleep(tempo);
+    }
+    so_sleep(1);
+    system(clear_comand);
+}
+
+void fade_word(string msg) {
+  string message = "";
+  int size_msg = msg.size();
+  system(clear_comand);
+  cout << repeat(' ', (COLUNAS-size_msg)/2) << message << endl;
+  so_sleep(1);
+  for (int i = 0; i < size_msg; i++) {
+    message += "_";
+    system(clear_comand);
+    cout << repeat(' ', (COLUNAS-size_msg)/2) << message << endl;
+    so_sleep(0.1);
+  }
+  system(clear_comand);
+}
+
 void inicialize_bonus(player &gamer) {
     gamer.choose_letter = true;
     gamer.type_word = true;
