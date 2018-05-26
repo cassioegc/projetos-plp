@@ -60,7 +60,7 @@ void wait(string message, float tempo) {
     cout << repeat(' ', (COLUNAS-size_original_msg)/2) << message << endl;
     for (int i = 0; i < 5; i++) {
       message += ".";
-      system(clear_comand);
+      clear_screen();
       cout << repeat('\n', (LINHAS-1)/2);
       cout << repeat(' ', (COLUNAS-size_original_msg)/2) << message << endl;
       so_sleep(tempo);
@@ -140,7 +140,7 @@ void start_life(player &gamer1, player &gamer2) {
 
  void add_lifes(player &gamer, level &actual_level) {
 	if (actual_level.name == "PYTHON") {
-		gamer.lifes += 7;
+		gamer.lifes += 1;
 	} else if (actual_level.name == "JAVA") {
 		gamer.lifes += 5;
 	} else if (actual_level.name == "ASSEMBLY") {
@@ -393,18 +393,38 @@ string inicialize_menu() {
     return menu;
 }
 
+void fade_end_game(string head, string player) {
+    string str = head;
+    cout << str;
+    so_sleep(0.1);
+    for (int i = 0; i < player.size(); i++) {
+        clear_screen();
+        str += '?';
+        cout << str << endl;
+        so_sleep(0.1);
+    }
+    clear_screen();
+    so_sleep(0.01);
+    cout << head << player;
+    so_sleep(1);
+}
+
 void end_menu(player &player1, player &player2) {
-    cout << "===========================================================" << endl << endl;
-    cout << "--------------------- FIM DE JOGO -------------------------" << endl << endl;
-    cout << "~~~~~~~~~~~~~~~~~~ E O VENCEDOR FOI ~~~~~~~~~~~~~~~~~~~~~~~" << endl << endl;
-    //sleep(1);
+    clear_screen();
+    string end_menu =  "===========================================================\n";
+    end_menu += "--------------------- FIM DE JOGO -------------------------\n\n";
+    end_menu += "~~~~~~~~~~~~~~~~~~ E O VENCEDOR FOI ~~~~~~~~~~~~~~~~~~~~~~~\n\n";
     so_sleep(2);
+    
     if (player1.points > player2.points) {
-        cout << player1.nickname + ", PARABENS!!" << endl;
+        fade_end_game(end_menu, player1.nickname);
+        cout << endl << "PARABENS!!" << endl;
 	} else if (player2.points > player1.points) {
-	    cout << player2.nickname + ", PARABENS!!" << endl;
+	    fade_end_game(end_menu, player2.nickname);
+        cout << endl << "PARABENS!!" << endl;
 	} else {
-        cout << "OS DOIS!, HOUVE UM EMPATE, PARABENS! " << player1.nickname + ", " << player2.nickname << endl;
+        fade_end_game(end_menu, "EMPATE");
+        cout << endl << "PARABENS! " << player1.nickname + ", " << player2.nickname << endl;
 	}
 }
 
