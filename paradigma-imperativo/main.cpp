@@ -192,22 +192,6 @@ void update_status_of_word(vector<int> index, string &actual_status_of_word, cha
 	}
 }
 
-/* Verifica se a letra esta na palavra,
- * e imprime a situacao da palavra no momento
-*/
-void verify_letter(player &gamer, char letter, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize) {
-	vector<int> index = contains(actual_word, letter);
-	if (index.size() == 0) {
-        cout << "            A palavra nao possui essa letra!" << endl << endl;
-        so_sleep(3);
-        if (penalize) {
-            penalize_player(actual_level, gamer);
-        }
-	}
-
-	update_status_of_word(index, actual_status_of_word, letter);
-}
-
 void model_word(int word_length, string &actual_status_of_word) {
 	for (int i = 0; i < word_length; i++) {
 		actual_status_of_word += "_";
@@ -219,14 +203,6 @@ void player_status(player &gamer) {
 	cout << "===> PLAYER: " << gamer.nickname << endl;
 	cout << "===> TENTATIVAS RESTANTES: " << gamer.lifes << endl;
 	cout << "===> SUBTOTAL DE PONTOS: " << gamer.points << endl;
-}
-
-void receive_letter(player &gamer, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize){
-    char letter;
-    cout << endl << gamer.nickname + ", digite uma letra: ";
-    cin >> letter;
-    cout << endl;
-	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word, penalize);
 }
 
 //========================FILES AREA============================
@@ -340,28 +316,31 @@ string selection_word(word_data data) {
 	return word;
 }
 
-bool compare_words(string actual_word, player &actual_player, level &actual_level) {
+bool compare_words(string actual_word, string word, player &actual_player, level &actual_level) {
     bool result;
-    string word;
-    cin >> word;
-    cout << endl << "===========================================================" << endl;
+    string status = "\n===========================================================\n";
     if (actual_word != word) {
         result = false;
         penalize_player(actual_level, actual_player);
-        cout << "               ERRROOOOOOOWW, PUTZA VIDA :'(" << endl << endl;
+        status += "               ERRROOOOOOOWW, PUTZA VIDA :'(\n\n";
     } else {
         result = true;
-        cout << "             OLOCO BICHO, BRINCADEIRA MEU!!" << endl;
-        cout << "                    Proxima rodada.." << endl;
+        status += "             OLOCO BICHO, BRINCADEIRA MEU!!\n";
+        status += "                    Proxima rodada..\n";
     }
+    cout << status;
+    so_sleep(3);
     return result;
 }
 
 bool complete_word(player &gamer, string &actual_word, int &covered_size, level &actual_level) {
     bool result;
+    string word_player;
+    
     if (covered_size >= actual_word.size() * 0.4) {
         cout << gamer.nickname + ", Digite a palavra completa: ";
-        result = compare_words(actual_word, gamer, actual_level);
+        cin >> word_player;
+        result = compare_words(actual_word, word_player, gamer, actual_level);
     }
     return result;
 }
@@ -440,52 +419,89 @@ void resume_players(player &player1, player &player2) {
     cout << "TOTAL DE PONTOS: " << player2.points << endl;
 }
 
+/* Verifica se a letra esta na palavra,
+ * e imprime a situacao da palavra no momento
+*/
+void verify_letter(player &gamer, char letter, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize) {
+	vector<int> index = contains(actual_word, letter);
+	if (index.size() == 0) {
+        cout << "            A palavra nao possui essa letra!" << endl << endl;
+        so_sleep(3);
+        if (penalize) {
+            penalize_player(actual_level, gamer);
+        }
+	}
+
+	update_status_of_word(index, actual_status_of_word, letter);
+}
+
+void receive_letter(player &gamer, level &actual_level, string actual_word, string &actual_status_of_word, bool penalize){
+    char letter;
+    cout << endl << gamer.nickname + ", digite uma letra: ";
+    cin >> letter;
+    cout << endl;
+	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word, penalize);
+}
+
+void display_round(string actual_status_of_word, player gamer, level actual_level) {
+  clear_screen();
+  cout << "Nivel: " << actual_level.name << endl;
+  string spaces_word = repeat(' ', (COLUNAS-actual_status_of_word.size())/2);
+  cout << spaces_word << actual_status_of_word << endl << endl;
+
+  string msg = "Digite uma letra ou codigo de bonus";
+  string spaces_msg = repeat(' ', (COLUNAS-msg.size())/2);
+  cout << spaces_msg << msg << endl;
+
+  string spaces_bonus = repeat(' ', (COLUNAS-49)/2);
+  string bonus_msg = spaces_bonus + "*************************************************\n";
+  bonus_msg += spaces_bonus + "*                                               *\n";
+
+  if (gamer.choose_letter) {
+      bonus_msg += spaces_bonus + "*  1. Escolher uma letra sem sofrer penalidade  *\n";
+  }
+  if (gamer.type_word) {
+      bonus_msg += spaces_bonus + "*  2. Solicitar o tipo da palavra               *\n";
+  }
+  if (gamer.synonyms) {
+      bonus_msg += spaces_bonus + "*  3. Solicitar sinonimo                        *\n";
+  }
+  if (gamer.syllables) {
+      bonus_msg += spaces_bonus + "*  4. Pedir a quantidade de silabas da palavra  *\n";
+  }
+  bonus_msg += spaces_bonus + "*                                               *\n";
+  bonus_msg += spaces_bonus + "*************************************************\n";
+
+  cout << endl << bonus_msg << endl;
+}
+
 void menu(player &gamer, level &actual_level, string &actual_word, string &actual_status_of_word, word_data &actual_word_data) {
-    cout << "============/// ESTADO ATUAL DA PALAVRA ///================" << endl;
-    cout << "NIVEL: " + actual_level.name << endl;
-    cout << "PLAYER: " + gamer.nickname << endl;
-    cout << "PALAVRA:  " + actual_status_of_word << endl << endl;
+    display_round(actual_status_of_word, gamer, actual_level);
 
-    cout << "====================== SUAS OPCOES ========================" << endl;
-    cout << "0. Escolher uma letra" << endl;
-    cout << "1. Usar bonus" << endl << endl;
-
-    int option;
-    cout << "R: ";
+    char option;
+    cout << gamer.nickname << ": ";
     cin >> option;
 
-    if (option == 1) {
-        int bonus;
-        cout << endl << "======================= SEUS BONUS ========================" << endl;
-        if (gamer.choose_letter) {
-            cout << "1. Escolher uma letra sem sofrer penalidade em caso de erro" << endl;
-        }
-        if (gamer.type_word) {
-            cout << "2. Solicitar o tipo da palavra" << endl;
-        }
-        if (gamer.synonyms) {
-            cout << "3. Solicitar sinonimo" << endl;
-        }
-        if (gamer.syllables) {
-            cout << "4. Pedir a quantidade de silabas da palavra" << endl;
-        }
-        cout << "===========================================================" << endl;
-        cout << "R: ";
-        cin >> bonus;
+    if (is_numeric(option)) {
+        int bonus = to_int(option);
 
         // CONDICAO PARA O PRIMEIRO BONUS, POIS EXIGE QUE O USUARIO NAO SOFRA PENALIZACAO
-        if (bonus == 1 && gamer.choose_letter) {
+        if (bonus < 0 || bonus > 4) {
+           cout << "Opcao invalida!" << endl;
+        }
+        else if (bonus == 1 && gamer.choose_letter) {
             receive_letter(gamer, actual_level, actual_word, actual_status_of_word, false);
             cout << " ==> " << actual_status_of_word << endl << endl;
             set_bonus(gamer, "choose_letter", false);
+            display_round(actual_status_of_word, gamer, actual_level);
         } else {
             select_bonus(bonus, gamer, actual_word, actual_word_data);
         }
         receive_letter(gamer, actual_level, actual_word, actual_status_of_word, true);
-    } else if (option == 0) {
-        receive_letter(gamer, actual_level, actual_word, actual_status_of_word, true);
+        display_round(actual_status_of_word, gamer, actual_level);
     } else {
-        cout << "Opcao invalida!" << endl;
+        verify_letter(gamer, option, actual_level, actual_word, actual_status_of_word, true);
+        display_round(actual_status_of_word, gamer, actual_level);
     }
 }
 
@@ -496,7 +512,6 @@ void reset_words(string &actual_word, string &actual_status_of_word) {
 
 void played(player &player1, player &player2, level &actual_level, string &actual_word, string &actual_status_of_word, int &covered_size, bool &state_game, int &round_game, bool &checked, word_data &actual_word_data) {
     menu(player1, actual_level, actual_word, actual_status_of_word, actual_word_data);
-    cout << "RODADA: " << round_game << " => " << actual_status_of_word << endl << endl;
 
     update_covered_size(covered_size, actual_word, actual_status_of_word);
     checked = complete_word(player1, actual_word, covered_size, actual_level);
@@ -566,10 +581,8 @@ int main() {
 
 	while (!state_game) {
         played(player1, player2, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
-		system(clear_comand);
 
         played(player2, player1, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
-		system(clear_comand);
 	}
 	end_menu(player1, player2);
 	resume_players(player1, player2);
