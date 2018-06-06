@@ -385,10 +385,13 @@ string inicialize_menu() {
     menu += espacos + "|               FORCA, RODA jequiti A RODA                |\n";
     menu += espacos + "===========================================================\n" ;
     menu += espacos + "--------------------- COMO FUNCIONA -----------------------\n";
-    menu += espacos + "REGRAS AQUI\n";
-    menu += espacos + "REGRAS AQUI\n";
-    menu += espacos + "REGRAS AQUI\n";
-    menu += espacos + "REGRAS AQUI\n";
+    menu += espacos + "1 - DOIS JOGADORES APRESENTAM X CHANCES CADA UM POR RODADA PARA ADIVINHAR UMA PALAVRA ALEATORIA LETRA A LETRA.\n";
+    menu += espacos + "2 - CADA LETRA ERRADA, DEBITA PONTOS NA QUANTIDADE DETERMINADA PELO NIVEL (PYTHON, JAVA E ASSEMBLY).\n";
+	menu += espacos + "3 - QUANTO FALTAR 40% DA PALAVRA EM QUESTAO, O JOGADOR SERA SOLICITADO A DAR A RESPOSTA CORRETA. EM CASO DE ERRO, O JOGADOR SOFRERA AS PUNICOES JA CITADAS.\n";
+	menu += espacos + "4 - CASO O USUARIO TENHA ACERTADO, ACUMULA OS PONTOS RESTANTES.\n";
+	menu += espacos + "5 - ZERADA AS CHANCES, O PERDEDOR AGUARDA O FINAL DA RODADA, PODENDO O ADVERSARIO LEVAR OS PONTOS SE ACERTAR A PALAVRA.\n";
+	menu += espacos + "6 - UMA NOVA PALAVRA SORTEADA A CADA RODADA.\n";
+    menu += espacos + "7 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU MAIS PONTOS.\n";
     menu += espacos + "              Pressione enter para continuar\n";
     return menu;
 }
