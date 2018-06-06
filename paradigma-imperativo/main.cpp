@@ -391,7 +391,8 @@ string inicialize_menu() {
 	menu += espacos + "4 - CASO O USUARIO TENHA ACERTADO, ACUMULA OS PONTOS RESTANTES.\n";
 	menu += espacos + "5 - ZERADA AS CHANCES, O PERDEDOR AGUARDA O FINAL DA RODADA, PODENDO O ADVERSARIO LEVAR OS PONTOS SE ACERTAR A PALAVRA.\n";
 	menu += espacos + "6 - UMA NOVA PALAVRA SORTEADA A CADA RODADA.\n";
-    menu += espacos + "7 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU MAIS PONTOS.\n";
+	menu += espacos + "7 - A CADA RODADA, UM BONUS PODERA SER SOLICIDADO UMA UNICA VEZ(TIPO DA PALAVRA, PALAVRA SEMELHANTE E NUMERO DE SILABA).\n";
+    menu += espacos + "8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU MAIS PONTOS.\n";
     menu += espacos + "              Pressione enter para continuar\n";
     return menu;
 }
