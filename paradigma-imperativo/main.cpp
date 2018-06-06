@@ -366,7 +366,7 @@ void select_bonus(int value, player &gamer, string &actual_word, word_data &actu
         cout << espacos << "TIPO DA PALAVRA: " << get_first_element_list(actual_word_data._class) << endl;
         set_bonus(gamer, "type_word", false);
     } else if (value == 3 && gamer.synonyms) {
-        cout << espacos << "SINONIMO: "  << get_first_element_list(actual_word_data.synonyms) << endl;
+        cout << espacos << "SEMELHANTE: "  << get_first_element_list(actual_word_data.synonyms) << endl;
         set_bonus(gamer, "synonyms", false);
     } else if (value == 4 && gamer.syllables) {
         cout << espacos << "QUANTIDADE DE SILABAS: "  << actual_word_data.syllables << endl;
@@ -518,8 +518,24 @@ void receive_letter(player &gamer, level &actual_level, string actual_word, stri
 	verify_letter(gamer, letter, actual_level, actual_word, actual_status_of_word, penalize);
 }
 
-void display_round(string actual_status_of_word, player gamer, level actual_level) {
+void diplay_scoreboard(player p1, player p2) {
+    string spaces_centralize = repeat(' ', (COLUNAS-CENTRALIZE)/2);
+    
+    string nickname1 = p1.nickname;
+    string nickname2 = p2.nickname;
+    if (nickname1.size() > nickname2.size()) {
+        nickname2 += repeat(' ', nickname1.size() - nickname2.size());
+    }
+    else {
+        nickname1 += repeat(' ', nickname2.size() - nickname1.size());
+    }
+    cout << spaces_centralize << nickname1 << " - Vidas: " << p1.lifes << endl;
+    cout << spaces_centralize << nickname2 << " - Vidas: " << p2.lifes << endl << endl;
+}
+
+void display_round(string actual_status_of_word, player player1, player player2, level actual_level) {
   clear_screen();
+  diplay_scoreboard(player1, player2);
   cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << "Nivel: " << actual_level.name << endl;
   string spaces_word = repeat(' ', (COLUNAS-actual_status_of_word.size())/2);
   cout << spaces_word << actual_status_of_word << endl << endl;
@@ -532,16 +548,16 @@ void display_round(string actual_status_of_word, player gamer, level actual_leve
   string bonus_msg = spaces_bonus + "*************************************************\n";
   bonus_msg += spaces_bonus + "*                                               *\n";
 
-  if (gamer.choose_letter) {
+  if (player1.choose_letter) {
       bonus_msg += spaces_bonus + "*  1. Escolher uma letra sem sofrer penalidade  *\n";
   }
-  if (gamer.type_word) {
+  if (player1.type_word) {
       bonus_msg += spaces_bonus + "*  2. Solicitar o tipo da palavra               *\n";
   }
-  if (gamer.synonyms) {
-      bonus_msg += spaces_bonus + "*  3. Solicitar sinonimo                        *\n";
+  if (player1.synonyms) {
+      bonus_msg += spaces_bonus + "*  3. Solicitar palavra semelhante              *\n";
   }
-  if (gamer.syllables) {
+  if (player1.syllables) {
       bonus_msg += spaces_bonus + "*  4. Pedir a quantidade de silabas da palavra  *\n";
   }
   bonus_msg += spaces_bonus + "*                                               *\n";
@@ -550,11 +566,11 @@ void display_round(string actual_status_of_word, player gamer, level actual_leve
   cout << endl << bonus_msg << endl;
 }
 
-void menu(player &gamer, level &actual_level, string &actual_word, string &actual_status_of_word, word_data &actual_word_data) {
-    display_round(actual_status_of_word, gamer, actual_level);
+void menu(player &player1, player &player2, level &actual_level, string &actual_word, string &actual_status_of_word, word_data &actual_word_data) {
+    display_round(actual_status_of_word, player1, player2, actual_level);
 
     char option;
-    cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << gamer.nickname << ": ";
+    cout << repeat(' ', (COLUNAS-CENTRALIZE)/2) << player1.nickname << ": ";
     cin >> option;
 
     if (is_numeric(option)) {
@@ -564,19 +580,19 @@ void menu(player &gamer, level &actual_level, string &actual_word, string &actua
         if (bonus < 0 || bonus > 4) {
            cout << "Opcao invalida!" << endl;
         }
-        else if (bonus == 1 && gamer.choose_letter) {
-            receive_letter(gamer, actual_level, actual_word, actual_status_of_word, false);
+        else if (bonus == 1 && player1.choose_letter) {
+            receive_letter(player1, actual_level, actual_word, actual_status_of_word, false);
             cout << " ==> " << actual_status_of_word << endl << endl;
-            set_bonus(gamer, "choose_letter", false);
-            display_round(actual_status_of_word, gamer, actual_level);
+            set_bonus(player1, "choose_letter", false);
+            display_round(actual_status_of_word, player1, player2, actual_level);
         } else {
-            select_bonus(bonus, gamer, actual_word, actual_word_data);
+            select_bonus(bonus, player1, actual_word, actual_word_data);
         }
-        receive_letter(gamer, actual_level, actual_word, actual_status_of_word, true);
-        display_round(actual_status_of_word, gamer, actual_level);
+        receive_letter(player1, actual_level, actual_word, actual_status_of_word, true);
+        display_round(actual_status_of_word, player1, player2, actual_level);
     } else {
-        verify_letter(gamer, option, actual_level, actual_word, actual_status_of_word, true);
-        display_round(actual_status_of_word, gamer, actual_level);
+        verify_letter(player1, option, actual_level, actual_word, actual_status_of_word, true);
+        display_round(actual_status_of_word, player1, player2, actual_level);
     }
 }
 
@@ -586,7 +602,7 @@ void reset_words(string &actual_word, string &actual_status_of_word) {
 }
 
 void played(player &player1, player &player2, level &actual_level, string &actual_word, string &actual_status_of_word, int &covered_size, bool &state_game, int &round_game, bool &checked, word_data &actual_word_data) {
-    menu(player1, actual_level, actual_word, actual_status_of_word, actual_word_data);
+    menu(player1, player2, actual_level, actual_word, actual_status_of_word, actual_word_data);
 
     update_covered_size(covered_size, actual_word, actual_status_of_word);
     checked = complete_word(player1, actual_word, covered_size, actual_level);
@@ -674,3 +690,4 @@ int main() {
 	status_actual(player1, player2, round_game, true);
 	return 0;
 }
+
