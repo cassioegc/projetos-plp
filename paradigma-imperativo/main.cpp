@@ -1,17 +1,7 @@
-#ifdef _WIN32
-    #define clear_comand "CLS"
-    #include <Windows.h>
-    void so_sleep(float time) { Sleep(time * 1000); }
-#endif // _WIN32
-
-#ifdef __unix
-    #include <unistd.h>
-    #include <sys/ioctl.h>
-    #define clear_comand "clear"
-    void so_sleep(float time) { usleep(time * 1000000); }
-#endif // __unix__
-
 #include <bits/stdc++.h>
+#include <unistd.h>
+#include <sys/ioctl.h>
+#define clear_comand "clear"
 
 using namespace std;
 
@@ -37,6 +27,10 @@ void clear_screen() {
     system(clear_comand);
 }
 
+void so_sleep(float time) {
+    usleep(time * 1000000);
+}
+
 string repeat(char chr, int x) {
     string str = "";
     for (int i = 0; i < x; i++) {
@@ -48,6 +42,12 @@ string repeat(char chr, int x) {
 int to_int(char chr) {
   int result = chr-'0';
   return result;
+}
+
+string int_to_string(int value) {
+    stringstream temp;
+    temp << value;
+    return temp.str();
 }
 
 bool is_numeric(char chr) {
@@ -384,15 +384,22 @@ string inicialize_menu() {
     menu = espacos + menu;   
     menu += espacos + "|               FORCA, RODA jequiti A RODA                |\n";
     menu += espacos + "===========================================================\n" ;
-    menu += espacos + "--------------------- COMO FUNCIONA -----------------------\n";
-    menu += espacos + "1 - DOIS JOGADORES APRESENTAM X CHANCES CADA UM POR RODADA PARA ADIVINHAR UMA PALAVRA ALEATORIA LETRA A LETRA.\n";
-    menu += espacos + "2 - CADA LETRA ERRADA, DEBITA PONTOS NA QUANTIDADE DETERMINADA PELO NIVEL (PYTHON, JAVA E ASSEMBLY).\n";
-	menu += espacos + "3 - QUANTO FALTAR 40% DA PALAVRA EM QUESTAO, O JOGADOR SERA SOLICITADO A DAR A RESPOSTA CORRETA. EM CASO DE ERRO, O JOGADOR SOFRERA AS PUNICOES JA CITADAS.\n";
-	menu += espacos + "4 - CASO O USUARIO TENHA ACERTADO, ACUMULA OS PONTOS RESTANTES.\n";
-	menu += espacos + "5 - ZERADA AS CHANCES, O PERDEDOR AGUARDA O FINAL DA RODADA, PODENDO O ADVERSARIO LEVAR OS PONTOS SE ACERTAR A PALAVRA.\n";
-	menu += espacos + "6 - UMA NOVA PALAVRA SORTEADA A CADA RODADA.\n";
-	menu += espacos + "7 - A CADA RODADA, UM BONUS PODERA SER SOLICIDADO UMA UNICA VEZ(TIPO DA PALAVRA, PALAVRA SEMELHANTE E NUMERO DE SILABA).\n";
-    menu += espacos + "8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU MAIS PONTOS.\n";
+    menu += espacos + "--------------------- COMO FUNCIONA -----------------------\n\n";
+    menu += espacos + "1 - DOIS JOGADORES APRESENTAM X CHANCES CADA UM POR RODADA \n";
+    menu += espacos + "    PARA ADIVINHAR UMA PALAVRA ALEATORIA LETRA A LETRA.\n\n";
+    menu += espacos + "2 - CADA LETRA ERRADA, DEBITA PONTOS NA QUANTIDADE \n";
+    menu += espacos + "    DETERMINADA PELO NIVEL (PYTHON, JAVA E ASSEMBLY).\n\n";
+	menu += espacos + "3 - QUANTO FALTAR 40% DA PALAVRA EM QUESTAO, O JOGADOR SERA\n";
+    menu += espacos + "    SOLICITADO A DAR A RESPOSTA CORRETA. EM CASO DE ERRO, O\n";
+    menu += espacos + "    JOGADOR SOFRERA AS PUNICOES JA CITADAS.\n\n";
+	menu += espacos + "4 - O JOGADOR QUE ACERTAR RECEBERÁ X PONTOS.\n\n";
+	menu += espacos + "5 - ZERADA AS CHANCES, O PERDEDOR AGUARDA O FINAL DA RODADA,\n";
+    menu += espacos + "    PODENDO O ADVERSARIO LEVAR OS PONTOS SE ACERTAR A PALAVRA.\n\n";
+	menu += espacos + "6 - UMA NOVA PALAVRA SORTEADA A CADA RODADA.\n\n";
+	menu += espacos + "7 - A CADA RODADA, UM BONUS PODERA SER SOLICIDADO UMA UNICA\n";
+    menu += espacos + "    VEZ(TIPO DA PALAVRA, PALAVRA SEMELHANTE E NUMERO DE SILABA).\n\n";
+    menu += espacos + "8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU \n";
+    menu += espacos + "    MAIS PONTOS.\n\n";
     menu += espacos + "              Pressione enter para continuar\n";
     return menu;
 }
@@ -456,8 +463,8 @@ void status_actual(player player1, player player2, int round_game, bool end_game
     p2 += repeat(' ', len-p2.size());
   }
 
-  string spp1 = to_string ( player1.points );
-  string spp2 = to_string ( player2.points );
+  string spp1 = int_to_string( player1.points );
+  string spp2 = int_to_string( player2.points );
   spp1 += repeat(' ', 6-spp1.size());
   spp2 += repeat(' ', 6-spp2.size());
 
@@ -469,7 +476,7 @@ void status_actual(player player1, player player2, int round_game, bool end_game
     saida = "\n\n" + espacos_head + head;
   }
   else {
-    head = "SITUACAO APOS A " + to_string( round_game ) + "ª RODADA\n";
+    head = "SITUACAO APOS A " + int_to_string( round_game ) + "ª RODADA\n";
     espacos_head = repeat(' ', (COLUNAS-head.size())/2);
     saida = espacos_head + head;
   }
