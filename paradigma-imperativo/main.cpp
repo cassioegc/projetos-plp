@@ -625,6 +625,7 @@ void played(player &player1, player &player2, level &actual_level, string &actua
         add_lifes(player2, actual_level);
         add_points(player1, actual_level);
         add_points(player2, actual_level);
+        player1.points *= 1.1; 
         reset_words(actual_word, actual_status_of_word);
         string line_data = get_line_data(actual_level);
         actual_word_data = get_word_data(line_data);
@@ -692,7 +693,7 @@ int main() {
   	actual_word = selection_word(actual_word_data);
 	model_word(actual_word.size(), actual_status_of_word);
 
-	while (!state_game) {
+	while (!state_game && round_game <= 10) {
         played(player1, player2, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
 
         played(player2, player1, actual_level, actual_word, actual_status_of_word, covered_size, state_game, round_game, checked, actual_word_data);
