@@ -1,0 +1,1 @@
+modelWord:: Int -> String
