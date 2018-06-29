@@ -26,26 +26,6 @@ inicializeBonus gamer = Player {
     syllables = True
 }
 
-
-modelWord :: String -> String
-modelWord "" = ""
-modelWord word = "_" ++ modelWord (tail word)
-
-
-verifyLetter :: String -> String -> String -> String 
-verifyLetter "" letter actualWord = ""
-verifyLetter word letter actualWord = 
-    if [head word] == letter 
-        then letter ++ verifyLetter (tail word) letter (tail actualWord)
-    else 
-        [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
-
-
-verifyHits :: String -> String -> Bool
-verifyHits "" letter = False
-verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
-
-
 inicialize_menu :: String
 inicialize_menu = "===========================================================\n" ++
 		"|               ,FORCA, RODA jequiti A RODA                |\n" ++
@@ -78,6 +58,24 @@ main = do
     removeFile "player1_data.txt"
     let gamer = read contents :: Player
 
+
+verifyLetter :: String -> String -> String -> String 
+verifyLetter "" letter actualWord = ""
+verifyLetter word letter actualWord = 
+    if [head word] == letter 
+        then letter ++ verifyLetter (tail word) letter (tail actualWord)
+    else 
+        [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
+verifyHits :: String -> String -> Bool
+verifyHits "" letter = False
+verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
+
+
+penalize_player:: Level -> (Int, Int)
+penalize_player level  |(name level) == "PYTHON" = (1, 2)
+	|(name level) == "JAVA" = (1, 5)
+	|otherwise = (1, 8)
+
     -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
     -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
     writeFile "player1_data.txt" (show (inicializeBonus gamer))
@@ -89,7 +87,21 @@ main = do
 
 	-- Final
 
-alguma word atual = do
+
+alguma :: String -> String -> IO()
+alguma player1 player2 level word atual = do
     putStrLn atual
     letra <- getLine
+
+    let actualAux = verifyLetter word letra atual
+    if not (verifyHits word letra) then (lifes player1) = 2 
+    if verifyHits actualAux "_" then alguma player2 player1 level word actualAux
+    else putStrLn()
+main = do
+    let player1 = Player 20 20 "cassio" False False False False
+    let player2 = Player 20 20 "hemi" False False False False
+    alguma player1 player2 "PYTHON" "haskell" "_______"
+    print ((lifes player1)
+
     alguma word (verifyLetter word letra atual)
+
