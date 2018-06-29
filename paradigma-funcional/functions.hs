@@ -85,26 +85,49 @@ penalize_player :: Player -> Bool -> Level -> Player
 penalize_player player hit level | hit = player
     | otherwise = Player ((points player) - get_penalize level) ((lifes player) - 1) (nickname player) (bonus player)
 
-plays player1 player2 level word atual = do
-    putStrLn atual
-    putStrLn("Digite uma letra ou codigo de bonus")
-    letra <- getLine
 
-    let actualAux = verifyLetter word letra atual
-  
-    if verifyHits actualAux "_" then plays player2 (penalize_player player1 (verifyHits word letra) level) level word actualAux
+plays :: Player -> Player -> Level -> WordInfo -> String -> Bool -> IO()
+plays player1 player2 level wordInfo actualWord isBonus = do
+    putStrLn actualWord
+    putStrLn("Digite uma letra ou codigo de bonus " ++ (nickname player1))
+    letter <- getLine
+
+    let actualAux = verifyLetter (getWord wordInfo) letter actualWord
+    
+    if (isBonus) then plays player2 player1 level wordInfo actualAux
+    else if (verifyHits actualAux "_") then plays player2 (penalize_player player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux
     else print(player1, player2)
 
 
+{-similarWord :: WordInfo -> IO()
+similarWord word = -}
+
+totalSyllables :: WordInfo -> IO()
+totalSyllables word = do
+    print (getSyllabes word)
+
+gramaticalClass :: WordInfo -> IO()
+gramaticalClass word = do
+    print (getGramaticalClass word)
+
+
+getBonus :: String -> WordInfo -> IO()
+getBonus bonus word = do
+    if (bonus == "1") then chooseLetter wordInfo
+    else if (bonus == "2") then gramaticalClass wordInfo
+    else if (bonus == "3") then similarWord wordInfo
+    else if (bonus == "4") then totalSyllables wordInfo
+    else print ("")
+
 main = do
-    let wordinfo = buildWordInfo "PYTHON"
-    let word = getWord wordinfo
+    let wordInfo = buildWordInfo "PYTHON"
+    let word = getWord wordInfo
     let bonus1 = Bonus False False False False
     let player1 = Player 20 20 "cassio" bonus1
     let player2 = Player 20 20 "hemi" bonus1
     let level = Level "PYTHON"
     print (lifes player1)
-    plays player1 player2 level word (modelWord word)
+    plays player1 player2 level wordInfo (modelWord word)
     print word
 
 	--AQUI SE INICIA AS CONDICOES DE PARADA DO JOGO. ESTA COMENTADO PARA AINDA INSERIR FUNCOES DE FLUXO
