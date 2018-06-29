@@ -93,6 +93,7 @@ penalize_player player hit level | hit = player
 
 plays player1 player2 level word atual = do
     putStrLn atual
+    putStrLn("Digite uma letra ou codigo de bonus")
     letra <- getLine
 
     let actualAux = verifyLetter word letra atual
