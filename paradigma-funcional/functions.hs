@@ -99,12 +99,13 @@ plays player1 player2 level wordInfo actualWord isBonus = do
     else print(player1, player2)
 
 
-{-similarWord :: WordInfo -> IO()
-similarWord word = -}
+similarWord :: WordInfo -> IO()
+similarWord word = do
+    putStrLn (getSynonyms word)
 
 totalSyllables :: WordInfo -> IO()
 totalSyllables word = do
-    print (getSyllabes word)
+    print (getSyllables word)
 
 gramaticalClass :: WordInfo -> IO()
 gramaticalClass word = do
@@ -112,7 +113,7 @@ gramaticalClass word = do
 
 
 getBonus :: String -> WordInfo -> IO()
-getBonus bonus word = do
+getBonus bonus wordInfo = do
     if (bonus == "1") then chooseLetter wordInfo
     else if (bonus == "2") then gramaticalClass wordInfo
     else if (bonus == "3") then similarWord wordInfo
