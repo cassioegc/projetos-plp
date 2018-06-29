@@ -1,7 +1,11 @@
 module FileWords(
     wordsWithLimit, 
     buildWordInfo,
-    getWord
+    getWord,
+    getRandomInteger,
+    getSynonyms, 
+    getGramaticalClass,
+    getSyllables
 ) where
 
 import System.Random
@@ -49,12 +53,17 @@ wordsWithLimit level
 getWord :: WordInfo -> String
 getWord returnWord = word returnWord
 
-getSynonyms :: WordInfo -> [String]
-getSynonyms returnWord = synonyms returnWord
+getSynonyms :: WordInfo -> String
+getSynonyms returnWord = _synonyms !! index
+    where _synonyms = synonyms returnWord
+          index = getRandomInteger 0 (length _synonyms)
 
-getGramaticalClass :: WordInfo -> [String]
-getGramaticalClass returnWord = gramaticalClass returnWord
+getGramaticalClass :: WordInfo -> String
+getGramaticalClass returnWord = _gramaticalClass !! index
+    where _gramaticalClass = gramaticalClass returnWord
+          index = getRandomInteger 0 (length _gramaticalClass)
 
 getSyllables :: WordInfo -> Int
 getSyllables returnWord = syllables returnWord
+
 
