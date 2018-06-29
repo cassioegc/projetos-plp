@@ -1,30 +1,41 @@
 import System.IO  
 import System.Directory  
 
-data Player = Player {
-    points :: Int,
-    lifes :: Int,
-    nickname :: String,
+data Bonus = Bonus {
     chooseLetter :: Bool,
     typeWord :: Bool,
     synonyms :: Bool,
     syllables :: Bool
 } deriving (Show, Read)
 
+data Player = Player {
+    points :: Int,
+    lifes :: Int,
+    nickname :: String,
+    bonus :: Bonus
+} deriving (Show, Read)
+
 data Level = Level {
     name :: String
-}
+} deriving (Show, Read)  
 
-inicializeBonus :: Player -> Player
-inicializeBonus gamer = Player {
-    points = points gamer,
-    lifes = lifes gamer,
-    nickname = nickname gamer,
-    chooseLetter = True,
-    typeWord = True,
-    synonyms = True,
-    syllables = True
-}
+verifyLetter :: String -> String -> String -> String 
+verifyLetter "" letter actualWord = ""
+verifyLetter word letter actualWord = 
+    if [head word] == letter 
+        then letter ++ verifyLetter (tail word) letter (tail actualWord)
+    else 
+        [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
+
+
+verifyHits :: String -> String -> Bool
+verifyHits "" letter = False
+verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
+
+
+modelWord :: String -> String
+modelWord "" = ""
+modelWord word = "_" ++ modelWord (tail word)
 
 inicialize_menu :: String
 inicialize_menu = "===========================================================\n" ++
@@ -49,59 +60,52 @@ inicialize_menu = "===========================================================\n
 		"              Pressione enter para continuar\n"
 
    
-main :: IO()
+{-main :: IO()
 main = do
     -- LER OS DADOS DO JOGADOR 1 --
     -- E FAZ O CAST PARA O TIPO PLAYER --
     -- PRECISA REMOVER O ARQUIVO! APOS LIDO --
     contents <- readFile "player1_data.txt"
     removeFile "player1_data.txt"
-    let gamer = read contents :: Player
+    let gamer = read contents :: Player-}
 
 
-verifyLetter :: String -> String -> String -> String 
-verifyLetter "" letter actualWord = ""
-verifyLetter word letter actualWord = 
-    if [head word] == letter 
-        then letter ++ verifyLetter (tail word) letter (tail actualWord)
-    else 
-        [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
-verifyHits :: String -> String -> Bool
-verifyHits "" letter = False
-verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
-
-
-penalize_player:: Level -> (Int, Int)
-penalize_player level  |(name level) == "PYTHON" = (1, 2)
-	|(name level) == "JAVA" = (1, 5)
-	|otherwise = (1, 8)
+get_penalize:: Level -> Int
+get_penalize level  |(name level) == "PYTHON" = 2
+	|(name level) == "JAVA" = 5
+	|otherwise = 8
 
     -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
     -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
-    writeFile "player1_data.txt" (show (inicializeBonus gamer))
+    --writeFile "player1_data.txt" (show (inicializeBonus gamer))
 
     -- PRINTAO (inicialize_menu)--
-    putStrLn (show (nickname gamer))
+    --putStrLn (show (nickname gamer))
 	
 	-- Decorrer do jogo
 
 	-- Final
 
+penalize_player :: Player -> Bool -> Level -> Player
+penalize_player player hit level | hit = player
+    | otherwise = Player ((points player) - get_penalize level) ((lifes player) - 1) (nickname player) (bonus player)
 
-alguma :: String -> String -> IO()
-alguma player1 player2 level word atual = do
+plays player1 player2 level word atual = do
     putStrLn atual
     letra <- getLine
 
     let actualAux = verifyLetter word letra atual
-    if not (verifyHits word letra) then (lifes player1) = 2 
-    if verifyHits actualAux "_" then alguma player2 player1 level word actualAux
-    else putStrLn()
-main = do
-    let player1 = Player 20 20 "cassio" False False False False
-    let player2 = Player 20 20 "hemi" False False False False
-    alguma player1 player2 "PYTHON" "haskell" "_______"
-    print ((lifes player1)
+  
+    if verifyHits actualAux "_" then plays player2 (penalize_player player1 (verifyHits word letra) level) level word actualAux
+    else print(player1, player2)
 
-    alguma word (verifyLetter word letra atual)
+
+main = do
+    let bonus1 = Bonus False False False False
+    let player1 = Player 20 20 "cassio" bonus1
+    let player2 = Player 20 20 "hemi" bonus1
+    let level = Level "PYTHON"
+    let word = "hits"
+    print (lifes player1)
+    plays player1 player2 level word (modelWord word)
 
