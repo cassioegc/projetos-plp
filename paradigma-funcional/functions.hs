@@ -112,3 +112,17 @@ main = do
     plays player1 player2 level word (modelWord word)
     print word
 
+	--AQUI SE INICIA AS CONDICOES DE PARADA DO JOGO. ESTA COMENTADO PARA AINDA INSERIR FUNCOES DE FLUXO
+
+	{--Condicao de parada da partida
+	whl:: Int -> Int -> Int -> String -> IO()
+	whl x lifes_player1 lifes_player2 actual_word | x < 10 && lifes_player1 > 0 && lifes_player2 > 0 && not complete_word = do 
+					putStrLn(show x)
+					whl (x + 1) lifes_player1 lifes_player2
+						|otherwise = putStrLn("Final da Partida")
+						where complete_word = verify_hits "_" actual_word
+
+	--Funcao auxiliar (teste)
+	whl_aux:: IO()
+	whl_aux = whl 0 1 1 "hits"--}
+
