@@ -48,3 +48,13 @@ wordsWithLimit level
 
 getWord :: WordInfo -> String
 getWord returnWord = word returnWord
+
+getSynonyms :: WordInfo -> [String]
+getSynonyms returnWord = synonyms returnWord
+
+getGramaticalClass :: WordInfo -> [String]
+getGramaticalClass returnWord = gramaticalClass returnWord
+
+getSyllables :: WordInfo -> Int
+getSyllables returnWord = syllables returnWord
+
