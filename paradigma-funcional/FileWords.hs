@@ -5,7 +5,8 @@ module FileWords(
     getRandomInteger,
     getSynonyms, 
     getGramaticalClass,
-    getSyllables
+    getSyllables,
+    WordInfo
 ) where
 
 import System.Random
