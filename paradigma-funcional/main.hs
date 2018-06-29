@@ -9,6 +9,6 @@ verifyLetter :: [Char] -> Char -> [Char] -> [Char]
 verifyLetter [] letter actualWord = []
 verifyLetter word letter actualWord = 
     if (head word) == letter 
-        then [letter] ++ verifyLetter (tail word) letter actualWord
+        then [letter] ++ verifyLetter (tail word) letter (tail actualWord)
     else 
         [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
