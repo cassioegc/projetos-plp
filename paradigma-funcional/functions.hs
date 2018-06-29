@@ -23,80 +23,6 @@ inicializeBonus gamer = Player {
     syllables = True
 }
 
-setBonus :: Player -> String -> Bool -> Player
-setBonus gamer kind value =
-    | kind EQ "choose_letter" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = value,
-        typeWord = typeWord gamer,
-        synonyms = synonyms gamer,
-        syllables = syllables gamer
-        }
-    | kind EQ "type_word" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = chooseLetter gamer,
-        typeWord = value,
-        synonyms = synonyms gamer,
-        syllables = syllables gamer
-        }
-    | kind EQ "synonyms" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = chooseLetter gamer,
-        typeWord = typeWord gamer,
-        synonyms = value,
-        syllables = syllables gamer
-        }
-    | kind EQ "syllables" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = chooseLetter gamer,
-        typeWord = typeWord gamer,
-        synonyms = synonyms gamer,
-        syllables = value
-        }
-
---Parametros: Nome do nivel atual
---Retorno: Pontos a adicionar
-add_points :: Level -> Int
-add_points level | (name level) == "PYTHON" = 20
-	|(name level) == "JAVA" = 30
-	|otherwise = 50 
-
-
---Parametros: Numero de rounds
---Retorno: Nivel atual
-set_level:: Int -> String
-set_level round |round <= 3 = "PYTHON"
-	|round >= 4 && round <= 6 = "JAVA"
-	|otherwise = "ASSEMBLY"
-
---Parametros: Nome do nivel atual
---Retorno: Vidas a adicionar
-add_lifes:: Level -> Int
-add_lifes level |(name level) == "PYTHON" = 7
-	|(name level) == "JAVA" = 5
-	|otherwise = 3
-
---Parametros: Nome do nivel atual, pontos do jogador perdedor
---Retorno: Pontos a transferir
-transfer_points:: Level -> Player -> Float
-transfer_points level loser_player |(name level) == "PYTHON" = fromIntegral (points loser_player) * 0.1
-	|(name level) == "JAVA" = fromIntegral (points loser_player) * 0.15
-	|otherwise = fromIntegral (points loser_player) * 0.2
-
---Parametros: Nome do nivel atual
---Retorno: Tupla com vidas a diminuir e penalidade de pontos do jogador (nessa ordem)
-penalize_player:: Level -> (Int, Int)
-penalize_player level  |(name level) == "PYTHON" = (1, 2)
-	|(name level) == "JAVA" = (1, 5)
-	|otherwise = (1, 8)
 
 
 inicialize_menu :: String
@@ -132,8 +58,26 @@ verifyLetter word letter actualWord =
         then letter ++ verifyLetter (tail word) letter (tail actualWord)
     else 
         [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
+verifyHits :: String -> String -> Bool
+verifyHits "" letter = False
+verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
 
-alguma word atual = do
+penalize_player:: Level -> (Int, Int)
+penalize_player level  |(name level) == "PYTHON" = (1, 2)
+	|(name level) == "JAVA" = (1, 5)
+	|otherwise = (1, 8)
+
+alguma :: String -> String -> IO()
+alguma player1 player2 level word atual = do
     putStrLn atual
     letra <- getLine
-    alguma word (verifyLetter word letra atual)
+    let actualAux = verifyLetter word letra atual
+    if not (verifyHits word letra) then (lifes player1) = 2 
+    if verifyHits actualAux "_" then alguma player2 player1 level word actualAux
+    else putStrLn()
+main = do
+    let player1 = Player 20 20 "cassio" False False False False
+    let player2 = Player 20 20 "hemi" False False False False
+    alguma player1 player2 "PYTHON" "haskell" "_______"
+    print ((lifes player1)
+
