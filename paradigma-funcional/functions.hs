@@ -79,13 +79,7 @@ get_penalize level  |(name level) == "PYTHON" = 2
     -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
     -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
     --writeFile "player1_data.txt" (show (inicializeBonus gamer))
-
-    -- PRINTAO (inicialize_menu)--
     --putStrLn (show (nickname gamer))
-	
-	-- Decorrer do jogo
-
-	-- Final
 
 penalize_player :: Player -> Bool -> Level -> Player
 penalize_player player hit level | hit = player
