@@ -1,3 +1,6 @@
+import System.IO  
+import System.Directory  
+
 data Player = Player {
     points :: Int,
     lifes :: Int,
@@ -23,8 +26,6 @@ inicializeBonus gamer = Player {
     syllables = True
 }
 
-
-
 inicialize_menu :: String
 inicialize_menu = "===========================================================\n" ++
 		"|               ,FORCA, RODA jequiti A RODA                |\n" ++
@@ -47,9 +48,16 @@ inicialize_menu = "===========================================================\n
 		"    MAIS PONTOS.\n\n" ++
 		"              Pressione enter para continuar\n"
 
-modelWord :: String -> String
-modelWord "" = ""
-modelWord word = "_" ++ modelWord (tail word)
+   
+main :: IO()
+main = do
+    -- LER OS DADOS DO JOGADOR 1 --
+    -- E FAZ O CAST PARA O TIPO PLAYER --
+    -- PRECISA REMOVER O ARQUIVO! APOS LIDO --
+    contents <- readFile "player1_data.txt"
+    removeFile "player1_data.txt"
+    let gamer = read contents :: Player
+
 
 verifyLetter :: String -> String -> String -> String 
 verifyLetter "" letter actualWord = ""
@@ -62,15 +70,29 @@ verifyHits :: String -> String -> Bool
 verifyHits "" letter = False
 verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
 
+
 penalize_player:: Level -> (Int, Int)
 penalize_player level  |(name level) == "PYTHON" = (1, 2)
 	|(name level) == "JAVA" = (1, 5)
 	|otherwise = (1, 8)
 
+    -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
+    -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
+    writeFile "player1_data.txt" (show (inicializeBonus gamer))
+
+    -- PRINTAO (inicialize_menu)--
+    putStrLn (show (nickname gamer))
+	
+	-- Decorrer do jogo
+
+	-- Final
+
+
 alguma :: String -> String -> IO()
 alguma player1 player2 level word atual = do
     putStrLn atual
     letra <- getLine
+
     let actualAux = verifyLetter word letra atual
     if not (verifyHits word letra) then (lifes player1) = 2 
     if verifyHits actualAux "_" then alguma player2 player1 level word actualAux
@@ -80,4 +102,6 @@ main = do
     let player2 = Player 20 20 "hemi" False False False False
     alguma player1 player2 "PYTHON" "haskell" "_______"
     print ((lifes player1)
+
+    alguma word (verifyLetter word letra atual)
 
