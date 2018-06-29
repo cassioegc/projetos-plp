@@ -28,7 +28,6 @@ verifyLetter word letter actualWord =
     else 
         [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
 
-
 verifyHits :: String -> String -> Bool
 verifyHits "" letter = False
 verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
@@ -85,20 +84,24 @@ penalize_player :: Player -> Bool -> Level -> Player
 penalize_player player hit level | hit = player
     | otherwise = Player ((points player) - get_penalize level) ((lifes player) - 1) (nickname player) (bonus player)
 
+determineWinner :: Player -> Player -> Player
+determineWinner player1 player2
+    | points player2 > points player1 = player2
+    | otherwise = player1
 
-plays :: Player -> Player -> Level -> WordInfo -> String -> Bool -> IO()
-plays player1 player2 level wordInfo actualWord isBonus = do
+plays :: Player -> Player -> Level -> WordInfo -> String -> IO()
+plays player1 player2 level wordInfo actualWord = do
     putStrLn actualWord
     putStrLn("Digite uma letra ou codigo de bonus " ++ (nickname player1))
     letter <- getLine
-
+    
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
     
-    if (isBonus) then plays player2 player1 level wordInfo actualAux
-    else if (verifyHits actualAux "_") then plays player2 (penalize_player player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux
-    else print(player1, player2)
+   -- if (isBonus) then plays player2 player1 level wordInfo actualAux
+    if (verifyHits actualAux "_") then plays player2 (penalize_player player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux
+    else putStrLn (("PARABENS " ++ (nickname (determineWinner player1 player2))))
 
-
+{-
 similarWord :: WordInfo -> IO()
 similarWord word = do
     putStrLn (getSynonyms word)
@@ -114,22 +117,27 @@ gramaticalClass word = do
 
 getBonus :: String -> WordInfo -> IO()
 getBonus bonus wordInfo = do
-    if (bonus == "1") then chooseLetter wordInfo
-    else if (bonus == "2") then gramaticalClass wordInfo
+    if (bonus == "2") then gramaticalClass wordInfo
     else if (bonus == "3") then similarWord wordInfo
     else if (bonus == "4") then totalSyllables wordInfo
-    else print ("")
+    else print ("")-}
 
 main = do
+    putStrLn "NOME JOGADOR 1: "
+    nickname1 <- getLine
+    putStrLn "NOME JOGADOR 1: "
+    nickname2 <- getLine
+
     let wordInfo = buildWordInfo "PYTHON"
     let word = getWord wordInfo
+
     let bonus1 = Bonus False False False False
-    let player1 = Player 20 20 "cassio" bonus1
-    let player2 = Player 20 20 "hemi" bonus1
+    let player1 = Player 20 20 nickname1 bonus1
+    let player2 = Player 20 20 nickname2 bonus1
     let level = Level "PYTHON"
+
     print (lifes player1)
     plays player1 player2 level wordInfo (modelWord word)
-    print word
 
 	--AQUI SE INICIA AS CONDICOES DE PARADA DO JOGO. ESTA COMENTADO PARA AINDA INSERIR FUNCOES DE FLUXO
 
