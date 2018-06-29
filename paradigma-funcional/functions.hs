@@ -120,3 +120,20 @@ inicialize_menu = "===========================================================\n
 		"8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU \n" ++
 		"    MAIS PONTOS.\n\n" ++
 		"              Pressione enter para continuar\n"
+
+modelWord :: String -> String
+modelWord "" = ""
+modelWord word = "_" ++ modelWord (tail word)
+
+verifyLetter :: String -> String -> String -> String 
+verifyLetter "" letter actualWord = ""
+verifyLetter word letter actualWord = 
+    if [head word] == letter 
+        then letter ++ verifyLetter (tail word) letter (tail actualWord)
+    else 
+        [head actualWord] ++ verifyLetter (tail word) letter (tail actualWord)
+
+alguma word atual = do
+    putStrLn atual
+    letra <- getLine
+    alguma word (verifyLetter word letra atual)
