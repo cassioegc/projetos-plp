@@ -82,10 +82,12 @@ main = do
     -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
     writeFile "player1_data.txt" (show (inicializeBonus gamer))
 
-    -- PRINTAO --
+    -- PRINTAO (inicialize_menu)--
     putStrLn (show (nickname gamer))
+	
+	-- Decorrer do jogo
 
-
+	-- Final
 
 alguma word atual = do
     putStrLn atual
