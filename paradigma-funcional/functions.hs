@@ -1,3 +1,6 @@
+import System.IO  
+import System.Directory  
+
 data Player = Player {
     points :: Int,
     lifes :: Int,
@@ -120,6 +123,23 @@ inicialize_menu = "===========================================================\n
 		"8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU \n" ++
 		"    MAIS PONTOS.\n\n" ++
 		"              Pressione enter para continuar\n"
+
+   
+main :: IO()
+main = do
+    -- LER OS DADOS DO JOGADOR 1 --
+    -- E FAZ O CAST PARA O TIPO PLAYER --
+    -- PRECISA REMOVER O ARQUIVO! APOS LIDO --
+    contents <- readFile "player1_data.txt"
+    removeFile "player1_data.txt"
+    let gamer = read contents :: Player
+
+    -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
+    -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
+    writeFile "player1_data.txt" (show (inicializeBonus gamer))
+
+    -- PRINTAO --
+    putStrLn (show (nickname gamer))
 
 modelWord :: String -> String
 modelWord "" = ""
