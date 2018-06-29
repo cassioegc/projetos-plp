@@ -1,7 +1,11 @@
 module FileWords(
     wordsWithLimit, 
     buildWordInfo,
-    getWord
+    getWord,
+    getRandomInteger,
+    getSynonyms, 
+    getGramaticalClass,
+    getSyllables
 ) where
 
 import System.Random
@@ -61,15 +65,3 @@ getGramaticalClass returnWord = _gramaticalClass !! index
 
 getSyllables :: WordInfo -> Int
 getSyllables returnWord = syllables returnWord
-
-main = do
-    let wordinfo = buildWordInfo "PYTHON"
-    print wordinfo
-    let word1 = word wordinfo
-    {-let bonus1 = Bonus False False False False
-    let player1 = Player 20 20 "cassio" bonus1
-    let player2 = Player 20 20 "hemi" bonus1
-    let level = Level "PYTHON"-}
-    --print (lifes player1)
-    --plays player1 player2 level word1 (modelWord word1)
-    print ("oi")
