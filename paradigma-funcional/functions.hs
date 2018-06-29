@@ -1,5 +1,6 @@
 import System.IO  
 import System.Directory  
+import FileWords
 
 data Bonus = Bonus {
     chooseLetter :: Bool,
@@ -101,11 +102,13 @@ plays player1 player2 level word atual = do
 
 
 main = do
+    let wordinfo = buildWordInfo "PYTHON"
+    let word = getWord wordinfo
     let bonus1 = Bonus False False False False
     let player1 = Player 20 20 "cassio" bonus1
     let player2 = Player 20 20 "hemi" bonus1
     let level = Level "PYTHON"
-    let word = "hits"
     print (lifes player1)
     plays player1 player2 level word (modelWord word)
+    print word
 
