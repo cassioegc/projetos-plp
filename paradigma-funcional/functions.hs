@@ -1,3 +1,6 @@
+import System.IO  
+import System.Directory  
+
 data Player = Player {
     points :: Int,
     lifes :: Int,
@@ -23,41 +26,18 @@ inicializeBonus gamer = Player {
     syllables = True
 }
 
-setBonus :: Player -> String -> Bool -> Player
-setBonus gamer kind value =
-    | kind EQ "choose_letter" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = value,
-        typeWord = typeWord gamer,
-        synonyms = synonyms gamer,
-        syllables = syllables gamer
-        }
-    | kind EQ "type_word" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = chooseLetter gamer,
-        typeWord = value,
-        synonyms = synonyms gamer,
-        syllables = syllables gamer
-        }
-    | kind EQ "synonyms" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = chooseLetter gamer,
-        typeWord = typeWord gamer,
-        synonyms = value,
-        syllables = syllables gamer
-        }
-    | kind EQ "syllables" = Player {
-        points = points gamer,
-        lifes = lifes gamer,
-        nickname = nickname gamer,
-        chooseLetter = chooseLetter gamer,
-        typeWord = typeWord gamer,
-        synonyms = synonyms gamer,
-        syllables = value
-        }
+main :: IO()
+main = do
+    -- LER OS DADOS DO JOGADOR 1 --
+    -- E FAZ O CAST PARA O TIPO PLAYER --
+    -- PRECISA REMOVER O ARQUIVO! APOS LIDO --
+    contents <- readFile "player1_data.txt"
+    removeFile "player1_data.txt"
+    let gamer = read contents :: Player
+
+    -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
+    -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
+    writeFile "player1_data.txt" (show (inicializeBonus gamer))
+
+    -- PRINTAO --
+    putStrLn (show (nickname gamer))

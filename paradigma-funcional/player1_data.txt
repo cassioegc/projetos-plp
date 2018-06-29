@@ -1,0 +1,1 @@
+Player {points = 10, lifes = 20, nickname = "vinicius", chooseLetter = True, typeWord = True, synonyms = True, syllables = True}
