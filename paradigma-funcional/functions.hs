@@ -87,6 +87,7 @@ determineWinner player1 player2
     | points player2 > points player1 = player2
     | otherwise = player1
 
+selectLevel :: Int -> Level
 selectLevel round
     | round < 4 = Level "PYTHON"
     | round < 7 = Level "JAVA"
