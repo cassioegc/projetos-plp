@@ -1,6 +1,9 @@
 import System.IO  
 import System.Directory  
 import FileWords
+import System.Process
+
+clearScreen = system "clear"
 
 data Bonus = Bonus {
     chooseLetter :: Bool,
@@ -19,6 +22,16 @@ data Player = Player {
 data Level = Level {
     name :: String
 } deriving (Show, Read)  
+
+getLinePrompt :: String -> IO String
+getLinePrompt text = do
+    putStr text
+    hFlush stdout
+    getLine
+    
+nSpaces :: Int -> String
+nSpaces len = replicate len ' '
+
 
 verifyLetter :: String -> String -> String -> String 
 verifyLetter "" letter actualWord = ""
@@ -91,15 +104,16 @@ determineWinner player1 player2
 
 plays :: Player -> Player -> Level -> WordInfo -> String -> Bool -> IO()
 plays player1 player2 level wordInfo actualWord isBonus = do
-    putStrLn actualWord
-    putStrLn("Digite uma letra ou codigo de bonus " ++ (nickname player1))
-    letter <- getLine
+    clearScreen
+    putStrLn(nSpaces 10 ++ actualWord)
+    putStrLn("\n" ++ (nickname player1))
+    letter <- getLinePrompt "Digite uma letra ou codigo de bonus\n> "
     
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
     
     if (isBonus) then plays player2 player1 level wordInfo actualAux isBonus
     else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux isBonus
-    else putStrLn (("PARABENS " ++ (nickname (determineWinner player1 player2))))
+    else putStrLn (("\nPARABENS " ++ (nickname (determineWinner player1 player2))))
 
 
 similarWord :: WordInfo -> IO()
@@ -123,10 +137,8 @@ getBonus bonus wordInfo = do
     else print ("")
 
 main = do
-    putStrLn "NOME JOGADOR 1: "
-    nickname1 <- getLine
-    putStrLn "NOME JOGADOR 1: "
-    nickname2 <- getLine
+    nickname1 <- getLinePrompt "NOME JOGADOR 1: "
+    nickname2 <- getLinePrompt "NOME JOGADOR 2: "
 
     let wordInfo = buildWordInfo "PYTHON"
     let word = getWord wordInfo
