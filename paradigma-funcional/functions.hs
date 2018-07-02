@@ -37,8 +37,9 @@ modelWord :: String -> String
 modelWord "" = ""
 modelWord word = "_" ++ modelWord (tail word)
 
-inicialize_menu :: String
-inicialize_menu = "===========================================================\n" ++
+
+inicializeMenu :: String
+inicializeMenu = "===========================================================\n" ++
 		"|               ,FORCA, RODA jequiti A RODA                |\n" ++
 		"===========================================================\n" ++
 		"--------------------- COMO FUNCIONA -----------------------\n\n" ++
@@ -58,8 +59,7 @@ inicialize_menu = "===========================================================\n
 		"8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU \n" ++
 		"    MAIS PONTOS.\n\n" ++
 		"              Pressione enter para continuar\n"
-
-   
+ 
 {-main :: IO()
 main = do
     -- LER OS DADOS DO JOGADOR 1 --
@@ -70,8 +70,8 @@ main = do
     let gamer = read contents :: Player-}
 
 
-get_penalize:: Level -> Int
-get_penalize level  |(name level) == "PYTHON" = 2
+getPenalize:: Level -> Int
+getPenalize level  |(name level) == "PYTHON" = 2
 	|(name level) == "JAVA" = 5
 	|otherwise = 8
 
@@ -80,28 +80,28 @@ get_penalize level  |(name level) == "PYTHON" = 2
     --writeFile "player1_data.txt" (show (inicializeBonus gamer))
     --putStrLn (show (nickname gamer))
 
-penalize_player :: Player -> Bool -> Level -> Player
-penalize_player player hit level | hit = player
-    | otherwise = Player ((points player) - get_penalize level) ((lifes player) - 1) (nickname player) (bonus player)
+penalizePlayer :: Player -> Bool -> Level -> Player
+penalizePlayer player hit level | hit = player
+    | otherwise = Player ((points player) - getPenalize level) ((lifes player) - 1) (nickname player) (bonus player)
 
 determineWinner :: Player -> Player -> Player
 determineWinner player1 player2
     | points player2 > points player1 = player2
     | otherwise = player1
 
-plays :: Player -> Player -> Level -> WordInfo -> String -> IO()
-plays player1 player2 level wordInfo actualWord = do
+plays :: Player -> Player -> Level -> WordInfo -> String -> Bool -> IO()
+plays player1 player2 level wordInfo actualWord isBonus = do
     putStrLn actualWord
     putStrLn("Digite uma letra ou codigo de bonus " ++ (nickname player1))
     letter <- getLine
     
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
     
-   -- if (isBonus) then plays player2 player1 level wordInfo actualAux
-    if (verifyHits actualAux "_") then plays player2 (penalize_player player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux
+    if (isBonus) then plays player2 player1 level wordInfo actualAux isBonus
+    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux isBonus
     else putStrLn (("PARABENS " ++ (nickname (determineWinner player1 player2))))
 
-{-
+
 similarWord :: WordInfo -> IO()
 similarWord word = do
     putStrLn (getSynonyms word)
@@ -120,7 +120,7 @@ getBonus bonus wordInfo = do
     if (bonus == "2") then gramaticalClass wordInfo
     else if (bonus == "3") then similarWord wordInfo
     else if (bonus == "4") then totalSyllables wordInfo
-    else print ("")-}
+    else print ("")
 
 main = do
     putStrLn "NOME JOGADOR 1: "
@@ -137,7 +137,7 @@ main = do
     let level = Level "PYTHON"
 
     print (lifes player1)
-    plays player1 player2 level wordInfo (modelWord word)
+    plays player1 player2 level wordInfo (modelWord word) (chooseLetter bonus1)
 
 	--AQUI SE INICIA AS CONDICOES DE PARADA DO JOGO. ESTA COMENTADO PARA AINDA INSERIR FUNCOES DE FLUXO
 
@@ -152,4 +152,3 @@ main = do
 	--Funcao auxiliar (teste)
 	whl_aux:: IO()
 	whl_aux = whl 0 1 1 "hits"--}
-
