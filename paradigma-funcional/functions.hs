@@ -72,26 +72,11 @@ inicializeMenu = "===========================================================\n"
 		"8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU \n" ++
 		"    MAIS PONTOS.\n\n" ++
 		"              Pressione enter para continuar\n"
- 
-{-main :: IO()
-main = do
-    -- LER OS DADOS DO JOGADOR 1 --
-    -- E FAZ O CAST PARA O TIPO PLAYER --
-    -- PRECISA REMOVER O ARQUIVO! APOS LIDO --
-    contents <- readFile "player1_data.txt"
-    removeFile "player1_data.txt"
-    let gamer = read contents :: Player-}
-
 
 getPenalize:: Level -> Int
 getPenalize level  |(name level) == "PYTHON" = 2
 	|(name level) == "JAVA" = 5
 	|otherwise = 8
-
-    -- ESCREVE OS NOVOS DADOS DO JOGADOR1 --
-    -- PASSANDO O NOME DO ARQUIVO E A MODIFICACAO A SER FEITA --
-    --writeFile "player1_data.txt" (show (inicializeBonus gamer))
-    --putStrLn (show (nickname gamer))
 
 penalizePlayer :: Player -> Bool -> Level -> Player
 penalizePlayer player hit level | hit = player
@@ -123,7 +108,7 @@ plays player1 player2 level wordInfo actualWord round isBonus = do
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
     
     if (isBonus) then plays player2 player1 level wordInfo actualAux round isBonus
-    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux round isBonus
+    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round isBonus
     else manyPlays player1 player2 round
 
 
@@ -150,18 +135,15 @@ getBonus bonus wordInfo = do
 main = do
     putStr inicializeMenu
     sleep <- getLine
+    clearScreen
     nickname1 <- getLinePrompt "NOME JOGADOR 1: "
     nickname2 <- getLinePrompt "NOME JOGADOR 2: "
-
-    let wordInfo = buildWordInfo "PYTHON"
-    let word = getWord wordInfo
+    clearScreen
 
     let bonus1 = Bonus False False False False
     let player1 = Player 20 20 nickname1 bonus1
     let player2 = Player 20 20 nickname2 bonus1
-    let level = Level "PYTHON"
 
-    print (lifes player1)
     manyPlays player1 player2 1
 
 	--AQUI SE INICIA AS CONDICOES DE PARADA DO JOGO. ESTA COMENTADO PARA AINDA INSERIR FUNCOES DE FLUXO
