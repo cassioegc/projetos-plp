@@ -102,8 +102,19 @@ determineWinner player1 player2
     | points player2 > points player1 = player2
     | otherwise = player1
 
-plays :: Player -> Player -> Level -> WordInfo -> String -> Bool -> IO()
-plays player1 player2 level wordInfo actualWord isBonus = do
+selectLevel round
+    | round < 4 = Level "PYTHON"
+    | round < 6 = Level "JAVA"
+    | otherwise = Level "ASSEMBLY"
+
+manyPlays :: Player -> Player -> Int -> IO()
+manyPlays player1 player2 round = do
+    let word = buildWordInfo (name (selectLevel round))
+    if round <= 10 then plays player1 player2 (selectLevel round) word (modelWord (getWord word)) (round + 1) False
+    else putStrLn (("\nPARABENS " ++ (nickname (determineWinner player1 player2))))
+
+plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
+plays player1 player2 level wordInfo actualWord round isBonus = do
     clearScreen
     putStrLn(nSpaces 10 ++ actualWord)
     putStrLn("\n" ++ (nickname player1))
@@ -111,9 +122,9 @@ plays player1 player2 level wordInfo actualWord isBonus = do
     
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
     
-    if (isBonus) then plays player2 player1 level wordInfo actualAux isBonus
-    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux isBonus
-    else putStrLn (("\nPARABENS " ++ (nickname (determineWinner player1 player2))))
+    if (isBonus) then plays player2 player1 level wordInfo actualAux round isBonus
+    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level ) level wordInfo actualAux round isBonus
+    else manyPlays player1 player2 round
 
 
 similarWord :: WordInfo -> IO()
@@ -137,6 +148,8 @@ getBonus bonus wordInfo = do
     else print ("")
 
 main = do
+    putStr inicializeMenu
+    sleep <- getLine
     nickname1 <- getLinePrompt "NOME JOGADOR 1: "
     nickname2 <- getLinePrompt "NOME JOGADOR 2: "
 
@@ -149,7 +162,7 @@ main = do
     let level = Level "PYTHON"
 
     print (lifes player1)
-    plays player1 player2 level wordInfo (modelWord word) (chooseLetter bonus1)
+    manyPlays player1 player2 1
 
 	--AQUI SE INICIA AS CONDICOES DE PARADA DO JOGO. ESTA COMENTADO PARA AINDA INSERIR FUNCOES DE FLUXO
 
