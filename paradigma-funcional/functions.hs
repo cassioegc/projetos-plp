@@ -104,7 +104,7 @@ determineWinner player1 player2
 
 selectLevel round
     | round < 4 = Level "PYTHON"
-    | round < 6 = Level "JAVA"
+    | round < 7 = Level "JAVA"
     | otherwise = Level "ASSEMBLY"
 
 manyPlays :: Player -> Player -> Int -> IO()
