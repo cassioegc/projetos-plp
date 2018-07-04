@@ -73,6 +73,12 @@ inicializeMenu = "===========================================================\n"
 		"    MAIS PONTOS.\n\n" ++
 		"              Pressione enter para continuar\n"
 
+showBonus :: String
+showBonus = "1 - Escolher letra sem penalidade\n"++ 
+    		"2 - Solicitar classe gramatical da palavra\n" ++ 
+    		"3 - Solicitar palavra similar\n" ++ 
+    		"4 - Solicitar total de silabas\n"
+
 getPenalize:: Level -> Int
 getPenalize level  |(name level) == "PYTHON" = 2
 	|(name level) == "JAVA" = 5
@@ -104,6 +110,7 @@ plays player1 player2 level wordInfo actualWord round isBonus = do
     clearScreen
     putStrLn(nSpaces 10 ++ actualWord)
     putStrLn("\n" ++ (nickname player1))
+    putStrLn(showBonus)
     letter <- getLinePrompt "Digite uma letra ou codigo de bonus\n> "
     
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
