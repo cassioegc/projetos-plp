@@ -57,12 +57,12 @@ getWord returnWord = word returnWord
 getSynonyms :: WordInfo -> String
 getSynonyms returnWord = _synonyms !! index
     where _synonyms = synonyms returnWord
-          index = getRandomInteger 0 (length _synonyms)
+          index = getRandomInteger 0 ((length _synonyms) - 1)
 
 getGramaticalClass :: WordInfo -> String
 getGramaticalClass returnWord = _gramaticalClass !! index
     where _gramaticalClass = gramaticalClass returnWord
-          index = getRandomInteger 0 (length _gramaticalClass)
+          index = getRandomInteger 0 ((length _gramaticalClass) - 1)
 
 getSyllables :: WordInfo -> Int
 getSyllables returnWord = syllables returnWord
