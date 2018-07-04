@@ -102,12 +102,13 @@ selectLevel round
 manyPlays :: Player -> Player -> Int -> IO()
 manyPlays player1 player2 round = do
     let word = buildWordInfo (name (selectLevel round))
-    if round <= 10 then plays player1 player2 (selectLevel round) word (modelWord (getWord word)) (round + 1)
+    if round <= 10 then plays player1 player2 (selectLevel round) word (modelWord (getWord word)) (round + 1) False
     else putStrLn (("\nPARABENS " ++ (nickname (determineWinner player1 player2))))
 
-plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
-plays player1 player2 level wordInfo actualWord round = do
-    --clearScreen
+plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool-> IO() 
+plays player1 player2 level wordInfo actualWord round isBonus = do
+    if(not isBonus)then putStrLn(concat $ replicate 100 "\n")
+    else putStrLn("")
     putStrLn(nSpaces 10 ++ actualWord)
     putStrLn("\n" ++ (nickname player1))
     putStrLn(showBonus)
@@ -115,8 +116,8 @@ plays player1 player2 level wordInfo actualWord round = do
     
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
     
-    if(isNumber letter) then getBonus letter player1 player2 level wordInfo actualAux round
-    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round
+    if(isNumber letter) then getBonus letter player1 player2 level wordInfo actualAux round True
+    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round False
     else manyPlays player1 player2 round
     
 similarWord :: WordInfo -> IO()
@@ -132,14 +133,14 @@ gramaticalClass word = do
     print (getGramaticalClass word)
 
 
-getBonus :: String -> Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
-getBonus letter player1 player2 level wordInfo actualWord round = do
+getBonus :: String -> Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
+getBonus letter player1 player2 level wordInfo actualWord round isBonus = do
 	if(letter == "2") then gramaticalClass wordInfo
 	else if (letter == "3") then similarWord wordInfo
 	else if(letter == "4") then totalSyllables wordInfo
 	else print("No penatily")
 	
-	if(isNumber letter) then plays player1 player2 level wordInfo actualWord round
+	if(isNumber letter) then plays player1 player2 level wordInfo actualWord round isBonus
 	else print("")
     
 isNumber :: String -> Bool
