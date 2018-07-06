@@ -66,5 +66,3 @@ getGramaticalClass returnWord = _gramaticalClass !! index
 
 getSyllables :: WordInfo -> Int
 getSyllables returnWord = syllables returnWord
-
-

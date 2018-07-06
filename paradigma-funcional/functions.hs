@@ -34,7 +34,6 @@ getLinePrompt text = do
 nSpaces :: Int -> String
 nSpaces len = replicate len ' '
 
-
 verifyLetter :: String -> String -> String -> String 
 verifyLetter "" letter actualWord = ""
 verifyLetter word letter actualWord = 
@@ -45,7 +44,7 @@ verifyLetter word letter actualWord =
 
 verifyHits :: String -> String -> Bool
 verifyHits "" letter = False
-verifyHits word letter = [head word] == letter || verifyHits (tail word) letter
+verifyHits word letter = isNumber letter || [head word] == letter || verifyHits (tail word) letter
 
 
 modelWord :: String -> String
@@ -133,10 +132,31 @@ header player1 player2 round = line1 ++ line2 ++ line3
         line2 = playerLabel player2 ++ "\n"
         line3 = "Nivel: " ++ (name (selectLevel round)) ++ "\n\n"
 
+countLetter :: String -> String -> Int
+countLetter letter [] = 0
+countLetter letter (w:word) =
+    if [w] == letter then 1 + countLetter letter word
+    else 0 + countLetter letter word
+
+getPercentage :: String -> Int
+getPercentage word = div (100 * (countLetter "_"  word))  (length word)
+
+playerHit :: Player -> Player
+playerHit player = Player ((points player) + 15) (lifes player) (nickname player) (bonus player)
+
+completeWord :: Player -> Player -> Level -> Int -> WordInfo -> String -> IO()
+completeWord player1 player2 level round wordInfo actualAux = do
+    putStrLn (nSpaces 10 ++ actualAux)
+    putStrLn (nickname player1 ++ " Digite a palavra completa:")
+    newWord <- getLine
+    if newWord == (getWord wordInfo) then manyPlays player2 (playerHit player1) round
+    else plays player2 player1 level wordInfo actualAux round False
+
+
 plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
 plays player1 player2 level wordInfo actualWord round usedBonus
-    | (lifes player1) == 0 = putStrLn ("\nPARABENS " ++ (nickname player2) ++ "\nAs vidas de " ++ (nickname player1) ++ " acabaram :(")
-    | (lifes player2) == 0 = putStrLn ("\nPARABENS " ++ (nickname player1) ++ "\nAs vidas de " ++ (nickname player2) ++ " acabaram :(")
+    | (lifes player1) <= 0 = putStrLn ("\nPARABENS " ++ (nickname player2) ++ "\nAs vidas de " ++ (nickname player1) ++ " acabaram :(")
+    | (lifes player2) <= 0 = putStrLn ("\nPARABENS " ++ (nickname player1) ++ "\nAs vidas de " ++ (nickname player2) ++ " acabaram :(")
     | otherwise = do
         putStrLn (header player1 player2 round)
         putStrLn(nSpaces 10 ++ actualWord)
@@ -146,10 +166,13 @@ plays player1 player2 level wordInfo actualWord round usedBonus
         
         let actualAux = verifyLetter (getWord wordInfo) letter actualWord 
         clearScreen
-        if (usedBonus && isNumber letter) then warningBonus player1 player2 level wordInfo actualAux round
-        else if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
-        else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round False
-        else statusMatch player1 player2 round
+        let playerAux = penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level
+
+        if (usedBonus && isNumber letter) then warningBonus playerAux player2 level wordInfo actualAux round
+        else if(isNumber letter) then (getBonus letter) playerAux player2 level wordInfo actualAux round
+        else if (getPercentage actualAux) <= 60 then completeWord playerAux player2 level round wordInfo actualAux
+        else if (verifyHits actualAux "_") then plays player2 playerAux level wordInfo actualAux round False
+        else statusMatch playerAux player2 round
     where 
         prompt = if (containsBonus player1) then "Digite uma letra ou codigo de bonus\n> " else "Digite uma letra\n> "
 
@@ -273,10 +296,6 @@ statusMatch player1 player2 round = do
         head = if end_game then "================== RESUMO DA PARTIDA ======================\n" else "SITUACAO APOS A " ++ (show (round-1)) ++ "ª RODADA\n"
         saida = "\n\n" ++ head ++ divi ++ "| " ++ players ++ " | Pontos |\n" ++ divi ++ "| " ++ p1 ++ " | " ++ spp1 ++ " |\n" ++ divi ++ "| " ++ p2 ++ " | " ++ spp2 ++ " |\n" ++ divi ++ "\n\n"
         
-
-
-
-
 main = do
     clearScreen
     putStr inicializeMenu
@@ -286,8 +305,8 @@ main = do
     nickname2 <- getLinePrompt "NOME JOGADOR 2: "
     clearScreen
 
-    let bonus1 = Bonus False False False False
-    let player1 = Player 20 20 nickname1 bonus1
-    let player2 = Player 20 20 nickname2 bonus1
+    let bonus = Bonus False False False False
+    let player1 = Player 20 20 nickname1 bonus
+    let player2 = Player 20 20 nickname2 bonus
 
     manyPlays player1 player2 1
