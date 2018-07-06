@@ -149,7 +149,7 @@ completeWord player1 player2 level round wordInfo actualAux = do
     putStrLn (nSpaces 10 ++ actualAux)
     putStrLn (nickname player1 ++ " Digite a palavra completa:")
     newWord <- getLine
-    if newWord == (getWord wordInfo) then manyPlays player2 (playerHit player1) round
+    if newWord == (getWord wordInfo) then statusMatch player2 (playerHit player1) round
     else plays player2 player1 level wordInfo actualAux round False
 
 
@@ -279,7 +279,7 @@ statusMatch player1 player2 round = do
     putStrLn saida 
     aux_pause <- getLinePrompt "Pressione enter para continuar\n\n"
     clearScreen
-    manyPlays player1 player2 round
+    manyPlays new_player1 new_player2 round
     where 
         end_game = round == 10
         temp_p1 = (nickname player1)
@@ -295,7 +295,12 @@ statusMatch player1 player2 round = do
         divi = (concat(replicate (len+13) "-")) ++ "\n"
         head = if end_game then "================== RESUMO DA PARTIDA ======================\n" else "SITUACAO APOS A " ++ (show (round-1)) ++ "ª RODADA\n"
         saida = "\n\n" ++ head ++ divi ++ "| " ++ players ++ " | Pontos |\n" ++ divi ++ "| " ++ p1 ++ " | " ++ spp1 ++ " |\n" ++ divi ++ "| " ++ p2 ++ " | " ++ spp2 ++ " |\n" ++ divi ++ "\n\n"
-        
+        new_player1 = resetBonus player1
+        new_player2 = resetBonus player2
+
+resetBonus :: Player -> Player
+resetBonus player = Player (points player) (lifes player) (nickname player) (Bonus False False False False)
+
 main = do
     clearScreen
     putStr inicializeMenu
