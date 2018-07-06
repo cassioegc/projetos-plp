@@ -109,7 +109,7 @@ selectLevel round
 manyPlays :: Player -> Player -> Int -> IO()
 manyPlays player1 player2 round = do
     let word = buildWordInfo (name (selectLevel round))
-    if round <= 10 then plays player1 player2 (selectLevel round) word (modelWord (getWord word)) (round + 1)
+    if round <= 10 then plays player1 player2 (selectLevel round) word (modelWord (getWord word)) (round + 1) False
     else putStrLn (("\nPARABENS " ++ (nickname (determineWinner player1 player2))))
 
 containsBonus :: Player -> Bool
@@ -118,18 +118,36 @@ containsBonus player = elem False _bonus_
         _bonus = bonus player
         _bonus_ = [(chooseLetter _bonus), (typeWord _bonus), (synonyms _bonus), (syllables _bonus)]
 
-plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
-plays player1 player2 level wordInfo actualWord round = do
-    putStrLn(nSpaces 10 ++ actualWord)
-    putStrLn("\n" ++ (nickname player1))
-    putStrLn(showBonus (bonus player1))
-    letter <- getLinePrompt prompt 
-    
-    let actualAux = verifyLetter (getWord wordInfo) letter actualWord
-    
-    if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
-    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round
-    else manyPlays player1 player2 round
+warningBonus :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
+warningBonus player1 player2 level wordInfo actualAux round = do
+    clearScreen
+    putStr("Você só poder pedir um bonus por rodada\n\n")
+    plays player1 player2 level wordInfo actualAux round True
+
+header :: Player -> Player -> Int -> String
+header player1 player2 round = line1 ++ line2 ++ line3
+    where
+        line1 = (nickname player1) ++ " - vida: " ++ (show (lifes player1)) ++ "\n"
+        line2 = (nickname player2) ++ " - vida: " ++ (show (lifes player2)) ++ "\n\n"
+        line3 = "Nivel: " ++ (name (selectLevel round)) ++ "\n\n"
+
+plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
+plays player1 player2 level wordInfo actualWord round usedBonus
+    | (lifes player1) == 0 = putStrLn ("\nPARABENS " ++ (nickname player2) ++ "\nAs vidas de " ++ (nickname player1) ++ " acabaram :(")
+    | (lifes player2) == 0 = putStrLn ("\nPARABENS " ++ (nickname player1) ++ "\nAs vidas de " ++ (nickname player2) ++ " acabaram :(")
+    | otherwise = do
+        putStrLn (header player1 player2 round)
+        putStrLn(nSpaces 10 ++ actualWord)
+        putStrLn("\n" ++ (nickname player1))
+        putStrLn(showBonus (bonus player1))
+        letter <- getLinePrompt prompt 
+        
+        let actualAux = verifyLetter (getWord wordInfo) letter actualWord 
+        clearScreen
+        if (usedBonus && isNumber letter) then warningBonus player1 player2 level wordInfo actualAux round
+        else if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
+        else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round False
+        else statusMatch player1 player2 round
     where 
         prompt = if (containsBonus player1) then "Digite uma letra ou codigo de bonus\n> " else "Digite uma letra\n> "
     
@@ -153,13 +171,13 @@ checkSimilarWord player1 player2 level wordInfo actualAux round
     | otherwise = do
         clearScreen
         putStr "Voce nao possui mais este bonus\n"
-        plays player1 player2 level wordInfo actualAux round
+        plays player1 player2 level wordInfo actualAux round False
 
 similarWord :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 similarWord player1 player2 level wordInfo actualAux round = do
     clearScreen
-    putStr ((getSynonyms wordInfo)++"\n")
-    plays new_player1 player2 level wordInfo actualAux round
+    putStr ("SEMELHANTE: " ++ (getSynonyms wordInfo)++"\n\n")
+    plays new_player1 player2 level wordInfo actualAux round True
     where new_player1 = newPlayerBonus player1 3
 
 checkTotalSyllables :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
@@ -168,13 +186,13 @@ checkTotalSyllables player1 player2 level wordInfo actualAux round
     | otherwise = do
         clearScreen
         putStr "Voce nao possui mais este bonus\n"
-        plays player1 player2 level wordInfo actualAux round
+        plays player1 player2 level wordInfo actualAux round False
 
 totalSyllables :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 totalSyllables player1 player2 level wordInfo actualAux round = do
     clearScreen
-    putStr ((show (getSyllables wordInfo))++"\n")
-    plays new_player1 player2 level wordInfo actualAux round
+    putStr ("N SILABAS: " ++ (show (getSyllables wordInfo))++"\n\n")
+    plays new_player1 player2 level wordInfo actualAux round True
     where new_player1 = newPlayerBonus player1 4
 
 checkGramaticalClass :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
@@ -183,22 +201,22 @@ checkGramaticalClass player1 player2 level wordInfo actualAux round
     | otherwise = do
         clearScreen
         putStr "Voce nao possui mais este bonus\n"
-        plays player1 player2 level wordInfo actualAux round
+        plays player1 player2 level wordInfo actualAux round False
 
 gramaticalClass :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 gramaticalClass player1 player2 level wordInfo actualAux round = do
     clearScreen
-    putStr ((getGramaticalClass wordInfo)++"\n")
-    plays new_player1 player2 level wordInfo actualAux round
+    putStr ("CLASSE: " ++ (getGramaticalClass wordInfo)++"\n\n")
+    plays new_player1 player2 level wordInfo actualAux round True
     where new_player1 = newPlayerBonus player1 2
 
 checkNoPenality :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 checkNoPenality player1 player2 level wordInfo actualAux round
-    | not (chooseLetter (bonus player1)) = noPenality player1 player2 level wordInfo actualAux round
+    | not (chooseLetter (bonus player1)) = noPenality player1 player2 level wordInfo actualAux round 
     | otherwise = do
         clearScreen
         putStr "Voce nao possui mais este bonus\n"
-        plays player1 player2 level wordInfo actualAux round
+        plays player1 player2 level wordInfo actualAux round False
 
 noPenality :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 noPenality player1 player2 level wordInfo actualWord round = do
@@ -206,7 +224,7 @@ noPenality player1 player2 level wordInfo actualWord round = do
     putStrLn(nSpaces 10 ++ actualWord)
     letter <- getLinePrompt "Digite uma letra (bonus)\n> "
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
-    plays new_player1 player2 level wordInfo actualAux round
+    plays new_player1 player2 level wordInfo actualAux round True
     where new_player1 = newPlayerBonus player1 1
 
 getBonus :: String -> (Player -> Player -> Level -> WordInfo -> String -> Int -> IO())
@@ -221,7 +239,40 @@ isNumber num = do
     if (num == "1" || num == "2" || num == "3" || num == "4") then True
     else False
 
+getLen :: String -> String -> Int
+getLen p1 p2 = max(max size1 size2) 6
+    where 
+        size1 = length p1
+        size2 = length p2
+
+statusMatch :: Player -> Player -> Int -> IO()
+statusMatch player1 player2 round = do
+    putStrLn saida 
+    aux_pause <- getLinePrompt "Pressione enter para continuar\n\n"
+    clearScreen
+    manyPlays player1 player2 round
+    where 
+        end_game = round == 10
+        temp_p1 = (nickname player1)
+        temp_p2 = (nickname player2)
+        lenp1 = length temp_p1
+        lenp2 = length temp_p2
+        spp1 = (show (points player1)) ++ (nSpaces (6-(length (show (points player1)))))
+        spp2 = (show (points player2)) ++ (nSpaces (6-(length (show (points player2)))))
+        len = getLen temp_p1 temp_p2
+        players = if len /= 6 then ("Palyer" ++ (nSpaces (len-6))) else "Player"
+        p1 = if len /= lenp1 then (temp_p1 ++ (nSpaces (len-lenp1))) else temp_p1
+        p2 = if len /= lenp2 then (temp_p2 ++ (nSpaces (len-lenp2))) else temp_p2
+        divi = (concat(replicate (len+13) "-")) ++ "\n"
+        head = if end_game then "================== RESUMO DA PARTIDA ======================\n" else "SITUACAO APOS A " ++ (show (round-1)) ++ "ª RODADA\n"
+        saida = "\n\n" ++ head ++ divi ++ "| " ++ players ++ " | Pontos |\n" ++ divi ++ "| " ++ p1 ++ " | " ++ spp1 ++ " |\n" ++ divi ++ "| " ++ p2 ++ " | " ++ spp2 ++ " |\n" ++ divi ++ "\n\n"
+        
+
+
+
+
 main = do
+    clearScreen
     putStr inicializeMenu
     sleep <- getLine
     clearScreen
