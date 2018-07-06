@@ -298,12 +298,12 @@ statusMatch player1 player2 round = do
         new_player1 = resetPlayer player1 (round + 1)
         new_player2 = resetPlayer player2 (round + 1)
 
-resetPlayer :: Player -> Player
+resetPlayer :: Player -> Int -> Player
 resetPlayer player round = Player (points player) ((inicializeLifes round) + lifes
  player) (nickname player) (Bonus False False False False)
 
-inicializeLifes :: Int
-inicializeLifes
+inicializeLifes :: Int -> Int
+inicializeLifes round
     | round < 4 = 7
     | round < 7 = 5
     | otherwise = 3
