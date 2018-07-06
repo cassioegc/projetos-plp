@@ -150,26 +150,12 @@ plays player1 player2 level wordInfo actualWord round usedBonus
         else if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
         else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round False
         else statusMatch player1 player2 round
-
-playerLabel :: Player -> String
-playerLabel player ="\n" ++ (nickname player) ++ "    Vidas : " ++ (show(lifes player)) ++ "\n"
-
-plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
-plays player1 player2 level wordInfo actualWord round = do
-    clearScreen
-    putStrLn(nSpaces 10 ++ actualWord)
-    putStrLn(playerLabel player1)
-    putStrLn(showBonus (bonus player1))
-    letter <- getLinePrompt prompt 
-    
-    let actualAux = verifyLetter (getWord wordInfo) letter actualWord
-    
-    if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
-    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round
-    else manyPlays player1 player2 round
     where 
         prompt = if (containsBonus player1) then "Digite uma letra ou codigo de bonus\n> " else "Digite uma letra\n> "
-    
+
+playerLabel :: Player -> String
+playerLabel player = (nickname player) ++ "    Vidas : " ++ (show(lifes player)) ++ "\n"
+
 newPlayerBonus :: Player -> Int -> Player
 newPlayerBonus player _bonus 
     | _bonus == 1 = Player (points player) (lifes player) (nickname player) bonus_choose_letter
@@ -240,9 +226,10 @@ checkNoPenality player1 player2 level wordInfo actualAux round
 noPenality :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 noPenality player1 player2 level wordInfo actualWord round = do
     clearScreen
-    putStrLn(nSpaces 10 ++ actualWord)
+    putStrLn(nSpaces 10 ++ actualWord ++ "\n\n")
     letter <- getLinePrompt "Digite uma letra (bonus)\n> "
     let actualAux = verifyLetter (getWord wordInfo) letter actualWord
+    clearScreen
     plays new_player1 player2 level wordInfo actualAux round True
     where new_player1 = newPlayerBonus player1 1
 
