@@ -144,19 +144,13 @@ getPercentage word = div (100 * (countLetter "_"  word))  (length word)
 playerHit :: Player -> Player
 playerHit player = Player ((points player) + 15) (lifes player) (nickname player) (bonus player)
 
-missWord :: Player -> Player -> Level -> Int -> WordInfo -> String -> IO()
-missWord player1 player2 level round wordInfo actualAux = do
-    getLinePrompt "Você errrrrrou.\nPressione enter para continuar\n\n"
-    clearScreen
-    plays player2 player1 level wordInfo actualAux round False
-
 completeWord :: Player -> Player -> Level -> Int -> WordInfo -> String -> IO()
 completeWord player1 player2 level round wordInfo actualAux = do
     putStrLn (nSpaces 10 ++ actualAux)
     putStrLn (nickname player1 ++ " Digite a palavra completa:")
     newWord <- getLine
     if newWord == (getWord wordInfo) then statusMatch player2 (playerHit player1) round
-    else missWord player1 player2 level round wordInfo actualAux
+    else plays player2 player1 level wordInfo actualAux round False
 
 
 plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
@@ -301,12 +295,19 @@ statusMatch player1 player2 round = do
         divi = (concat(replicate (len+13) "-")) ++ "\n"
         head = if end_game then "================== RESUMO DA PARTIDA ======================\n" else "SITUACAO APOS A " ++ (show (round-1)) ++ "ª RODADA\n"
         saida = "\n\n" ++ head ++ divi ++ "| " ++ players ++ " | Pontos |\n" ++ divi ++ "| " ++ p1 ++ " | " ++ spp1 ++ " |\n" ++ divi ++ "| " ++ p2 ++ " | " ++ spp2 ++ " |\n" ++ divi ++ "\n\n"
-        new_player1 = resetBonus player1
-        new_player2 = resetBonus player2
+        new_player1 = resetPlayer player1 (round + 1)
+        new_player2 = resetPlayer player2 (round + 1)
 
-resetBonus :: Player -> Player
-resetBonus player = Player (points player) (lifes player) (nickname player) (Bonus False False False False)
+resetPlayer :: Player -> Player
+resetPlayer player round = Player (points player) ((inicializeLifes round) + lifes
+ player) (nickname player) (Bonus False False False False)
 
+inicializeLifes :: Int
+inicializeLifes
+    | round < 4 = 7
+    | round < 7 = 5
+    | otherwise = 3
+    
 main = do
     clearScreen
     putStr inicializeMenu
@@ -317,7 +318,7 @@ main = do
     clearScreen
 
     let bonus = Bonus False False False False
-    let player1 = Player 20 20 nickname1 bonus
-    let player2 = Player 20 20 nickname2 bonus
+    let player1 = Player 20 (inicializeLifes 1) nickname1 bonus
+    let player2 = Player 20 (inicializeLifes 1) nickname2 bonus
 
     manyPlays player1 player2 1
