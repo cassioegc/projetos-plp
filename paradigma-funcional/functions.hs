@@ -3,8 +3,9 @@ import System.Directory
 import FileWords
 import System.Process
 import Data.List
+import System.Info
 
-clearScreen = system "clear"
+clearScreen = if (System.Info.os) == "mingw32" then system "cls" else system "clear"
 
 data Bonus = Bonus {
     chooseLetter :: Bool,
@@ -61,7 +62,7 @@ inicializeMenu = "===========================================================\n"
         "    PARA ADIVINHAR UMA PALAVRA ALEATORIA LETRA A LETRA.\n\n" ++
         "2 - CADA LETRA ERRADA, DEBITA PONTOS NA QUANTIDADE \n" ++
         "    DETERMINADA PELO NIVEL (PYTHON, JAVA E ASSEMBLY).\n\n" ++
-        "3 - QUANTO FALTAR 40% DA PALAVRA EM QUESTAO, O JOGADOR SERA\n" ++
+        "3 - QUANDO FALTAR 40% DA PALAVRA EM QUESTAO, O JOGADOR SERA\n" ++
         "    SOLICITADO A DAR A RESPOSTA CORRETA. EM CASO DE ERRO, O\n" ++
         "    JOGADOR SOFRERA AS PUNICOES JA CITADAS.\n\n" ++
         "4 - O JOGADOR QUE ACERTAR RECEBERÁ X PONTOS.\n\n" ++
@@ -69,7 +70,7 @@ inicializeMenu = "===========================================================\n"
         "    PODENDO O ADVERSARIO LEVAR OS PONTOS SE ACERTAR A PALAVRA.\n\n" ++
         "6 - UMA NOVA PALAVRA SORTEADA A CADA RODADA.\n\n" ++
         "7 - A CADA RODADA, UM BONUS PODERA SER SOLICIDADO UMA UNICA\n" ++
-        "    VEZ(TIPO DA PALAVRA, PALAVRA SEMELHANTE E NUMERO DE SILABA).\n\n" ++
+        "    VEZ(TIPO DA PALAVRA, PALAVRA SEMELHANTE E NUMERO DE SILABAS).\n\n" ++
         "8 - AO FINAL DO JOGO, SERA O VENCEDOR AQUELE QUE ACUMULOU \n" ++
         "    MAIS PONTOS.\n\n" ++
         "              Pressione enter para continuar\n"
@@ -118,6 +119,7 @@ containsBonus player = elem False _bonus_
         _bonus = bonus player
         _bonus_ = [(chooseLetter _bonus), (typeWord _bonus), (synonyms _bonus), (syllables _bonus)]
 
+
 warningBonus :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
 warningBonus player1 player2 level wordInfo actualAux round = do
     clearScreen
@@ -127,8 +129,8 @@ warningBonus player1 player2 level wordInfo actualAux round = do
 header :: Player -> Player -> Int -> String
 header player1 player2 round = line1 ++ line2 ++ line3
     where
-        line1 = (nickname player1) ++ " - vida: " ++ (show (lifes player1)) ++ "\n"
-        line2 = (nickname player2) ++ " - vida: " ++ (show (lifes player2)) ++ "\n\n"
+        line1 = playerLabel player1
+        line2 = playerLabel player2 ++ "\n"
         line3 = "Nivel: " ++ (name (selectLevel round)) ++ "\n\n"
 
 plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
@@ -148,6 +150,23 @@ plays player1 player2 level wordInfo actualWord round usedBonus
         else if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
         else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round False
         else statusMatch player1 player2 round
+
+playerLabel :: Player -> String
+playerLabel player ="\n" ++ (nickname player) ++ "    Vidas : " ++ (show(lifes player)) ++ "\n"
+
+plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> IO()
+plays player1 player2 level wordInfo actualWord round = do
+    clearScreen
+    putStrLn(nSpaces 10 ++ actualWord)
+    putStrLn(playerLabel player1)
+    putStrLn(showBonus (bonus player1))
+    letter <- getLinePrompt prompt 
+    
+    let actualAux = verifyLetter (getWord wordInfo) letter actualWord
+    
+    if(isNumber letter) then (getBonus letter) player1 player2 level wordInfo actualAux round
+    else if (verifyHits actualAux "_") then plays player2 (penalizePlayer player1 (verifyHits (getWord wordInfo) letter) level) level wordInfo actualAux round
+    else manyPlays player1 player2 round
     where 
         prompt = if (containsBonus player1) then "Digite uma letra ou codigo de bonus\n> " else "Digite uma letra\n> "
     
