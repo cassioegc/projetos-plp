@@ -144,13 +144,19 @@ getPercentage word = div (100 * (countLetter "_"  word))  (length word)
 playerHit :: Player -> Player
 playerHit player = Player ((points player) + 15) (lifes player) (nickname player) (bonus player)
 
+missWord :: Player -> Player -> Level -> Int -> WordInfo -> String -> IO()
+missWord player1 player2 level round wordInfo actualAux = do
+    getLinePrompt "Você errrrrrou.\nPressione enter para continuar\n\n"
+    clearScreen
+    plays player2 player1 level wordInfo actualAux round False
+
 completeWord :: Player -> Player -> Level -> Int -> WordInfo -> String -> IO()
 completeWord player1 player2 level round wordInfo actualAux = do
     putStrLn (nSpaces 10 ++ actualAux)
     putStrLn (nickname player1 ++ " Digite a palavra completa:")
     newWord <- getLine
     if newWord == (getWord wordInfo) then statusMatch player2 (playerHit player1) round
-    else plays player2 player1 level wordInfo actualAux round False
+    else missWord player1 player2 level round wordInfo actualAux
 
 
 plays :: Player -> Player -> Level -> WordInfo -> String -> Int -> Bool -> IO()
