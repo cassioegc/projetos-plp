@@ -19,7 +19,18 @@ verifyHits([H|T], Letter, Hits) :-
     verifyHits(T, Letter, Result), Hits = Result.
 
 
+insert(Date, [], Dates).
+insert(Date, [H|T], [H|DatesAux]) :-
+    insert(Date, T, DatesAux).
+
+
+
 main :-
+    read_line_to_string(user_input, Player1),
+    read_line_to_string(user_input, Player2),
+    DatesPlayer1 is insert()
+
+
     read_line_to_string(user_input, Word),
     atom_codes(W, Word), atom_chars(W, ListWord),
     % len(ListWord, X),
