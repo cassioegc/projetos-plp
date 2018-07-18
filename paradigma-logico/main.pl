@@ -1,4 +1,3 @@
-:- initialization(main).
 
 len([], 0).
 len([_|T], Count) :-
@@ -12,6 +11,12 @@ verifyLetter([], [], Letter, "").
 verifyLetter([H1|T1], [H2|T2], Letter, ActualWordRet) :-
     H2 =:= Letter, verifyLetter(T1, T2, Letter, ActualWordAtt), atom_concat(H2, ActualWordAtt, ActualWordRet);
     verifyLetter(T1, T2, Letter, ActualWordAtt), atom_concat(H1, ActualWordAtt, ActualWordRet).
+
+
+verifyHits([], Letter, Hits) :- Hits = false.
+verifyHits([H|T], Letter, Hits) :-
+    H =:= Letter, Hits = true;
+    verifyHits(T, Letter, Result), Hits = Result.
 
 
 main :-
