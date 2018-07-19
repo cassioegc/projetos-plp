@@ -40,11 +40,9 @@ main :-
     addBonus(Player1, DatesWithBonus1),
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
-    Datas2 = DatesWithBonus2,
+    Datas2 = DatesWithBonus2.
 
   %%%%% inserir aqui sorteio da palavra  %%%%%
 
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
-    writeln(Datas1),
-    write(Datas2).
