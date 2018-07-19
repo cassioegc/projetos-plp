@@ -1,9 +1,5 @@
 :- initialization(main).
 
-len([], 0).
-len([_|T], Count) :-
-    len(T, Count1), Count is Count1 + 1.
-
 modelWord([], "").
 modelWord([_|T], Exit) :-
     modelWord(T, Under), atom_concat("_", Under, Exit).
