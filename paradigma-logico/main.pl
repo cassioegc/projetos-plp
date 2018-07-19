@@ -19,10 +19,9 @@ verifyHits([H|T], Letter, Hits) :-
     verifyHits(T, Letter, Result), Hits = Result.
 
 
-insert(Date, [], Dates).
-insert(Date, [H|T], [H|DatesAux]) :-
-    insert(Date, T, DatesAux).
-
+insert([], Date, [Date]).
+insert([H|T1], Date, [H|T2]) :-
+    insert(T1, Date, T2).
 
 
 main :-
