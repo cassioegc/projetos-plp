@@ -1,8 +1,11 @@
+:- use_module(word_data).
 :- initialization(main).
 
-modelWord([], "").
-modelWord([_|T], Exit) :-
-    modelWord(T, Under), atom_concat("_", Under, Exit).
+
+modelWord(Word, Exit) :-
+    string_chars(Word, List),
+    convlist([_,Y]>>(Y="_"), List, Temp),
+    atomic_list_concat(Temp, "", Exit).  
 
 verifyLetter([], [], _, "").
 verifyLetter([H1|T1], [H2|T2], Letter, ActualWordRet) :-
@@ -26,6 +29,7 @@ addBonus(Name, DatesWithBonus) :-
 
 main :-
     % Level = [],
+    string_concat("", "PYTHON", Level),
 
         %%%%%  nomes dos players  %%%%%
     read_line_to_string(user_input, Player1),
@@ -36,9 +40,17 @@ main :-
     addBonus(Player1, DatesWithBonus1),
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
-    Datas2 = DatesWithBonus2.
+    Datas2 = DatesWithBonus2,
 
   %%%%% inserir aqui sorteio da palavra  %%%%%
-
+    getWordData(Level, WordData),
+    nth0(0, WordData, Word),
+    
+  
+  %%%%% Modelagem da palavra %%%%%
+    modelWord(Word, ModelWord),
+    writeln(Word),
+    writeln(ModelWord).
+    
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
