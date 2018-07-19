@@ -27,6 +27,17 @@ insert([H|T1], Date, [H|T2]) :-
 addBonus(Name, DatesWithBonus) :-
     DatesWithBonus = [Name, 20, 7, false, false, false, false].
 
+%%% Lista original, indice, elemento, Novalista %%%
+replace([_|T], 0, X, [X|T]).
+replace([H|T], I, X, [H|R]):- I > -1, NI is I-1, replace(T, NI, X, R), !.
+replace(L, _, _, L).
+
+% incompleto %
+addPoints(PlayerData, "PYTHON", Result) :-
+    nth0(1, PlayerData, OldPoints),
+    NewPoints is 15 + OldPoints,
+    replace(PlayerData, 1, NewPoints, Result).
+
 main :-
     % Level = [],
     string_concat("", "PYTHON", Level),
@@ -41,6 +52,11 @@ main :-
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
     Datas2 = DatesWithBonus2,
+
+    %%% adicionar pontos %%
+    %% addPoints(Datas1, "PYTHON", Result),
+    %% Datas1 = Result,
+    %% writeln(Datas1),
 
   %%%%% inserir aqui sorteio da palavra  %%%%%
     getWordData(Level, WordData),
