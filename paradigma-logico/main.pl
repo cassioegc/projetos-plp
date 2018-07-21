@@ -1,6 +1,31 @@
 :- use_module(word_data).
 :- initialization(main).
 
+%%% Gets info Player %%%
+getName(Player, Name)            :- nth0(0, Player, Name).
+getPoints(Player, Points)        :- nth0(1, Player, Points).
+getLifes(Player, Lifes)          :- nth0(2, Player, Lifes).
+chooseLetterBonus(Player, Bonus) :- nth0(2, Player, Bonus).
+typeWordBonus(Player, Bonus)     :- nth0(2, Player, Bonus).
+synonymsBonus(Player, Bonus)     :- nth0(2, Player, Bonus).
+syllablesBonus(Player, Bonus)    :- nth0(2, Player, Bonus).
+
+%%%  UTILS  %%%
+clear() :- 
+    tty_clear.
+
+stringToList(String, R) :- 
+    atom_chars(String, List),
+    convlist([X,Y]>>(string_chars(Y, [X])), List, R).
+
+countInList(List, Element, Return) :-
+    include(=(Element), List, L2), length(L2, Return).
+
+countInString(String, Element, Return) :-
+    stringToList(String, List),
+    include(=(Element), List, L2), 
+    length(L2, Return).
+%%%%%%%%%%%%%%%
 
 modelWord(Word, Exit) :-
     string_chars(Word, List),
@@ -13,7 +38,7 @@ verifyLetter([H1|T1], [H2|T2], Letter, ActualWordRet) :-
     verifyLetter(T1, T2, Letter, ActualWordAtt), atom_concat(H1, ActualWordAtt, ActualWordRet).
 
 
-verifyHits([], "", false).
+verifyHits([], "", Check) :- Check = false.
 verifyHits([H|T], Letter, Hits) :-
     H =:= Letter, Hits = true;
     verifyHits(T, Letter, Result), Hits = Result.
@@ -81,8 +106,17 @@ penalizeLifes(PlayerData, "ASSEMBLY", Result) :-
     nth0(2, PlayerData, OldLifes),
     NewLifes is OldLifes - 8,
     replace(PlayerData, 2, NewLifes, Result). 
+    
+
+selectLevel(Round, Level) :-
+    between(1,3, Round) -> Level = "PYTHON";
+    between(4,6, Round) -> Level = "JAVA";
+    Level = "ASSEMBLY".
+    
+    
 
 inicializeMenu() :-
+    clear(),
     writeln("==========================================================="),
     writeln("|               FORCA, RODA jequiti A RODA                |"),
     writeln("==========================================================="),
@@ -113,38 +147,87 @@ inicializeMenu() :-
     writeln("    MAIS PONTOS."),
     writeln(""),
     writeln("              Pressione enter para continuar"),
-    read_line_to_string(user_input, Sleep).
+    read_line_to_string(user_input, _).
 
+checkEndGame(Round, Player1, Player2) :-
+    getLifes(Player1, LifesPlayer1),
+    getLifes(Player2, LifesPlayer2),
+    Round < 11,
+    LifesPlayer1 > 0,
+    LifesPlayer2 > 0.
+    
+repl(Element, N, Save) :- 
+    findall(Element, between(1, N, _), L), atomic_list_concat(L, Save).
+
+align() :- 
+    get(@display, size, Size),
+    get(Size, width, W),
+    Align1 is W*0.06,
+    Align2 is round(Align1),
+    repl(" ", Align2, Spaces),
+    write(Spaces).
+
+status(Player1, Player2, Round, Level) :-
+    getName(Player1, Name1),
+    getName(Player2, Name2),
+    getLifes(Player1, Lifes1),
+    getLifes(Player2, Lifes2),
+    
+    align(), write("Round: "), write(Round), write(" - "), write(Level), nl,
+    align(), write(Name1), write(": Lifes "), write(Lifes1), nl,
+    align(), write(Name2), write(": Lifes "), write(Lifes2), nl.
+
+roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
+    clear(),
+    status(Player1, Player2, Round, Level),
+    align(), write(ModelWord), nl, nl,
+    nl,nl, nl,nl,nl,nl, nl,nl,
+    
+    getName(Player1, Name),
+    align(), writeln("Digite uma letra ou codigo de Bonus"),
+    align(), write(Name), write(": "),
+    read_line_to_string(user_input, Option),
+    stringToList(Word, ListWord),
+    stringToList(ModelWord, ListModel),
+    verifyHits(ListWord, Option, Check),
+    Check ->
+        verifyLetter(ListModel, ListWord, Option, ModelWordAtt),
+        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt)
+    
+    ;
+        penalizeLifes(Player1, Level, NP1),
+        roundGame(Player2, NP1, Round, Level, Word, ModelWord)
+    .
+
+game(Player1, Player2, Round):-
+    checkEndGame(Round, Player1, Player2),
+    %%% Logica de uma rodada %%
+    selectLevel(Round, Level),
+    getWordData(Level, WordData),
+    getWord(WordData, Word),
+    modelWord(Word, ModelWord),
+    
+    roundGame(Player1, Player2, Round, Level, Word, ModelWord).
+    
 
 main :-
-    % Level = [],
-    string_concat("", "PYTHON", Level),
-
     %% Menu de exibicao %%
     inicializeMenu(),
+    clear(),
 
     %%  nomes dos players  %%
-    write("NOME JOGADOR 1: "),
+    align(), write("NOME JOGADOR 1: "),
     read_line_to_string(user_input, Player1),
-    write("NOME JOGADOR 2: "),
+    align(), write("NOME JOGADOR 2: "),
     read_line_to_string(user_input, Player2),
-  
+    clear(),
 
     %%  inicializa lista dos players  %%%%%
     addBonus(Player1, DatesWithBonus1),
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
     Datas2 = DatesWithBonus2,
-
-    %% inserir aqui sorteio da palavra  %%%%%
-    getWordData(Level, WordData),
-    nth0(0, WordData, Word),
-    
-  
-    %%% Modelagem da palavra %%%%%
-    modelWord(Word, ModelWord),
-    writeln(Word),
-    writeln(ModelWord).
-    
+    game(Datas1, Datas2, 1),
+    halt(0).
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
