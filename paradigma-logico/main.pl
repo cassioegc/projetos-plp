@@ -177,7 +177,26 @@ status(Player1, Player2, Round, Level) :-
     align(), write(Name1), write(": Lifes "), write(Lifes1), nl,
     align(), write(Name2), write(": Lifes "), write(Lifes2), nl.
 
+
+verifyEnd(Player1, Player2) :-
+    getLifes(Player1, Lifes), Lifes =< 0, 
+        clear(),
+        getName(Player2, Name2),
+        getName(Player1, Name1),
+        winMsg(Name2, Name1).
+            
+            
+winMsg(Name1, Name2) :-
+    write("PARABENS " ),
+    write(Name2),nl,
+    write("As vidas de "),
+    write(Name1),
+    write(" acabaram"),nl.
+
 roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
+    verifyEnd(Player1, Player2);
+    verifyEnd(Player2, Player1);
+    
     clear(),
     status(Player1, Player2, Round, Level),
     align(), write(ModelWord), nl, nl,
@@ -196,8 +215,13 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
     
     ;
         penalizeLifes(Player1, Level, NP1),
+        % verify(NP1, Result),
+        % Result = true, 
         roundGame(Player2, NP1, Round, Level, Word, ModelWord)
     .
+
+% verify(PlayerData, Result) :-
+
 
 game(Player1, Player2, Round):-
     checkEndGame(Round, Player1, Player2),
