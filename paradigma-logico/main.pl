@@ -215,12 +215,9 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
     
     ;
         penalizeLifes(Player1, Level, NP1),
-        % verify(NP1, Result),
-        % Result = true, 
         roundGame(Player2, NP1, Round, Level, Word, ModelWord)
     .
 
-% verify(PlayerData, Result) :-
 
 
 game(Player1, Player2, Round):-
