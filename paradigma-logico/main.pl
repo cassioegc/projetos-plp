@@ -5,10 +5,10 @@
 getName(Player, Name)            :- nth0(0, Player, Name).
 getPoints(Player, Points)        :- nth0(1, Player, Points).
 getLifes(Player, Lifes)          :- nth0(2, Player, Lifes).
-chooseLetterBonus(Player, Bonus) :- nth0(2, Player, Bonus).
-typeWordBonus(Player, Bonus)     :- nth0(2, Player, Bonus).
-synonymsBonus(Player, Bonus)     :- nth0(2, Player, Bonus).
-syllablesBonus(Player, Bonus)    :- nth0(2, Player, Bonus).
+chooseLetterBonus(Player, Bonus) :- nth0(3, Player, Bonus).
+typeWordBonus(Player, Bonus)     :- nth0(4, Player, Bonus).
+synonymsBonus(Player, Bonus)     :- nth0(5, Player, Bonus).
+syllablesBonus(Player, Bonus)    :- nth0(6, Player, Bonus).
 
 %%%  UTILS  %%%
 clear() :- 
@@ -177,27 +177,96 @@ status(Player1, Player2, Round, Level) :-
     align(), write(Name1), write(": Lifes "), write(Lifes1), nl,
     align(), write(Name2), write(": Lifes "), write(Lifes2), nl.
 
+
+verifyEnd(Player1, Player2) :-
+    getLifes(Player1, Lifes), Lifes =< 0, 
+        clear(),
+        getName(Player2, Name2),
+        getName(Player1, Name1),
+        winMsg(Name2, Name1).
+                        
+winMsg(Name1, Name2) :-
+    write("PARABENS " ),
+    write(Name2),nl,
+    write("As vidas de "),
+    write(Name1),
+    write(" acabaram"),nl.
+
+
+
+%%%%%%%% corrigir %%%%%%%%
+bonusMsg(Player) :-
+        chooseLetterBonus(Player, LetterBonus),
+        typeWordBonus(Player, TypeBonus),
+        synonymsBonus(Player, SynonymsBonus),
+        syllablesBonus(Player, SyllabesBonus),
+        
+        LetterBonus = false,
+            write("1 - Escolher letra sem penalidade"), nl,
+        TypeBonus = false,
+            write("2 - Solicitar classe gramatical da palavra"), nl,
+        SynonymsBonus = false,
+            write("3 - Solicitar palavra similar"), nl,
+        SyllabesBonus = false,
+            write("4 - Solicitar total de silabas"), nl, nl.
+
+%%%% para verificar percentagem de preenchimento da palavra %%%%
+countLetter([], _, 0).
+countLetter([H|T], Letter, Count) :-
+    H =:= Letter, countLetter(T, Letter, CountAux), Count is CountAux + 1;
+    countLetter(T, Letter, Count).
+
+len([], 0).
+len([_|T], Len) :-
+    len(T, Count), Len is Count + 1.
+
+
+getPercentage(Word, Percentage) :-
+    countLetter(Word, "_", Count),
+    len(Word, Len),
+    Percentage is ((100 * Count) // Len).
+
+completeWord(Name, Percentage) :-
+    Percentage =< 60 ->
+        write(Name), nl,
+        write("Digite a palavra completa:"), nl,
+        read_line_to_string(user_input, _);
+        clear().
+%%%% --------------------------------------------------- %%%%
+
 roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
+    write(Word),nl,
+    verifyEnd(Player1, Player2);
+    verifyEnd(Player2, Player1);
+    
     clear(),
     status(Player1, Player2, Round, Level),
     align(), write(ModelWord), nl, nl,
     nl,nl, nl,nl,nl,nl, nl,nl,
     
     getName(Player1, Name),
-    align(), writeln("Digite uma letra ou codigo de Bonus"),
+    bonusMsg(Player1),
+    align(), write("Digite uma letra ou codigo de Bonus"), nl,
     align(), write(Name), write(": "),
     read_line_to_string(user_input, Option),
+
     stringToList(Word, ListWord),
     stringToList(ModelWord, ListModel),
+  
     verifyHits(ListWord, Option, Check),
     Check ->
         verifyLetter(ListModel, ListWord, Option, ModelWordAtt),
+        clear(),
+        status(Player1, Player2, Round, Level),
+        write(ModelWordAtt), nl, nl,   
+
+        getPercentage(ListModel, Percentage),
+        completeWord(Name, Percentage),
         roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt)
-    
     ;
         penalizeLifes(Player1, Level, NP1),
-        roundGame(Player2, NP1, Round, Level, Word, ModelWord)
-    .
+        roundGame(Player2, NP1, Round, Level, Word, ModelWord).
+    
 
 game(Player1, Player2, Round):-
     checkEndGame(Round, Player1, Player2),
