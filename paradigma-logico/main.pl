@@ -176,14 +176,6 @@ checkEndGame(Round, Player1, Player2) :-
 repl(Element, N, Save) :- 
     findall(Element, between(1, N, _), L), atomic_list_concat(L, Save).
 
-align() :- 
-    get(@display, size, Size),
-    get(Size, width, W),
-    Align1 is W*0.0,
-    Align2 is round(Align1),
-    repl(" ", Align2, Spaces),
-    write(Spaces).
-
 status(Player1, Player2, Round, Level) :-
     getName(Player1, Name1),
     getName(Player2, Name2),
@@ -192,9 +184,9 @@ status(Player1, Player2, Round, Level) :-
     getPoints(Player1, Points1),
     getPoints(Player2, Points2),
     
-    align(), write("Round: "), write(Round), write(" - "), write(Level), nl,
-    align(), write(Name1), write(": Lifes "), write(Lifes1), write(", Points: "), write(Points1), nl,
-    align(), write(Name2), write(": Lifes "), write(Lifes2), write(", Points: "), write(Points2),  nl.
+    write("Round: "), write(Round), write(" - "), write(Level), nl,
+    write(Name1), write(": Lifes "), write(Lifes1), write(", Points: "), write(Points1), nl,
+    write(Name2), write(": Lifes "), write(Lifes2), write(", Points: "), write(Points2),  nl.
 
 
 verifyEnd(Player1, Player2) :-
@@ -273,13 +265,13 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
     
     clear(),
     status(Player1, Player2, Round, Level),
-    align(), write(ModelWord), nl, nl,
+    write(ModelWord), nl, nl,
     nl,nl, nl,nl,nl,nl, nl,nl,
     
     getName(Player1, Name),
     bonusMsg(Player1),
-    align(), write("Digite uma letra ou codigo de Bonus"), nl,
-    align(), write(Name), write(": "),
+    write("Digite uma letra ou codigo de Bonus"), nl,
+    write(Name), write(": "),
     read_line_to_string(user_input, Option),
 
     stringToList(Word, ListWord),
@@ -319,9 +311,9 @@ main :-
     clear(),
 
     %%  nomes dos players  %%
-    align(), write("NOME JOGADOR 1: "),
+    write("NOME JOGADOR 1: "),
     read_line_to_string(user_input, Player1),
-    align(), write("NOME JOGADOR 2: "),
+    write("NOME JOGADOR 2: "),
     read_line_to_string(user_input, Player2),
     clear(),
 
