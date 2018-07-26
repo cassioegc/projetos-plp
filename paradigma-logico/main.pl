@@ -34,13 +34,13 @@ modelWord(Word, Exit) :-
 
 verifyLetter([], [], _, "").
 verifyLetter([H1|T1], [H2|T2], Letter, ActualWordRet) :-
-    H2 =:= Letter, verifyLetter(T1, T2, Letter, ActualWordAtt), atom_concat(H2, ActualWordAtt, ActualWordRet);
+    H2 = Letter, verifyLetter(T1, T2, Letter, ActualWordAtt), atom_concat(H2, ActualWordAtt, ActualWordRet);
     verifyLetter(T1, T2, Letter, ActualWordAtt), atom_concat(H1, ActualWordAtt, ActualWordRet).
 
 
 verifyHits([], "", Check) :- Check = false.
 verifyHits([H|T], Letter, Hits) :-
-    H =:= Letter, Hits = true;
+    H = Letter, Hits = true;
     verifyHits(T, Letter, Result), Hits = Result.
 
 
@@ -91,21 +91,26 @@ addLifes(PlayerData, "ASSEMBLY", Result) :-
     NewLifes is 3 + OldLifes,
     replace(PlayerData, 2, NewLifes, Result).    
 
-%% Penalizar vidas de acordo com o nivel %%
-penalizeLifes(PlayerData, "PYTHON", Result) :-
-    nth0(2, PlayerData, OldLifes),
-    NewLifes is OldLifes - 2,
-    replace(PlayerData, 2, NewLifes, Result).    
+%% Penalizar pontos de acordo com o nivel %%
+penalizePoints(PlayerData, "PYTHON", Result) :-
+    nth0(1, PlayerData, OldPoints),
+    NewPoints is OldPoints - 2,
+    replace(PlayerData, 1, NewPoints, Result).    
 
-penalizeLifes(PlayerData, "JAVA", Result) :-
-    nth0(2, PlayerData, OldLifes),
-    NewLifes is OldLifes - 5,
-    replace(PlayerData, 2, NewLifes, Result). 
+penalizePoints(PlayerData, "JAVA", Result) :-
+    nth0(1, PlayerData, OldPoints),
+    NewPoints is OldPoints - 5,
+    replace(PlayerData, 1, NewPoints, Result). 
 
-penalizeLifes(PlayerData, "ASSEMBLY", Result) :-
+penalizePoints(PlayerData, "ASSEMBLY", Result) :-
+    nth0(1, PlayerData, OldPoints),
+    NewPoints is OldPoints - 8,
+    replace(PlayerData, 1, NewPoints, Result).
+    
+penalizeLifes(PlayerData, Result) :-
     nth0(2, PlayerData, OldLifes),
-    NewLifes is OldLifes - 8,
-    replace(PlayerData, 2, NewLifes, Result). 
+    NewLifes is OldLifes - 1,
+    replace(PlayerData, 2, NewLifes, Result).  
     
 
 selectLevel(Round, Level) :-
@@ -172,10 +177,12 @@ status(Player1, Player2, Round, Level) :-
     getName(Player2, Name2),
     getLifes(Player1, Lifes1),
     getLifes(Player2, Lifes2),
+    getPoints(Player1, Points1),
+    getPoints(Player2, Points2),
     
     align(), write("Round: "), write(Round), write(" - "), write(Level), nl,
-    align(), write(Name1), write(": Lifes "), write(Lifes1), nl,
-    align(), write(Name2), write(": Lifes "), write(Lifes2), nl.
+    align(), write(Name1), write(": Lifes "), write(Lifes1), write(", Points: "), write(Points1), nl,
+    align(), write(Name2), write(": Lifes "), write(Lifes2), write(", Points: "), write(Points2),  nl.
 
 
 verifyEnd(Player1, Player2) :-
@@ -226,16 +233,20 @@ getPercentage(Word, Percentage) :-
     len(Word, Len),
     Percentage is ((100 * Count) // Len).
 
-completeWord(Name, Percentage) :-
+completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
     Percentage =< 60 ->
         write(Name), nl,
         write("Digite a palavra completa:"), nl,
-        read_line_to_string(user_input, _);
+        read_line_to_string(user_input, Complete),
+        Word = Complete ->
+            write("PARABENS"),
+            NewRound is Round + 1,
+            game(Player2, Player1, NewRound);
+            write("Errrou"), clear();
         clear().
 %%%% --------------------------------------------------- %%%%
 
 roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
-    write(Word),nl,
     verifyEnd(Player1, Player2);
     verifyEnd(Player2, Player1);
     
@@ -261,11 +272,12 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
         write(ModelWordAtt), nl, nl,   
 
         getPercentage(ListModel, Percentage),
-        completeWord(Name, Percentage),
+        completeWord(Name, Percentage, Player1, Player2, Word, Round),
         roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt)
     ;
-        penalizeLifes(Player1, Level, NP1),
-        roundGame(Player2, NP1, Round, Level, Word, ModelWord).
+        penalizePoints(Player1, Level, NP1),
+        penalizeLifes(NP1, AttP1),
+        roundGame(Player2, AttP1, Round, Level, Word, ModelWord).
     
 
 game(Player1, Player2, Round):-
@@ -273,7 +285,8 @@ game(Player1, Player2, Round):-
     %%% Logica de uma rodada %%
     selectLevel(Round, Level),
     getWordData(Level, WordData),
-    getWord(WordData, Word),
+    getWord(WordData, WordAtom),
+    atom_string(WordAtom, Word),
     modelWord(Word, ModelWord),
     
     roundGame(Player1, Player2, Round, Level, Word, ModelWord).
