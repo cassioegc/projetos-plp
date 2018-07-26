@@ -117,11 +117,10 @@ selectLevel(Round, Level) :-
 
 inicializeMenu() :-
     clear(),
-    writeln("==========================================================="),
-    writeln("|               FORCA, RODA jequiti A RODA                |"),
-    writeln("==========================================================="),
-    writeln(""),
-    writeln("--------------------- COMO FUNCIONA -----------------------"),
+    writeln("============================================================="),
+    writeln("|                FORCA, RODA jequiti A RODA                 |"),
+    writeln("============================================================="), nl,
+    writeln("----------------------- COMO FUNCIONA -----------------------"),
     writeln("1 - DOIS JOGADORES APRESENTAM X CHANCES CADA UM POR RODADA"),
     writeln("    PARA ADIVINHAR UMA PALAVRA ALEATORIA LETRA A LETRA."),
     writeln(""),
@@ -147,6 +146,19 @@ inicializeMenu() :-
     writeln("    MAIS PONTOS."),
     writeln(""),
     writeln("              Pressione enter para continuar"),
+    read_line_to_string(user_input, _).
+
+endRoundStatus(Player1, Player2) :-
+    getName(Player1, Name1),
+    getName(Player2, Name2),
+    getPoints(Player1, Points1),
+    getPoints(Player2, Points2),
+    write("|##################################################|"), nl,
+    write("|------------------ FIM DA RODADA -----------------|"), nl,
+    write("|##################################################|"), nl, nl,
+    write("| JOGADOR 1 => "), write(Name1), write("   --  Pontos: "), write(Points1), nl,
+    write("| JOGADOR 2 => "), write(Name2), write("   --  Pontos: "), write(Points2), nl,
+    write("            Pressione enter para continuar"), nl,
     read_line_to_string(user_input, _).
 
 checkEndGame(Round, Player1, Player2) :-
@@ -181,16 +193,25 @@ status(Player1, Player2, Round, Level) :-
 verifyEnd(Player1, Player2) :-
     getLifes(Player1, Lifes), Lifes =< 0, 
         clear(),
-        getName(Player2, Name2),
-        getName(Player1, Name1),
-        winMsg(Name2, Name1).
+        winMsg(Player1, Player2).
                         
-winMsg(Name1, Name2) :-
-    write("PARABENS " ),
-    write(Name2),nl,
-    write("As vidas de "),
-    write(Name1),
-    write(" acabaram"),nl.
+winMsg(Player1, Player2) :-
+    getName(Player1, Name1),
+    getName(Player2, Name2),
+    getPoints(Player1, Points1),
+    getPoints(Player2, Points2),
+    write("|##################################################|"), nl,
+    write("|------------------- FIM DE JOGO ------------------|"), nl,
+    write("|##################################################|"), nl, nl,
+    
+    Points1 >= Points2, WinnerName = Name1, LooserName = Name2, WinnerPoints is Points1, LooserPoints is Points2;
+    Points2 >= Points1, WinnerName = Name2, LooserName = Name1, WinnerPoints is Points2, LooserPoints is Points1;
+    
+    write("| -------------------- PARABENS -------------------|"),
+    write("| ====> "), write(WinnerName), nl,
+    write("| Voce ganhou com um total de "), write(WinnerPoints), nl,
+    write("| => "), write(LooserName), nl,
+    write("| => "), write(LooserPoints), write(" pontos :("), nl.
 
 
 
