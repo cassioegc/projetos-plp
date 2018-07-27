@@ -57,6 +57,18 @@ replace([_|T], 0, X, [X|T]).
 replace([H|T], I, X, [H|R]):- I > -1, NI is I-1, replace(T, NI, X, R), !.
 replace(L, _, _, L).
 
+%% Altera situacao dos bonus %%
+changeChooseLetter(PlayerData, Result):-
+    replace(PlayerData, 3, true, Result). 
+    
+changeTypeWord(PlayerData, Result):-
+    replace(PlayerData, 4, true, Result). 
+    
+changeSynonyms(PlayerData, Result):-
+    replace(PlayerData, 5, true, Result). 
+
+changeSyllables(PlayerData, Result):-
+    replace(PlayerData, 6, true, Result). 
 
 %% Adiciona os novos pontos por rodada %%
 addPoints(PlayerData, "PYTHON", Result) :-
@@ -235,20 +247,36 @@ winMsg(Player1, Player2) :-
 
 
 %%%%%%%% corrigir %%%%%%%%
+bonusMsg1(LetterBonus) :-
+    LetterBonus,
+    write("");
+    write("1 - Escolher letra sem penalidade"), nl.
+    
+bonusMsg2(TypeBonus) :-
+    TypeBonus,
+    write("");
+    write("2 - Solicitar classe gramatical da palavra"), nl.
+    
+bonusMsg3(SynonymsBonus) :-
+    SynonymsBonus,
+    write("");
+    write("3 - Solicitar palavra similar"), nl.
+    
+bonusMsg4(SyllabesBonus) :-
+    SyllabesBonus,
+    write("");
+    write("4 - Solicitar total de silabas"), nl.
+
 bonusMsg(Player) :-
         chooseLetterBonus(Player, LetterBonus),
         typeWordBonus(Player, TypeBonus),
         synonymsBonus(Player, SynonymsBonus),
         syllablesBonus(Player, SyllabesBonus),
         
-        LetterBonus = false,
-            write("1 - Escolher letra sem penalidade"), nl,
-        TypeBonus = false,
-            write("2 - Solicitar classe gramatical da palavra"), nl,
-        SynonymsBonus = false,
-            write("3 - Solicitar palavra similar"), nl,
-        SyllabesBonus = false,
-            write("4 - Solicitar total de silabas"), nl, nl.
+        bonusMsg1(LetterBonus),
+        bonusMsg2(TypeBonus),
+        bonusMsg3(SynonymsBonus),
+        bonusMsg4(SyllabesBonus).
 
 %%%% para verificar percentagem de preenchimento da palavra %%%%
 countLetter([], _, 0).
@@ -285,28 +313,9 @@ completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
         read_line_to_string(user_input, Complete),
         verifyWord(Complete, Word, Player1, Player2, Round);
     clear().
-
-verifyBonus(Bonus, WordData) :- Bonus =:= "2" -> (getClass(WordData, Class), write(Class), nl).
-verifyBonus(Bonus, WordData) :- Bonus =:= "3" -> (getSynonyms(WordData, Synonyms), write(Synonyms), nl).
-verifyBonus(Bonus, WordData) :- Bonus =:= "4" -> (getSyllables(WordData, Syllables), write(Syllables), write(" silabas"), nl).
-
 %%%% --------------------------------------------------- %%%%
 
-roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
-    verifyEnd(Player1, Player2);
-    verifyEnd(Player2, Player1);
-    
-    clear(),
-    status(Player1, Player2, Round, Level),
-    write(ModelWord), nl, nl,
-    nl,nl, nl,nl,nl,nl, nl,nl,
-    
-    getName(Player1, Name),
-    bonusMsg(Player1),
-    write("Digite uma letra ou codigo de Bonus"), nl,
-    write(Name), write(": "),
-    read_line_to_string(user_input, Option),
-
+roundCompare(Word, ModelWord, Option, Player1, Player2, Round, Level, WordData) :-
     stringToList(Word, ListWord),
     stringToList(ModelWord, ListModel),
   
@@ -319,11 +328,70 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
 
         getPercentage(ListModel, Percentage),
         completeWord(Name, Percentage, Player1, Player2, Word, Round),
-        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt,  WordData)
+        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt, WordData)
     ;
         penalizePoints(Player1, Level, NP1),
         penalizeLifes(NP1, AttP1),
         roundGame(Player2, AttP1, Round, Level, Word, ModelWord, WordData).
+
+defineBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option):-
+    Option = "1", chooseLetterBonus(Player1, Bonus), not(Bonus),
+        getName(Player1, Name),
+        nl, write("Digite uma letra"), nl,
+        write(Name), write(": "),
+        read_line_to_string(user_input, Letter),
+        stringToList(Word, ListWord),
+        stringToList(ModelWord, ListModel),
+        verifyLetter(ListModel, ListWord, Letter, ModelWordAtt),
+        changeChooseLetter(Player1, NP1),
+        roundGame(NP1, Player2, Round, Level, Word, ModelWordAtt, WordData);
+    Option = "2", typeWordBonus(Player1, Bonus), not(Bonus), 
+        getClass(WordData, C), 
+        nl, write(C), nl, nl,
+        write("Digite Enter para continuar..."),
+        read_line_to_string(user_input, _),
+        changeTypeWord(Player1, NP1),
+        roundGame(NP1, Player2, Round, Level, Word, ModelWord, WordData);
+    Option = "3", synonymsBonus(Player1, Bonus), not(Bonus), 
+        getSynonyms(WordData, S), 
+        nl, write(S), nl, nl,
+        write("Digite Enter para continuar..."),
+        read_line_to_string(user_input, _),
+        changeSynonyms(Player1, NP1),
+        roundGame(NP1, Player2, Round, Level, Word, ModelWord, WordData);
+    Option = "4", syllablesBonus(Player1, Bonus), not(Bonus), 
+        getSyllables(WordData, S), 
+        nl, write(S), write(" silaba(s)"), nl, nl,
+        write("Digite Enter para continuar..."),
+        read_line_to_string(user_input, _),
+        changeSyllables(Player1, NP1),
+        roundGame(NP1, Player2, Round, Level, Word, ModelWord, WordData).
+
+isBonus(Option) :-
+    atom_number(Option, Num),
+    Num > 0, 
+    Num < 5.
+
+verifyBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option) :-
+    isBonus(Option) ->
+    defineBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option);
+    roundCompare(Word, ModelWord, Option, Player1, Player2, Round, Level, WordData).
+
+roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
+    verifyEnd(Player1, Player2);
+    verifyEnd(Player2, Player1);
+    
+    clear(),
+    write(Player1), nl,
+    status(Player1, Player2, Round, Level),
+    write(ModelWord), nl, nl,
+    nl,nl, nl,nl,nl,nl, nl,nl,
+    getName(Player1, Name),
+    bonusMsg(Player1),
+    write("Digite uma letra ou codigo de Bonus"), nl,
+    write(Name), write(": "),
+    read_line_to_string(user_input, Option),
+    verifyBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option).
     
 
 game(Player1, Player2, Round):-
