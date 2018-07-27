@@ -269,9 +269,13 @@ getPercentage(Word, Percentage) :-
 verifyWord(Complete, Word, Player1, Player2, Round) :-
     Word = Complete ->
         clear(),
-        endRoundStatus(Player1, Player2),
+        selectLevel(Round, Level),
+        addPoints(Player1, Level, NP1),
+        addLifes(NP1, Level, AttP1),
+        addLifes(Player2, Level, AttP2),
+        endRoundStatus(AttP1, AttP2),
         NewRound is Round + 1,
-        game(Player2, Player1, NewRound);
+        game(AttP2, AttP1, NewRound);
     write("Errrou"), nl, clear().
 
 completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
