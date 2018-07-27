@@ -294,7 +294,8 @@ len([_|T], Len) :-
 getPercentage(Word, Percentage) :-
     countLetter(Word, "_", Count),
     len(Word, Len),
-    Percentage is ((100 * Count) // Len).
+    Percent is ((100 * Count) / Len),
+    Percentage is ceiling(Percent).
 
 resetBonus(Player, NP) :-
     replace(Player, 3, false, NP1),
@@ -317,7 +318,7 @@ verifyWord(Complete, Word, Player1, Player2, Round) :-
     write("Errrou"), nl, clear().
 
 completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
-    Percentage =< 60 ->
+    Percentage =< 70 ->
         write(Name), nl,
         write("Digite a palavra completa:"), nl,
         read_line_to_string(user_input, Complete),
@@ -409,7 +410,8 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     nl,nl, nl,nl,nl,nl, nl,nl,
     getName(Player1, Name),
     bonusMsg(Player1),
-    write("Digite uma letra ou codigo de Bonus"), nl,
+    nl,
+    write("Digite uma letra ou codigo de Bonus"), nl, nl,
     write(Name), write(": "),
     read_line_to_string(user_input, Option),
     verifyBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option).
