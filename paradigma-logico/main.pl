@@ -250,6 +250,7 @@ bonusMsg(Player) :-
         SyllabesBonus = false,
             write("4 - Solicitar total de silabas"), nl, nl.
 
+
 %%%% para verificar percentagem de preenchimento da palavra %%%%
 countLetter([], _, 0).
 countLetter([H|T], Letter, Count) :-
