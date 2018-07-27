@@ -238,7 +238,7 @@ winMsg(Player1, Player2) :-
         WinnerPoints is Points1, 
         LooserPoints is Points2, 
         statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints);
-    Points1 < Points2,
+
         WinnerName = Name2,
         LooserName = Name1, 
         WinnerPoints is Points2, 
