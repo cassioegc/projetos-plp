@@ -193,6 +193,14 @@ verifyEnd(Player1, Player2) :-
     getLifes(Player1, Lifes), Lifes =< 0, 
         clear(),
         winMsg(Player1, Player2).
+        
+statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints) :-
+    write("| -------------------- PARABENS -------------------|"), nl,
+    write("| ====> "), write(WinnerName), nl,
+    write("| Voce ganhou com um total de "), write(WinnerPoints), nl,
+    write("| => "), write(LooserName), nl,
+    write("| => "), write(LooserPoints), write(" pontos :("), nl,
+    halt(0).
                         
 winMsg(Player1, Player2) :-
     getName(Player1, Name1),
@@ -203,14 +211,17 @@ winMsg(Player1, Player2) :-
     write("|------------------- FIM DE JOGO ------------------|"), nl,
     write("|##################################################|"), nl, nl,
     
-    Points1 >= Points2, WinnerName = Name1, LooserName = Name2, WinnerPoints is Points1, LooserPoints is Points2;
-    Points2 >= Points1, WinnerName = Name2, LooserName = Name1, WinnerPoints is Points2, LooserPoints is Points1;
-    
-    write("| -------------------- PARABENS -------------------|"),
-    write("| ====> "), write(WinnerName), nl,
-    write("| Voce ganhou com um total de "), write(WinnerPoints), nl,
-    write("| => "), write(LooserName), nl,
-    write("| => "), write(LooserPoints), write(" pontos :("), nl.
+    Points1 >= Points2,
+        WinnerName = Name1, 
+        LooserName = Name2, 
+        WinnerPoints is Points1, 
+        LooserPoints is Points2, 
+        statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints);
+    WinnerName = Name2,
+    LooserName = Name1, 
+    WinnerPoints is Points2, 
+    LooserPoints is Points1,
+    statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints).
 
 
 
@@ -322,7 +333,9 @@ main :-
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
     Datas2 = DatesWithBonus2,
-    game(Datas1, Datas2, 1),
-    halt(0).
+    penalizePoints(Datas2, "PYTHON", DN),
+    winMsg(Datas1, DN).
+    /*game(Datas1, Datas2, 1),
+    halt(0).*/
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
