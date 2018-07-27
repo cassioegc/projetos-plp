@@ -281,10 +281,6 @@ completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
         read_line_to_string(user_input, Complete),
         verifyWord(Complete, Word, Player1, Player2, Round);
     clear().
-
-verifyBonus(Bonus, WordData) :- Bonus =:= "2" -> (getClass(WordData, Class), write(Class), nl).
-verifyBonus(Bonus, WordData) :- Bonus =:= "3" -> (getSynonyms(WordData, Synonyms), write(Synonyms), nl).
-verifyBonus(Bonus, WordData) :- Bonus =:= "4" -> (getSyllables(WordData, Syllables), write(Syllables), write(" silabas"), nl).
 %%%% --------------------------------------------------- %%%%
 
 roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
@@ -301,8 +297,6 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
     write("Digite uma letra ou codigo de Bonus"), nl,
     write(Name), write(": "),
     read_line_to_string(user_input, Option),
-
-	verifyBonus(Option, WordData) -> (roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData)),
 
     stringToList(Word, ListWord),
     stringToList(ModelWord, ListModel),
