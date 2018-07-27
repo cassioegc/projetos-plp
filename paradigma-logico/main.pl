@@ -192,7 +192,24 @@ status(Player1, Player2, Round, Level) :-
 verifyEnd(Player1, Player2) :-
     getLifes(Player1, Lifes), Lifes =< 0, 
         clear(),
-        winMsg(Player1, Player2).
+        endLifesMsg(Player2, Player1).
+        
+statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints) :-
+    write("| -------------------- PARABENS -------------------|"), nl,
+    write("| ====> "), write(WinnerName), nl,
+    write("| Voce ganhou com um total de "), write(WinnerPoints), nl,
+    write("| => "), write(LooserName), nl,
+    write("| => "), write(LooserPoints), write(" pontos :("), nl,
+    halt(0).
+
+endLifesMsg(Player1, Player2) :- % Chamado se vidas de Player 1 acabaram
+    getName(Player1, Name1),
+    getName(Player2, Name2),
+    write("| -------------------- PARABENS -------------------|"), nl,
+    write("| ====> "), write(Name1), nl,
+    write("| Voce ganhou."), nl,
+    write("| As vidas de "), write(Name2), write(" acabaram."), nl,
+    halt(0).
                         
 winMsg(Player1, Player2) :-
     getName(Player1, Name1),
@@ -203,14 +220,17 @@ winMsg(Player1, Player2) :-
     write("|------------------- FIM DE JOGO ------------------|"), nl,
     write("|##################################################|"), nl, nl,
     
-    Points1 >= Points2, WinnerName = Name1, LooserName = Name2, WinnerPoints is Points1, LooserPoints is Points2;
-    Points2 >= Points1, WinnerName = Name2, LooserName = Name1, WinnerPoints is Points2, LooserPoints is Points1;
-    
-    write("| -------------------- PARABENS -------------------|"),
-    write("| ====> "), write(WinnerName), nl,
-    write("| Voce ganhou com um total de "), write(WinnerPoints), nl,
-    write("| => "), write(LooserName), nl,
-    write("| => "), write(LooserPoints), write(" pontos :("), nl.
+    Points1 >= Points2,
+        WinnerName = Name1, 
+        LooserName = Name2, 
+        WinnerPoints is Points1, 
+        LooserPoints is Points2, 
+        statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints);
+    WinnerName = Name2,
+    LooserName = Name1, 
+    WinnerPoints is Points2, 
+    LooserPoints is Points1,
+    statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints).
 
 
 
@@ -246,21 +266,31 @@ getPercentage(Word, Percentage) :-
     len(Word, Len),
     Percentage is ((100 * Count) // Len).
 
+verifyWord(Complete, Word, Player1, Player2, Round) :-
+    Word = Complete ->
+        clear(),
+        selectLevel(Round, Level),
+        addPoints(Player1, Level, NP1),
+        addLifes(NP1, Level, AttP1),
+        addLifes(Player2, Level, AttP2),
+        endRoundStatus(AttP1, AttP2),
+        NewRound is Round + 1,
+        game(AttP2, AttP1, NewRound);
+    write("Errrou"), nl, clear().
+
 completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
     Percentage =< 60 ->
         write(Name), nl,
         write("Digite a palavra completa:"), nl,
         read_line_to_string(user_input, Complete),
-        Word = Complete ->
-            write("PARABENS"),
-            NewRound is Round + 1,
-            game(Player2, Player1, NewRound);
-            write("Errrou"), clear();
-        clear().
+        verifyWord(Complete, Word, Player1, Player2, Round);
+    clear().
+
 
 verifyBonus(Bonus, WordData) :- Bonus =:= "2" -> (getClass(WordData, Class), write(Class), nl).
 verifyBonus(Bonus, WordData) :- Bonus =:= "3" -> (getSynonyms(WordData, Synonyms), write(Synonyms), nl).
 verifyBonus(Bonus, WordData) :- Bonus =:= "4" -> (getSyllables(WordData, Syllables), write(Syllables), write(" silabas"), nl).
+
 %%%% --------------------------------------------------- %%%%
 
 roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
@@ -273,8 +303,13 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     
     getName(Player1, Name),
     bonusMsg(Player1),
+
    	write("Digite uma letra ou codigo de Bonus"), nl,
   	write(Name), write(": "),
+
+    write("Digite uma letra ou codigo de Bonus"), nl,
+    write(Name), write(": "),
+
     read_line_to_string(user_input, Option),
 
 	verifyBonus(Option, WordData) -> (roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData)),
@@ -319,9 +354,9 @@ main :-
     clear(),
 
     %%  nomes dos players  %%
-    /*align(), */write("NOME JOGADOR 1: "),
+    write("NOME JOGADOR 1: "),
     read_line_to_string(user_input, Player1),
-    /*align(), */write("NOME JOGADOR 2: "),
+    write("NOME JOGADOR 2: "),
     read_line_to_string(user_input, Player2),
     clear(),
 
