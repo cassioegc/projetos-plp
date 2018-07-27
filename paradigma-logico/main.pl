@@ -346,7 +346,7 @@ roundCompare(Word, ModelWord, Option, Player1, Player2, Round, Level, WordData) 
         roundGame(Player2, AttP1, Round, Level, Word, ModelWord, WordData).
 
 defineBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option):-
-    Option = "1", chooseLetterBonus(Player1, Bonus), not(Bonus),
+    Option = "1", %chooseLetterBonus(Player1, Bonus), not(Bonus),
         getName(Player1, Name),
         nl, write("Digite uma letra"), nl,
         write(Name), write(": "),
@@ -356,21 +356,21 @@ defineBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option):-
         verifyLetter(ListModel, ListWord, Letter, ModelWordAtt),
         changeChooseLetter(Player1, NP1),
         roundGame(NP1, Player2, Round, Level, Word, ModelWordAtt, WordData);
-    Option = "2", typeWordBonus(Player1, Bonus), not(Bonus), 
+    Option = "2", %typeWordBonus(Player1, Bonus), not(Bonus), 
         getClass(WordData, C), 
         nl, write(C), nl, nl,
         write("Digite Enter para continuar..."),
         read_line_to_string(user_input, _),
         changeTypeWord(Player1, NP1),
         roundGame(NP1, Player2, Round, Level, Word, ModelWord, WordData);
-    Option = "3", synonymsBonus(Player1, Bonus), not(Bonus), 
+    Option = "3", %synonymsBonus(Player1, Bonus), not(Bonus), 
         getSynonyms(WordData, S), 
         nl, write(S), nl, nl,
         write("Digite Enter para continuar..."),
         read_line_to_string(user_input, _),
         changeSynonyms(Player1, NP1),
         roundGame(NP1, Player2, Round, Level, Word, ModelWord, WordData);
-    Option = "4", syllablesBonus(Player1, Bonus), not(Bonus), 
+    Option = "4", %syllablesBonus(Player1, Bonus), not(Bonus), 
         getSyllables(WordData, S), 
         nl, write(S), write(" silaba(s)"), nl, nl,
         write("Digite Enter para continuar..."),
@@ -383,8 +383,19 @@ isBonus(Option) :-
     Num > 0, 
     Num < 5.
 
+indexBonus("1", 3).
+indexBonus("2", 4).
+indexBonus("3", 5).
+indexBonus("4", 6).
+
+notUsedBonus(Option, Player1):-
+    indexBonus(Option, Index),
+    nth0(Index, Player1, Bonus),
+    not(Bonus).
+
 verifyBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option) :-
-    isBonus(Option) ->
+    isBonus(Option),
+    notUsedBonus(Option, Player1),
     defineBonus(Player1, Player2, Round, Level, Word, ModelWord, WordData, Option);
     roundCompare(Word, ModelWord, Option, Player1, Player2, Round, Level, WordData).
 
