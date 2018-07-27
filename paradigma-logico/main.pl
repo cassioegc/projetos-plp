@@ -433,7 +433,7 @@ main :-
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
     Datas2 = DatesWithBonus2,
-    game(Datas1, Datas2, 10),
+    game(Datas1, Datas2, 1),
     halt(0).
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
