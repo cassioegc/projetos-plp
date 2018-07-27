@@ -179,11 +179,10 @@ endRoundStatus(Player1, Player2) :-
     read_line_to_string(user_input, _).
 
 checkEndGame(Round, Player1, Player2) :-
-    getLifes(Player1, LifesPlayer1),
-    getLifes(Player2, LifesPlayer2),
-    Round < 11,
-    LifesPlayer1 > 0,
-    LifesPlayer2 > 0.
+    Round > 10,
+    winMsg(Player1, Player2);
+    true.
+    
     
 repl(Element, N, Save) :- 
     findall(Element, between(1, N, _), L), atomic_list_concat(L, Save).
@@ -224,6 +223,7 @@ endLifesMsg(Player1, Player2) :- % Chamado se vidas de Player 1 acabaram
     halt(0).
                         
 winMsg(Player1, Player2) :-
+    clear(),
     getName(Player1, Name1),
     getName(Player2, Name2),
     getPoints(Player1, Points1),
@@ -232,17 +232,18 @@ winMsg(Player1, Player2) :-
     write("|------------------- FIM DE JOGO ------------------|"), nl,
     write("|##################################################|"), nl, nl,
     
-    Points1 >= Points2,
+    Points1 > Points2,
         WinnerName = Name1, 
         LooserName = Name2, 
         WinnerPoints is Points1, 
         LooserPoints is Points2, 
         statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints);
-    WinnerName = Name2,
-    LooserName = Name1, 
-    WinnerPoints is Points2, 
-    LooserPoints is Points1,
-    statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints).
+    Points1 < Points2,
+        WinnerName = Name2,
+        LooserName = Name1, 
+        WinnerPoints is Points2, 
+        LooserPoints is Points1,
+        statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints).
 
 
 
@@ -294,6 +295,12 @@ getPercentage(Word, Percentage) :-
     len(Word, Len),
     Percentage is ((100 * Count) // Len).
 
+resetBonus(Player, NP) :-
+    replace(Player, 3, false, NP1),
+    replace(NP1, 4, false, NP2),
+    replace(NP2, 5, false, NP3),
+    replace(NP3, 6, false, NP).
+
 verifyWord(Complete, Word, Player1, Player2, Round) :-
     Word = Complete ->
         clear(),
@@ -303,7 +310,9 @@ verifyWord(Complete, Word, Player1, Player2, Round) :-
         addLifes(Player2, Level, AttP2),
         endRoundStatus(AttP1, AttP2),
         NewRound is Round + 1,
-        game(AttP2, AttP1, NewRound);
+        resetBonus(AttP1, UpP1),
+        resetBonus(AttP2, UpP2),
+        game(UpP1, UpP2, NewRound);
     write("Errrou"), nl, clear().
 
 completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
@@ -324,7 +333,8 @@ roundCompare(Word, ModelWord, Option, Player1, Player2, Round, Level, WordData) 
         verifyLetter(ListModel, ListWord, Option, ModelWordAtt),
         clear(),
         status(Player1, Player2, Round, Level),
-        write(ModelWordAtt), nl, nl,   
+        write(ModelWordAtt), nl, nl, 
+        getName(Player1, Name),  
 
         getPercentage(ListModel, Percentage),
         completeWord(Name, Percentage, Player1, Player2, Word, Round),
@@ -382,7 +392,6 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     verifyEnd(Player2, Player1);
     
     clear(),
-    write(Player1), nl,
     status(Player1, Player2, Round, Level),
     write(ModelWord), nl, nl,
     nl,nl, nl,nl,nl,nl, nl,nl,
