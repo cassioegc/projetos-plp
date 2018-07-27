@@ -307,21 +307,19 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     write(Name), write(": "),
     read_line_to_string(user_input, Option),
 
-	verifyBonus(Option, WordData) -> (roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData)),
-
     stringToList(Word, ListWord),
     stringToList(ModelWord, ListModel),
   
     verifyHits(ListWord, Option, Check),
     Check ->
-        verifyLetter(ListModel, ListWord, Option, ModelWordAtt, WordData),
+        verifyLetter(ListModel, ListWord, Option, ModelWordAtt),
         clear(),
         status(Player1, Player2, Round, Level),
         write(ModelWordAtt), nl, nl,   
 
         getPercentage(ListModel, Percentage),
         completeWord(Name, Percentage, Player1, Player2, Word, Round),
-        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt)
+        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt,  WordData)
     ;
         penalizePoints(Player1, Level, NP1),
         penalizeLifes(NP1, AttP1),
