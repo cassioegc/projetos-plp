@@ -189,7 +189,6 @@ status(Player1, Player2, Round, Level) :-
     write(Name2), write(": Lifes "), write(Lifes2), write(", Points: "), write(Points2),  nl.
 
 
-
 verifyEnd(Player1, Player2) :-
     getLifes(Player1, Lifes), Lifes =< 0, 
         clear(),
@@ -304,13 +303,16 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     
     getName(Player1, Name),
     bonusMsg(Player1),
+
+   	write("Digite uma letra ou codigo de Bonus"), nl,
+  	write(Name), write(": "),
+
     write("Digite uma letra ou codigo de Bonus"), nl,
     write(Name), write(": "),
+
     read_line_to_string(user_input, Option),
 
-	verifyBonus(Option, WordData),
-
-	roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData),
+	verifyBonus(Option, WordData) -> (roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData)),
 
     stringToList(Word, ListWord),
     stringToList(ModelWord, ListModel),
