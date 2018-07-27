@@ -192,7 +192,7 @@ status(Player1, Player2, Round, Level) :-
 verifyEnd(Player1, Player2) :-
     getLifes(Player1, Lifes), Lifes =< 0, 
         clear(),
-        winMsg(Player1, Player2).
+        endLifesMsg(Player2, Player1).
         
 statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints) :-
     write("| -------------------- PARABENS -------------------|"), nl,
@@ -200,6 +200,15 @@ statusEndGame(WinnerName, LooserName, WinnerPoints, LooserPoints) :-
     write("| Voce ganhou com um total de "), write(WinnerPoints), nl,
     write("| => "), write(LooserName), nl,
     write("| => "), write(LooserPoints), write(" pontos :("), nl,
+    halt(0).
+
+endLifesMsg(Player1, Player2) :- % Chamado se vidas de Player 1 acabaram
+    getName(Player1, Name1),
+    getName(Player2, Name2),
+    write("| -------------------- PARABENS -------------------|"), nl,
+    write("| ====> "), write(Name1), nl,
+    write("| Voce ganhou."), nl,
+    write("| As vidas de "), write(Name2), write(" acabaram."), nl,
     halt(0).
                         
 winMsg(Player1, Player2) :-
@@ -257,17 +266,21 @@ getPercentage(Word, Percentage) :-
     len(Word, Len),
     Percentage is ((100 * Count) // Len).
 
+verifyWord(Complete, Word, Player1, Player2, Round) :-
+    Word = Complete ->
+        clear(),
+        endRoundStatus(Player1, Player2),
+        NewRound is Round + 1,
+        game(Player2, Player1, NewRound);
+    write("Errrou"), nl, clear().
+
 completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
     Percentage =< 60 ->
         write(Name), nl,
         write("Digite a palavra completa:"), nl,
         read_line_to_string(user_input, Complete),
-        Word = Complete ->
-            write("PARABENS"),
-            NewRound is Round + 1,
-            game(Player2, Player1, NewRound);
-            write("Errrou"), clear();
-        clear().
+        verifyWord(Complete, Word, Player1, Player2, Round);
+    clear().
 %%%% --------------------------------------------------- %%%%
 
 roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
@@ -333,9 +346,7 @@ main :-
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
     Datas2 = DatesWithBonus2,
-    penalizePoints(Datas2, "PYTHON", DN),
-    winMsg(Datas1, DN).
-    /*game(Datas1, Datas2, 1),
-    halt(0).*/
+    game(Datas1, Datas2, 1),
+    halt(0).
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
