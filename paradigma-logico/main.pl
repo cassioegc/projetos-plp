@@ -16,7 +16,7 @@ clear() :-
 
 stringToList(String, R) :- 
     atom_chars(String, List),
-    convlist([X,Y]>>(string_chars(Y, [X])), List, R).
+    maplist(atom_string,List,R).
 
 countInList(List, Element, Return) :-
     include(=(Element), List, L2), length(L2, Return).
@@ -27,9 +27,10 @@ countInString(String, Element, Return) :-
     length(L2, Return).
 %%%%%%%%%%%%%%%
 
+auxModelWord(_, "_").
 modelWord(Word, Exit) :-
     string_chars(Word, List),
-    convlist([_,Y]>>(Y="_"), List, Temp),
+    maplist(auxModelWord,List,Temp),
     atomic_list_concat(Temp, "", Exit).  
 
 verifyLetter([], [], _, "").
@@ -432,7 +433,7 @@ main :-
     addBonus(Player2, DatesWithBonus2),
     Datas1 = DatesWithBonus1,
     Datas2 = DatesWithBonus2,
-    game(Datas1, Datas2, 1),
+    game(Datas1, Datas2, 10),
     halt(0).
 
 %    atom_codes(W, Word), atom_chars(W, ListWord),
