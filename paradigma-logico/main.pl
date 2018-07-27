@@ -192,9 +192,9 @@ status(Player1, Player2, Round, Level) :-
     getPoints(Player1, Points1),
     getPoints(Player2, Points2),
     
-    align(), write("Round: "), write(Round), write(" - "), write(Level), nl,
-    align(), write(Name1), write(": Lifes "), write(Lifes1), write(", Points: "), write(Points1), nl,
-    align(), write(Name2), write(": Lifes "), write(Lifes2), write(", Points: "), write(Points2),  nl.
+    /*align(), */write("Round: "), write(Round), write(" - "), write(Level), nl,
+    /*align(), */write(Name1), write(": Lifes "), write(Lifes1), write(", Points: "), write(Points1), nl,
+    /*align(), */write(Name2), write(": Lifes "), write(Lifes2), write(", Points: "), write(Points2),  nl.
 
 
 verifyEnd(Player1, Player2) :-
@@ -265,27 +265,37 @@ completeWord(Name, Percentage, Player1, Player2, Word, Round) :-
             game(Player2, Player1, NewRound);
             write("Errrou"), clear();
         clear().
+
+verifyBonus(Bonus, WordData) :- Bonus =:= "2" -> (getClass(WordData, Class), write(Class), nl).
+verifyBonus(Bonus, WordData) :- Bonus =:= "3" -> (getSynonyms(WordData, Synonyms), write(Synonyms), nl).
+verifyBonus(Bonus, WordData) :- Bonus =:= "4" -> (getSyllables(WordData, Syllables), write(Syllables), write(" silabas"), nl).
 %%%% --------------------------------------------------- %%%%
 
-roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
+roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     verifyEnd(Player1, Player2);
     verifyEnd(Player2, Player1);
     
-    clear(),
     status(Player1, Player2, Round, Level),
-    align(), write(ModelWord), nl, nl,
+    /*align(), */write(ModelWord), nl, nl,
     nl,nl, nl,nl,nl,nl, nl,nl,
     
     getName(Player1, Name),
     bonusMsg(Player1),
-    align(), write("Digite uma letra ou codigo de Bonus"), nl,
-    align(), write(Name), write(": "),
+    /*align(), */write("Digite uma letra ou codigo de Bonus"), nl,
+    /*align(), */write(Name), write(": "),
     read_line_to_string(user_input, Option),
+
+	verifyBonus(Option, WordData),
+
+	roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData),
 
     stringToList(Word, ListWord),
     stringToList(ModelWord, ListModel),
   
     verifyHits(ListWord, Option, Check),
+
+	clear(),
+
     Check ->
         verifyLetter(ListModel, ListWord, Option, ModelWordAtt),
         clear(),
@@ -294,11 +304,11 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
 
         getPercentage(ListModel, Percentage),
         completeWord(Name, Percentage, Player1, Player2, Word, Round),
-        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt)
+        roundGame(Player2, Player1, Round, Level, Word, ModelWordAtt, WordData)
     ;
         penalizePoints(Player1, Level, NP1),
         penalizeLifes(NP1, AttP1),
-        roundGame(Player2, AttP1, Round, Level, Word, ModelWord).
+        roundGame(Player2, AttP1, Round, Level, Word, ModelWord, WordData).
     
 
 game(Player1, Player2, Round):-
@@ -310,7 +320,7 @@ game(Player1, Player2, Round):-
     atom_string(WordAtom, Word),
     modelWord(Word, ModelWord),
     
-    roundGame(Player1, Player2, Round, Level, Word, ModelWord).
+    roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData).
     
 
 main :-
@@ -319,9 +329,9 @@ main :-
     clear(),
 
     %%  nomes dos players  %%
-    align(), write("NOME JOGADOR 1: "),
+    /*align(), */write("NOME JOGADOR 1: "),
     read_line_to_string(user_input, Player1),
-    align(), write("NOME JOGADOR 2: "),
+    /*align(), */write("NOME JOGADOR 2: "),
     read_line_to_string(user_input, Player2),
     clear(),
 
