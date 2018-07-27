@@ -292,7 +292,7 @@ verifyBonus(Bonus, WordData) :- Bonus =:= "4" -> (getSyllables(WordData, Syllabl
 
 %%%% --------------------------------------------------- %%%%
 
-roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
+roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData) :-
     verifyEnd(Player1, Player2);
     verifyEnd(Player2, Player1);
     
@@ -314,7 +314,7 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
   
     verifyHits(ListWord, Option, Check),
     Check ->
-        verifyLetter(ListModel, ListWord, Option, ModelWordAtt),
+        verifyLetter(ListModel, ListWord, Option, ModelWordAtt, WordData),
         clear(),
         status(Player1, Player2, Round, Level),
         write(ModelWordAtt), nl, nl,   
@@ -325,7 +325,7 @@ roundGame(Player1, Player2, Round, Level, Word, ModelWord) :-
     ;
         penalizePoints(Player1, Level, NP1),
         penalizeLifes(NP1, AttP1),
-        roundGame(Player2, AttP1, Round, Level, Word, ModelWord).
+        roundGame(Player2, AttP1, Round, Level, Word, ModelWord, WordData).
     
 
 game(Player1, Player2, Round):-
@@ -337,7 +337,7 @@ game(Player1, Player2, Round):-
     atom_string(WordAtom, Word),
     modelWord(Word, ModelWord),
     
-    roundGame(Player1, Player2, Round, Level, Word, ModelWord).
+    roundGame(Player1, Player2, Round, Level, Word, ModelWord, WordData).
     
 
 main :-
